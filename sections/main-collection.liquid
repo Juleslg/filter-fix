@@ -151,7 +151,7 @@ LIQUID
   
   <div class="v-stack gap-6 sm:gap-12">
 
-  
+  {% if section.blocks.size > 0 %}
   <div class="button-container">
   {% for block in section.blocks %}
     {% if block.type == 'arrow' %}
@@ -166,6 +166,7 @@ LIQUID
           </a>
     {% endif %}
   {% endfor %}
+{% endif %}
 </div>
     {%- if collection.all_products_count == 0 -%}
       <div class="empty-state">
