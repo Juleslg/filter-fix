@@ -4220,12 +4220,12 @@ tfoot td {
 }
 
 .collection-toolbar__button {
-  opacity: .5;
+  opacity: 1;
   transition: opacity .2s;
 }
 
 .collection-toolbar__button:hover, .collection-toolbar__button.is-active {
-  opacity: 1;
+  opacity: .5;
 }
 
 @media screen and (min-width: 700px) {
