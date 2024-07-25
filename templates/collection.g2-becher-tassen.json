@@ -32,36 +32,15 @@
         "overlay_opacity": 19
       }
     },
+    "spacer_X68wJ3": {
+      "type": "spacer",
+      "settings": {
+        "spacer_Desktop": 1,
+        "spacer_Mobil": 2
+      }
+    },
     "main": {
       "type": "main-collection",
-      "blocks": {
-        "button_qMa8RG": {
-          "type": "button",
-          "settings": {
-            "text": "Test",
-            "link": "",
-            "background_color": "",
-            "text_color": "",
-            "hover_background_color": "",
-            "hover_text_color": ""
-          }
-        },
-        "button_FKByjW": {
-          "type": "button",
-          "settings": {
-            "text": "Felix And Thomas",
-            "link": "",
-            "background_color": "",
-            "text_color": "",
-            "hover_background_color": "#307a07",
-            "hover_text_color": "#ffffff"
-          }
-        }
-      },
-      "block_order": [
-        "button_qMa8RG",
-        "button_FKByjW"
-      ],
       "custom_css": [
         ".badge--custom {background: white; color: #1c1c1c; padding: 3px 10px;}"
       ],
@@ -73,7 +52,7 @@
         "products_size_desktop": "medium",
         "show_grid_mode_selector": false,
         "horizontal_spacing_factor": 0.2,
-        "vertical_spacing_factor": 0.3,
+        "vertical_spacing_factor": 0.2,
         "filter_layout": "sidebar",
         "quick_links_menu": "",
         "show_sort_by": false,
@@ -287,6 +266,7 @@
   },
   "order": [
     "collection-banner",
+    "spacer_X68wJ3",
     "main",
     "ab44ff03-5c47-4e41-b832-3d815ab69b2b",
     "e226a0ad-8d65-4285-8c60-b5d405508920",
