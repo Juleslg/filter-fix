@@ -32,15 +32,24 @@
         "overlay_opacity": 19
       }
     },
-    "spacer_X68wJ3": {
-      "type": "spacer",
-      "settings": {
-        "spacer_Desktop": 1,
-        "spacer_Mobil": 2
-      }
-    },
     "main": {
       "type": "main-collection",
+      "blocks": {
+        "button_4kB6ck": {
+          "type": "button",
+          "settings": {
+            "text": "Test to show spacing",
+            "link": "",
+            "background_color": "",
+            "text_color": "",
+            "hover_background_color": "",
+            "hover_text_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "button_4kB6ck"
+      ],
       "custom_css": [
         ".badge--custom {background: white; color: #1c1c1c; padding: 3px 10px;}"
       ],
@@ -266,7 +275,6 @@
   },
   "order": [
     "collection-banner",
-    "spacer_X68wJ3",
     "main",
     "ab44ff03-5c47-4e41-b832-3d815ab69b2b",
     "e226a0ad-8d65-4285-8c60-b5d405508920",
