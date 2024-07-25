@@ -45,10 +45,22 @@
             "hover_background_color": "",
             "hover_text_color": ""
           }
+        },
+        "button_FKByjW": {
+          "type": "button",
+          "settings": {
+            "text": "Felix And Thomas",
+            "link": "",
+            "background_color": "",
+            "text_color": "",
+            "hover_background_color": "",
+            "hover_text_color": ""
+          }
         }
       },
       "block_order": [
-        "button_qMa8RG"
+        "button_qMa8RG",
+        "button_FKByjW"
       ],
       "custom_css": [
         ".badge--custom {background: white; color: #1c1c1c; padding: 3px 10px;}"
