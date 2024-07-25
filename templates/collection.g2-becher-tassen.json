@@ -34,22 +34,6 @@
     },
     "main": {
       "type": "main-collection",
-      "blocks": {
-        "button_4kB6ck": {
-          "type": "button",
-          "settings": {
-            "text": "Test to show spacing",
-            "link": "",
-            "background_color": "",
-            "text_color": "",
-            "hover_background_color": "",
-            "hover_text_color": ""
-          }
-        }
-      },
-      "block_order": [
-        "button_4kB6ck"
-      ],
       "custom_css": [
         ".badge--custom {background: white; color: #1c1c1c; padding: 3px 10px;}"
       ],
