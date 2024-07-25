@@ -182,7 +182,7 @@ LIQUID
         <height-observer variable="collection-toolbar" class="collection-toolbar full-bleed">
           <div class="collection-toolbar__button-list">
             {%- if show_filters -%}
-              <div class="collection-toolbar__button-container {% if section.settings.filter_layout == 'sidebar' %}md:hidden{% endif %}">
+              <div style="border-left-width: 0px;" class="collection-toolbar__button-container {% if section.settings.filter_layout == 'sidebar' %}md:hidden{% endif %}">
                 <button type="button" aria-controls="facets-drawer" class="collection-toolbar__button heading text-xxs w-full">
                   {{- 'collection.faceting.filter_button' | t }} {% if active_values_count > 0 %}({{ active_values_count }}){% endif -%}
                 </button>
