@@ -244,7 +244,7 @@ LIQUID
       <div class="collection">
         {%- paginate collection.products by section.settings.products_per_page -%}
           {%- if show_filters -%}
-            <facets-drawer id="facets-drawer" class="facets-drawer drawer drawer--sm {% if section.settings.filter_layout == 'sidebar' %}md:hidden{% endif %}">
+            <facets-drawer id="facets-drawer" class="facets-drawer drawer drawer--m {% if section.settings.filter_layout == 'sidebar' %}md:hidden{% endif %}">
               <p class="h4" slot="header">{{ 'collection.faceting.filters' | t }}</p>
 
               {%- render 'facets', results: collection, show_filters: section.settings.show_filters, open_filters_by_default: section.settings.open_filters_by_default, update_on_change: false, quick_links_menu: section.settings.quick_links_menu, context: 'drawer' -%}
