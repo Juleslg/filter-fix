@@ -318,8 +318,8 @@ LIQUID
 <script>
 
 document.addEventListener("DOMContentLoaded", function() {
-    // Select the button element
-    const button = document.querySelector('button[aria-controls="facets-drawer"]');
+    // Select the button element with the class 'collection-toolbar__button'
+    const button = document.querySelector('.collection-toolbar__button');
 
     // Check if the button exists
     if (button) {
@@ -327,8 +327,6 @@ document.addEventListener("DOMContentLoaded", function() {
         button.addEventListener("click", function() {
             // Select the target element
             const targetElement = document.querySelector('div[part="content"]');
-
-            console.log(targetElement);
 
             // Check if the target element exists
             if (targetElement) {
