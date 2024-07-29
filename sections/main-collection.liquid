@@ -315,29 +315,7 @@ LIQUID
   {%- endif -%}
 </style>
 
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-    // Select the button element with the class 'collection-toolbar__button-container'
-    const button = document.querySelector('.collection-toolbar__button-container');
-    
-    if (button) {
-        button.addEventListener("click", function() {
-            // Set a mini delay of 0.4 seconds
-            setTimeout(function() {
-                // Select the target element
-                const targetElement = document.querySelector('div[part="content"]');
 
-                // Check if the target element exists
-                if (targetElement) {
-                    // Change the margin-inline-start to margin-inline-end
-                    targetElement.style.marginInlineStart = 'unset';
-                    targetElement.style.marginInlineEnd = 'auto';
-                }
-            }, 400); // 400 milliseconds = 0.4 seconds
-        });
-    }
-});
-</script>
 
 {% schema %}
   {
