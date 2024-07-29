@@ -4174,7 +4174,7 @@ tfoot td {
   background-color: rgb(var(--background));
   z-index: 2;
   display: flex;
-  position: sticky;
+  /* position: sticky; */
   inset-block-start: var(--sticky-area-height);
   inset-inline-start: 0;
 }
