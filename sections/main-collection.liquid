@@ -315,6 +315,22 @@ LIQUID
   {%- endif -%}
 </style>
 
+<script>
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Select the target element
+    const targetElement = document.querySelector('div[part="content"]');
+
+    // Check if the element exists
+    if (targetElement) {
+        // Change the margin-inline-start to margin-inline-end
+        targetElement.style.marginInlineStart = 'unset';
+        targetElement.style.marginInlineEnd = 'auto';
+    }
+});
+
+</script>
+
 {% schema %}
   {
     "name": "t:sections.main_collection.name",
