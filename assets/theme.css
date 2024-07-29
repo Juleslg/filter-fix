@@ -930,7 +930,6 @@ height-observer {
   align-content: start;
   display: grid;
   position: relative;
-  margin-inline-start: unset !important;
   margin-inline-end: auto !important;
 }
 
