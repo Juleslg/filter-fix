@@ -930,7 +930,7 @@ height-observer {
   align-content: start;
   display: grid;
   position: relative;
-  margin-inline-end: auto !important;
+  
 }
 
 .drawer::part(header) {
