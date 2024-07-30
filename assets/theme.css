@@ -6137,6 +6137,7 @@ tfoot td {
 .product-sticky-bar.is-visible {
   opacity: 1;
   visibility: visible;
+  background-color: white;
 }
 
 .product-sticky-bar__info img {
