@@ -106,12 +106,24 @@ may have important consequence on the section itself.
       margin-top: {{ block.settings.h6_custom_gap_mobile }}rem!important;
     }
   }
+
+  .custom-upper-subheading-font-size{{ section.id }} {
+  font-size: {{ block.settings.upper_subheading_font_size }}rem !important;
+  margin-bottom: {{ block.settings.upper_subheading_gap }}rem !important;
+}
+
+@media (max-width: 768px) {
+  .custom-upper-subheading-font-size{{ section.id }} {
+    font-size: {{ block.settings.upper_subheading_font_size_mobile }}rem !important;
+    margin-bottom: {{ block.settings.upper_subheading_gap_mobile }}rem !important;
+  }
+}
   </style>
 
-                {%- if block.settings.upper_subheading != blank -%}
-                  <p class="{% if block.settings.h6_custom_font %} h6 custom-h6-font-size{{ section.id }} {% else %} h6  {% endif %}">
-                   {{ block.settings.upper_subheading }} </p>
-                {%- endif -%}
+              {%- if block.settings.upper_subheading != blank -%}
+                <p class="custom-upper-subheading-font-size{{ section.id }}">
+                {{ block.settings.upper_subheading }}</p>
+              {%- endif -%}
 
                 {%- if block.settings.title != blank -%}
                 <p class=" {% if block.settings.h1_custom_font %} h1 custom-h1-font-size{{ section.id }} {% else %} h1  {% endif %}">
@@ -360,26 +372,7 @@ may have important consequence on the section itself.
   "label": "Upper Subheading Font Size Mobile",
   "default": 0.8
 },
-{
-  "type": "range",
-  "id": "upper_subheading_gap",
-  "min": -5,
-  "max": 5,
-  "step": 0.1,
-  "unit": "rem",
-  "label": "Gap Between Upper Subheading and Title Desktop",
-  "default": 1
-},
-{
-  "type": "range",
-  "id": "upper_subheading_gap_mobile",
-  "min": -5,
-  "max": 5,
-  "step": 0.1,
-  "unit": "rem",
-  "label": "Gap Between Upper Subheading and Title Mobile",
-  "default": 0.5
-},
+
 
 
 
