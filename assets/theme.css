@@ -4233,6 +4233,9 @@ tfoot td {
   .collection-toolbar {
     flex-direction: row;
     /* justify-content: space-between; */
+
+    padding-bottom: 1.5rem;
+
   }
 
   .collection-toolbar__button {
