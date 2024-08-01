@@ -121,7 +121,7 @@ may have important consequence on the section itself.
   </style>
 
                 {%- if block.settings.upper_subheading != blank -%}
-                  <p class="{% if block.settings.upper_subheading_custom_font %} h6 custom-h6-font-size.upper{{ section.id }} {% else %} h6 upper {% endif %}">
+                  <p class="{% if block.settings.upper_subheading_custom_font %} h6 custom-h6-font-size upper{{ section.id }} {% else %} h6 {% endif %}">
                    {{ block.settings.upper_subheading }} </p>
                 {%- endif -%}
 
