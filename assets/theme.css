@@ -4178,6 +4178,10 @@ tfoot td {
   /* position: sticky; */
   inset-block-start: var(--sticky-area-height);
   inset-inline-start: 0;
+  flex-direction: row;
+    /* justify-content: space-between; */
+
+    padding-bottom: 1.5rem;
 }
 
 .collection-toolbar .popover {
