@@ -183,7 +183,7 @@ LIQUID
     {%- else -%}
       {%- if show_filters or section.settings.show_sort_by or section.settings.show_grid_mode_selector or section.settings.show_results_count -%}
         <height-observer variable="collection-toolbar" class="collection-toolbar full-bleed">
-          {%- render 'active-facets', results: collection -%}
+          
           <div class="collection-toolbar__button-list">
             {%- if show_filters -%}
               <div style="border-left-width: 0px;" class="collection-toolbar__button-container {% if section.settings.filter_layout == 'sidebar' %}md:hidden{% endif %}">
@@ -221,6 +221,8 @@ LIQUID
               </div>
             {%- endif -%}
           </div>
+
+          {%- render 'active-facets', results: collection -%}
 
           {%- if section.settings.show_results_count -%}
             <p class="collection-toolbar__products-count h6 text-subdued md-max:hidden">
