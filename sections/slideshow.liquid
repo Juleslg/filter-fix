@@ -93,25 +93,25 @@ may have important consequence on the section itself.
                   margin-top: {{ block.settings.h6_custom_gap }}rem!important;
                 }
 
-  /* Mobile Styles */
-  @media (max-width: 768px) {
-    .custom-h1-font-size{{ section.id }} {
+                 /* Mobile Styles */
+                @media (max-width: 768px) {
+      .custom-h1-font-size{{ section.id }} {
       font-size: {{ block.settings.h1_custom_font_size_mobile }}rem !important;
       margin-bottom: {{ block.settings.h1_custom_gap_mobile }}rem!important;
-    }
-    .custom-h6-font-size{{ section.id }} {
+      }
+      .custom-h6-font-size{{ section.id }} {
       font-size: {{ block.settings.h6_custom_font_size_mobile }}rem !important;
     }
     .button_top_margin{{ section.id }}{
       margin-top: {{ block.settings.h6_custom_gap_mobile }}rem!important;
     }
   }
-              </style>
+  </style>
 
-              {%- if block.settings.subheading != blank -%}
-                <p class="{% if block.settings.h6_custom_font %} h6 custom-h6-font-size{{ section.id }} {% else %} h6  {% endif %}">{{
-                  block.settings.subheading }}</p>
-              {%- endif -%}
+                {%- if block.settings.upper_subheading != blank -%}
+                  <p class="{% if block.settings.upper_subheading_custom_font %} h6 custom-upper-subheading-font-size{{ section.id }} {% else %} h6 {% endif %}">
+                   {{ block.settings.upper_subheading }} </p>
+                {%- endif -%}
 
                 {%- if block.settings.title != blank -%}
                 <p class=" {% if block.settings.h1_custom_font %} h1 custom-h1-font-size{{ section.id }} {% else %} h1  {% endif %}">
@@ -327,6 +327,12 @@ may have important consequence on the section itself.
           "id": "subheading",
           "label": "t:global.text.subheading",
           "default": "Tell your story"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "upper_subheading",
+          "label": "t:global.text.subheading",
+          "default": "New arrival"
         },
         {
           "type": "inline_richtext",
