@@ -108,6 +108,11 @@ may have important consequence on the section itself.
   }
               </style>
 
+              {%- if block.settings.subheading != blank -%}
+                <p class="{% if block.settings.h6_custom_font %} h6 custom-h6-font-size{{ section.id }} {% else %} h6  {% endif %}">{{
+                  block.settings.subheading }}</p>
+              {%- endif -%}
+
                 {%- if block.settings.title != blank -%}
                 <p class=" {% if block.settings.h1_custom_font %} h1 custom-h1-font-size{{ section.id }} {% else %} h1  {% endif %}">
                   {{block.settings.title }}</p>
