@@ -189,7 +189,6 @@ LIQUID
                 <button type="button" aria-controls="facets-drawer" class="collection-toolbar__button heading text-s w-full">
                   {{- 'collection.faceting.filter_button' | t }} {% if active_values_count > 0 %}({{ active_values_count }}){% endif -%}
                 </button>
-
                 {%- render 'active-facets', results: collection -%}
               </div>
             {%- endif -%}
