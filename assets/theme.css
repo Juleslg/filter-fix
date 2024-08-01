@@ -4313,7 +4313,7 @@ tfoot td {
   .removable-facet {
     display: none;
   }
-  .facets-clear-all {
+  .facets-clear-all.text-subdued {
     display: none;
   }
 }
