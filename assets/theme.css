@@ -4303,7 +4303,7 @@ tfoot td {
   align-items: center;
   column-gap: .375rem;
   padding: .375rem .625rem;
-  display: flex;
+  display: flex; 
 }
 
 .facets-clear-all {
