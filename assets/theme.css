@@ -4313,6 +4313,9 @@ tfoot td {
   .removable-facet {
     display: none;
   }
+  .facets-clear-all {
+    display: none;
+  }
 }
 
 @media screen and (min-width: 700px) {
