@@ -141,7 +141,7 @@ CSS
   .arrow-link a:hover {
     background-color: {{ settings.arrow_hover_background_color }};
   }
-</style>
+</style> 
 
 {%- comment -%}
 ------------------------------------------------------------------------------------------------------------------------
@@ -254,7 +254,7 @@ LIQUID
                 {%- render 'button', type: 'button', content: button_content, stretch: true, is: 'dialog-close-button' -%}
               </div>
             </facets-drawer>
-
+            {%- render 'active-facets', results: collection -%}
             {%- if section.settings.filter_layout == 'sidebar' -%}
               <safe-sticky class="facets-sidebar md-max:hidden">
                 {%- render 'facets', results: collection, show_filters: section.settings.show_filters, open_filters_by_default: section.settings.open_filters_by_default, update_on_change: true, quick_links_menu: section.settings.quick_links_menu, context: 'sidebar' -%}
@@ -274,7 +274,7 @@ LIQUID
           {%- else -%}
             <div class="collection__main">
 
-              {%- render 'active-facets', results: collection -%}
+              
 
               <product-list id="product-list-{{ section.id }}" class="product-list" collection-mobile-layout="{{ products_mobile_grid_mode }}" collection-desktop-layout="{{ products_desktop_grid_mode }}">
                 {%- for product in collection.products -%}
