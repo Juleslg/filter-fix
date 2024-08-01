@@ -4294,6 +4294,7 @@ tfoot td {
   align-items: center;
   gap: .625rem;
   display: flex;
+  padding-right: 1rem;
 }
 
 .removable-facet {
