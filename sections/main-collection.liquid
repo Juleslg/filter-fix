@@ -183,13 +183,14 @@ LIQUID
     {%- else -%}
       {%- if show_filters or section.settings.show_sort_by or section.settings.show_grid_mode_selector or section.settings.show_results_count -%}
         <height-observer variable="collection-toolbar" class="collection-toolbar full-bleed">
+          {%- render 'active-facets', results: collection -%}
           <div class="collection-toolbar__button-list">
             {%- if show_filters -%}
               <div style="border-left-width: 0px;" class="collection-toolbar__button-container {% if section.settings.filter_layout == 'sidebar' %}md:hidden{% endif %}">
                 <button type="button" aria-controls="facets-drawer" class="collection-toolbar__button heading text-s w-full">
                   {{- 'collection.faceting.filter_button' | t }} {% if active_values_count > 0 %}({{ active_values_count }}){% endif -%}
                 </button>
-                {%- render 'active-facets', results: collection -%}
+                
               </div>
             {%- endif -%}
 
