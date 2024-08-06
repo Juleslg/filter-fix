@@ -38,7 +38,7 @@
         ".badge--custom {background: white; color: #1c1c1c; padding: 3px 10px;}"
       ],
       "settings": {
-        "variant_collection": false,
+        "variant_collection": true,
         "hide_product_information": false,
         "products_per_page": 50,
         "products_per_row_mobile": "2",
@@ -67,6 +67,12 @@
             "image": "shopify:\/\/shop_images\/2023-02-10_Onomao4881-3.jpg",
             "mobile_image": "shopify:\/\/shop_images\/2023-02-10_Onomao4876_2689dee1-ce63-4f4c-948c-24250e3987f3.jpg",
             "subheading": "",
+            "upper_subheading": "New arrival",
+            "upper_subheading_custom_font": false,
+            "upper_subheading_font_size": 1,
+            "upper_subheading_font_size_mobile": 0.8,
+            "upper_subheading_gap": 1,
+            "upper_subheading_gap_mobile": 0.5,
             "title": "TASSEN UND BECHER: WÄRMEN UND SCHENKEN GEBORGENHEIT ",
             "h1_custom_font": true,
             "h1_custom_font_size": 2.7,
