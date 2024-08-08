@@ -213,3 +213,22 @@ Supported variables
     {%- endif -%}
   </div>
 </product-card>
+
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function() {
+  const productCards = document.querySelectorAll('.product-card');
+
+  productCards.forEach(card => {
+    card.addEventListener('mouseenter', function() {
+      const productId = this.dataset.productId;
+      const variantId = this.dataset.variantId;
+      const variantTitle = this.dataset.variantTitle;
+
+      console.log(`Hovering over product ${productId}, variant ${variantId}: ${variantTitle}`);
+    });
+  });
+});
+
+</script>
