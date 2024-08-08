@@ -183,11 +183,19 @@ document.addEventListener('DOMContentLoaded', function() {
   addToSidecartButtons.forEach(button => {
     button.addEventListener('click', function() {
       const productHandle = this.getAttribute('handle');
+      const productId = this.getAttribute('data-product-id');
+      const variantId = this.getAttribute('data-variant-id');
+      const variantTitle = this.getAttribute('data-variant-title');
+      
       console.log(`Product handle: ${productHandle}`);
+      console.log(`Product ID: ${productId}`);
+      console.log(`Variant ID: ${variantId}`);
+      console.log(`Variant Title: ${variantTitle}`);
     });
   });
 });
 </script>
+
 
 {% schema %}
 {
