@@ -85,8 +85,35 @@
         "collection_tab_GhQn7L": {
           "type": "collection_tab",
           "settings": {
-            "title": "Collection",
-            "collection": "",
+            "title": "Gelix",
+            "collection": "aberta",
+            "products_count": 16,
+            "open_on_mobile": false
+          }
+        },
+        "collection_tab_mmJKCU": {
+          "type": "collection_tab",
+          "settings": {
+            "title": "Dose",
+            "collection": "dosen-butterdosen",
+            "products_count": 16,
+            "open_on_mobile": false
+          }
+        },
+        "collection_tab_zac6AP": {
+          "type": "collection_tab",
+          "settings": {
+            "title": "Make a Long One Jules",
+            "collection": "becher-tassen",
+            "products_count": 16,
+            "open_on_mobile": false
+          }
+        },
+        "collection_tab_6K8FWW": {
+          "type": "collection_tab",
+          "settings": {
+            "title": "Zaba Zaba Zaba Zaba Zaba",
+            "collection": "bestseller",
             "products_count": 16,
             "open_on_mobile": false
           }
@@ -94,7 +121,10 @@
       },
       "block_order": [
         "collection_tab_9Y33za",
-        "collection_tab_GhQn7L"
+        "collection_tab_GhQn7L",
+        "collection_tab_mmJKCU",
+        "collection_tab_zac6AP",
+        "collection_tab_6K8FWW"
       ],
       "settings": {
         "separate_section_with_border": true,
