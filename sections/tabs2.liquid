@@ -50,7 +50,7 @@
   
     <div class="h6">Your selection</div>
     <div class="sidecart-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repudiandae maiores provident non, molestiae quibusdam ex consequuntur ab? Quidem, natus, veritatis eius quam inventore commodi, incidunt maiores placeat vero alias minima.</div>
-    <button id="add-to-cart-button" class="button button--primary">Add to Cart</button>
+    
 </div>
 
 
@@ -223,13 +223,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function updateSidecart() {
     let sidecartContent = '<div class="h6">Your selection</div>';
-
-    if (Object.keys(selectedProducts).length > 0) {
-      sidecartContent += '<button id="add-to-cart-button" class="button button--primary">Add to Cart</button>';
-    }
-    
-    sidecart.innerHTML = sidecartContent;
-
     if (Object.keys(selectedProducts).length === 0) {
       sidecartContent += '<div class="sidecart-text">No items selected</div>';
     } else {
@@ -253,13 +246,6 @@ document.addEventListener('DOMContentLoaded', function() {
       button.addEventListener('click', removeFromSidecart);
     });
   }
-
-   const addToCartButton = document.getElementById('add-to-cart-button');
-    if (addToCartButton) {
-      addToCartButton.addEventListener('click', addToShopifyCart);
-    }
-
-  
 
   function addToSidecart(event) {
     const button = event.currentTarget;
@@ -295,11 +281,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Initialize sidecart
   updateSidecart();
-
-
-
-
-
 });
 </script>
 
