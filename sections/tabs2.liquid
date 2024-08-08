@@ -180,17 +180,37 @@ padding-bottom: 1rem ;
     margin: 0;
   }
 
-  .sidecart-list li {
+  .sidecart-item {
     padding: 10px 0;
     border-bottom: 1px solid rgba(var(--text-color-rgb), 0.1);
   }
 
-  .sidecart-list li:last-child {
+  .sidecart-item:last-child {
     border-bottom: none;
   }
 
-  .sidecart-list span {
-    display: block;
+  .sidecart-item-title {
+    font-weight: bold;
+  }
+
+  .sidecart-item-variant,
+  .sidecart-item-quantity {
+    font-size: 0.9em;
+    color: rgba(var(--text-color-rgb), 0.8);
+  }
+
+  .sidecart-item-remove {
+    background: none;
+    border: none;
+    color: rgb(var(--accent-color));
+    cursor: pointer;
+    font-size: 0.9em;
+    padding: 5px 0;
+    text-decoration: underline;
+  }
+
+  .sidecart-item-remove:hover {
+    color: rgb(var(--accent-color-darker));
   }
 
 </style>
@@ -199,45 +219,64 @@ padding-bottom: 1rem ;
 document.addEventListener('DOMContentLoaded', function() {
   const addToSidecartButtons = document.querySelectorAll('.add-to-sidecart');
   const sidecart = document.querySelector('.sidecart');
-  let selectedProducts = [];
+  let selectedProducts = {};
 
   function updateSidecart() {
     let sidecartContent = '<div class="h6">Your selection</div>';
-    if (selectedProducts.length === 0) {
+    if (Object.keys(selectedProducts).length === 0) {
       sidecartContent += '<div class="sidecart-text">No items selected</div>';
     } else {
       sidecartContent += '<ul class="sidecart-list">';
-      selectedProducts.forEach(product => {
+      for (const [productId, product] of Object.entries(selectedProducts)) {
         sidecartContent += `
-          <li>
-            <span>${product.title}</span>
-            <span>${product.variantTitle}</span>
+          <li class="sidecart-item" data-product-id="${productId}">
+            <div class="sidecart-item-title">${product.title}</div>
+            <div class="sidecart-item-variant">${product.variantTitle}</div>
+            <div class="sidecart-item-quantity">Quantity: ${product.quantity}</div>
+            <button class="sidecart-item-remove" data-product-id="${productId}">Remove</button>
           </li>
         `;
-      });
+      }
       sidecartContent += '</ul>';
     }
     sidecart.innerHTML = sidecartContent;
+
+    // Add event listeners for remove buttons
+    document.querySelectorAll('.sidecart-item-remove').forEach(button => {
+      button.addEventListener('click', removeFromSidecart);
+    });
   }
 
-  addToSidecartButtons.forEach(button => {
-    button.addEventListener('click', function() {
-      const productHandle = this.getAttribute('handle');
-      const productId = this.getAttribute('data-product-id');
-      const variantId = this.getAttribute('data-variant-id');
-      const variantTitle = this.getAttribute('data-variant-title');
-      const productTitle = this.closest('.product-card').querySelector('.product-title').textContent;
-      
-      selectedProducts.push({
-        handle: productHandle,
+  function addToSidecart(event) {
+    const button = event.currentTarget;
+    const productId = button.getAttribute('data-product-id');
+    const variantId = button.getAttribute('data-variant-id');
+    const variantTitle = button.getAttribute('data-variant-title');
+    const productTitle = button.closest('.product-card').querySelector('.product-title').textContent;
+
+    if (selectedProducts[productId]) {
+      selectedProducts[productId].quantity += 1;
+    } else {
+      selectedProducts[productId] = {
         id: productId,
         variantId: variantId,
         variantTitle: variantTitle,
-        title: productTitle
-      });
+        title: productTitle,
+        quantity: 1
+      };
+    }
 
-      updateSidecart();
-    });
+    updateSidecart();
+  }
+
+  function removeFromSidecart(event) {
+    const productId = event.currentTarget.getAttribute('data-product-id');
+    delete selectedProducts[productId];
+    updateSidecart();
+  }
+
+  addToSidecartButtons.forEach(button => {
+    button.addEventListener('click', addToSidecart);
   });
 
   // Initialize sidecart
