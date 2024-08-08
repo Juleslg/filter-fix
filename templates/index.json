@@ -73,20 +73,11 @@
     "tabs2_AjQarB": {
       "type": "tabs2",
       "blocks": {
-        "collection_tab_Xcbf6L": {
-          "type": "collection_tab",
-          "settings": {
-            "title": "Your Set",
-            "collection": "aberta",
-            "products_count": 16,
-            "open_on_mobile": false
-          }
-        },
         "collection_tab_9Y33za": {
           "type": "collection_tab",
           "settings": {
-            "title": "Collection",
-            "collection": "",
+            "title": "Plates",
+            "collection": "essteller",
             "products_count": 16,
             "open_on_mobile": false
           }
@@ -94,17 +85,26 @@
         "collection_tab_GhQn7L": {
           "type": "collection_tab",
           "settings": {
-            "title": "Collection",
-            "collection": "",
+            "title": "Gelix",
+            "collection": "aberta",
+            "products_count": 16,
+            "open_on_mobile": false
+          }
+        },
+        "collection_tab_mmJKCU": {
+          "type": "collection_tab",
+          "settings": {
+            "title": "Dose",
+            "collection": "dosen-butterdosen",
             "products_count": 16,
             "open_on_mobile": false
           }
         }
       },
       "block_order": [
-        "collection_tab_Xcbf6L",
         "collection_tab_9Y33za",
-        "collection_tab_GhQn7L"
+        "collection_tab_GhQn7L",
+        "collection_tab_mmJKCU"
       ],
       "settings": {
         "separate_section_with_border": true,
