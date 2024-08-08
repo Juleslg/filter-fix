@@ -38,7 +38,7 @@
         ".badge--custom {background: white; color: #1c1c1c; padding: 3px 10px;}"
       ],
       "settings": {
-        "variant_collection": true,
+        "variant_collection": false,
         "hide_product_information": false,
         "products_per_page": 50,
         "products_per_row_mobile": "2",
