@@ -177,21 +177,19 @@ padding-bottom: 1rem ;
 </style>
 
 <script>
-
 document.addEventListener('DOMContentLoaded', function() {
-  const productCards = document.querySelectorAll('.product-card__figure');
-
-  productCards.forEach(card => {
-    card.addEventListener('mouseenter', function() {
-      const productId = this.dataset.productId;
-      const variantId = this.dataset.variantId;
-      const variantTitle = this.dataset.variantTitle;
-
-      console.log(`Hovering over product ${productId}, variant ${variantId}: ${variantTitle}`);
+  
+  const addToSidecartButtons = document.querySelectorAll('.add-to-sidecart');
+  addToSidecartButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      const productCard = this.closest('.product-card__figure');
+      if (productCard) {
+        const productHandle = productCard.dataset.productHandle;
+        console.log(`Product handle: ${productHandle}`);
+      }
     });
   });
 });
-
 </script>
 
 {% schema %}
