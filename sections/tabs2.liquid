@@ -178,15 +178,12 @@ padding-bottom: 1rem ;
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  
   const addToSidecartButtons = document.querySelectorAll('.add-to-sidecart');
+
   addToSidecartButtons.forEach(button => {
     button.addEventListener('click', function() {
-      const productCard = this.closest('.product-card__figure');
-      if (productCard) {
-        const productHandle = productCard.dataset.productHandle;
-        console.log(`Product handle: ${productHandle}`);
-      }
+      const productHandle = this.getAttribute('handle');
+      console.log(`Product handle: ${productHandle}`);
     });
   });
 });
