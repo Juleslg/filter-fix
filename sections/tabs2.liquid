@@ -68,7 +68,7 @@
 <style> 
 
 .add-to-sidecart {
-    
+
     background: rgb(var(--background-secondary));
     color: rgb(var(--text-color));
     z-index: 1;
@@ -76,6 +76,27 @@
     position: absolute;
     inset-block-end: .5rem;
     inset-inline-end: .5rem;
+}
+
+@media screen and (pointer: fine) {
+    .add-to-sidecart {
+    opacity: 0;
+    transition: opacity .2s ease-in-out, transform .2s ease-in-out;
+    transform: translateY(5px);
+  }
+
+  .add-to-sidecart :is(svg) {
+    transition: transform .2s ease-in-out;
+  }
+
+  .add-to-sidecart:hover svg {
+    transform: rotateZ(90deg);
+  }
+
+  .product-card:hover .add-to-sidecart {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .sidecart-text {
