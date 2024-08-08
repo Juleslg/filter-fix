@@ -179,6 +179,27 @@ padding-bottom: 1rem ;
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   const addToSidecartButtons = document.querySelectorAll('.add-to-sidecart');
+  const sidecart = document.querySelector('.sidecart');
+  let selectedProducts = [];
+
+  function updateSidecart() {
+    let sidecartContent = '<div class="h6">Your selection</div>';
+    if (selectedProducts.length === 0) {
+      sidecartContent += '<div class="sidecart-text">No items selected</div>';
+    } else {
+      sidecartContent += '<ul class="sidecart-list">';
+      selectedProducts.forEach(product => {
+        sidecartContent += `
+          <li>
+            <span>${product.title}</span>
+            <span>${product.variantTitle}</span>
+          </li>
+        `;
+      });
+      sidecartContent += '</ul>';
+    }
+    sidecart.innerHTML = sidecartContent;
+  }
 
   addToSidecartButtons.forEach(button => {
     button.addEventListener('click', function() {
@@ -186,13 +207,22 @@ document.addEventListener('DOMContentLoaded', function() {
       const productId = this.getAttribute('data-product-id');
       const variantId = this.getAttribute('data-variant-id');
       const variantTitle = this.getAttribute('data-variant-title');
+      const productTitle = this.closest('.product-card').querySelector('.product-title').textContent;
       
-      console.log(`Product handle: ${productHandle}`);
-      console.log(`Product ID: ${productId}`);
-      console.log(`Variant ID: ${variantId}`);
-      console.log(`Variant Title: ${variantTitle}`);
+      selectedProducts.push({
+        handle: productHandle,
+        id: productId,
+        variantId: variantId,
+        variantTitle: variantTitle,
+        title: productTitle
+      });
+
+      updateSidecart();
     });
   });
+
+  // Initialize sidecart
+  updateSidecart();
 });
 </script>
 
