@@ -293,35 +293,6 @@ document.addEventListener('DOMContentLoaded', function() {
     button.addEventListener('click', addToSidecart);
   });
 
-
-  function addToShopifyCart() {
-    const items = Object.values(selectedProducts).map(product => ({
-      id: product.variantId,
-      quantity: product.quantity
-    }));
-
-    fetch('/cart/add.js', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ items: items })
-    })
-    .then(response => response.json())
-    .then(data => {
-      console.log('Success:', data);
-      // Clear the sidecart after successful addition
-      selectedProducts = {};
-      updateSidecart();
-      // Optionally, you can redirect to the cart page or show a success message
-      window.location.href = '/cart';
-    })
-    .catch((error) => {
-      console.error('Error:', error);
-      // Handle errors (e.g., show an error message to the user)
-    });
-  }
-
   // Initialize sidecart
   updateSidecart();
 
