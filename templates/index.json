@@ -73,15 +73,6 @@
     "tabs2_AjQarB": {
       "type": "tabs2",
       "blocks": {
-        "collection_tab_Xcbf6L": {
-          "type": "collection_tab",
-          "settings": {
-            "title": "Butterdose",
-            "collection": "butterdosen",
-            "products_count": 16,
-            "open_on_mobile": false
-          }
-        },
         "collection_tab_9Y33za": {
           "type": "collection_tab",
           "settings": {
@@ -102,7 +93,6 @@
         }
       },
       "block_order": [
-        "collection_tab_Xcbf6L",
         "collection_tab_9Y33za",
         "collection_tab_GhQn7L"
       ],
