@@ -46,14 +46,16 @@
       </x-tabs>
 
 
-      <div class="sidecart">
+    <div class="sidecart">
         <div class="h6">Your selection</div>
-        <div id="sidecart-items"></div>
-        <form method="post" action="/cart/add" id="sidecart-form">
-          <!-- Hidden inputs will be dynamically added here -->
-          <button type="submit" class="button button--primary" id="add-to-cart-button">Add to Cart</button>
-        </form>
-      </div>
+            <div class="sidecart-items-container">
+                <div id="sidecart-items"></div>
+            </div>
+            <form method="post" action="/cart/add" id="sidecart-form">
+                <!-- Hidden inputs will be dynamically added here -->
+            <button type="submit" class="button button--primary" id="add-to-cart-button">Add to Cart</button>
+            </form>
+    </div>
 
 
       </div>
@@ -71,7 +73,7 @@
 
 .sidecart-list {
     padding-top: 1.8rem;
-    
+
 }
 
 .add-to-sidecart {
@@ -139,16 +141,40 @@ padding-bottom: 1rem ;
 .sidecart {
     align-self: start;
     position: sticky;
-    top: 7.9rem;
-  
-} 
+    top: 7.9rem; /* Adjust this value based on your header height */
+    display: flex;
+    flex-direction: column;
+    max-height: calc(100vh - 8.9rem); /* Adjust based on your layout */
+  }
 
+  .sidecart .h6 {
+    text-align: center;
+    padding-bottom: 10px; 
+    border-bottom: 1px solid rgb(95, 95, 95);
+  }
 
-.sidecart .h6 {
-  text-align: center;
-  padding-bottom: 10px; 
-  border-bottom: 1px solid rgb(95, 95, 95);
-}
+  .sidecart-items-container {
+    flex-grow: 1;
+    overflow-y: auto;
+    margin-bottom: 1rem;
+  }
+
+  .sidecart-items-container::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .sidecart-items-container::-webkit-scrollbar-thumb {
+    background-color: rgba(var(--text-color-rgb), 0.3);
+    border-radius: 3px;
+  }
+
+  .sidecart-items-container::-webkit-scrollbar-track {
+    background-color: rgba(var(--text-color-rgb), 0.1);
+  }
+
+  #sidecart-form {
+    margin-top: auto;
+  }
 
 .product-list {
   display: grid;
