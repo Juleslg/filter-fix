@@ -144,7 +144,7 @@ Supported variables
       {%- endif -%}
 
 
-      <button class="add-to-sidecart">
+      <button class="add-to-sidecart" handle="{{ product.handle | escape }}">
         {% render 'icon' with 'plus' %}
       </button>
 
