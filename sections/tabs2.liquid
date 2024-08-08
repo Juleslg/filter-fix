@@ -46,12 +46,14 @@
       </x-tabs>
 
 
-<div class="sidecart">
-  
-    <div class="h6">Your selection</div>
-    <div class="sidecart-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repudiandae maiores provident non, molestiae quibusdam ex consequuntur ab? Quidem, natus, veritatis eius quam inventore commodi, incidunt maiores placeat vero alias minima.</div>
-    
-</div>
+      <div class="sidecart">
+        <div class="h6">Your selection</div>
+        <div id="sidecart-items"></div>
+        <form method="post" action="/cart/add" id="sidecart-form">
+          <!-- Hidden inputs will be dynamically added here -->
+          <button type="submit" class="button button--primary" id="add-to-cart-button">Add to Cart</button>
+        </form>
+      </div>
 
 
       </div>
@@ -218,28 +220,53 @@ padding-bottom: 1rem ;
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   const addToSidecartButtons = document.querySelectorAll('.add-to-sidecart');
-  const sidecart = document.querySelector('.sidecart');
+  const sidecartItems = document.getElementById('sidecart-items');
+  const sidecartForm = document.getElementById('sidecart-form');
   let selectedProducts = {};
 
   function updateSidecart() {
-    let sidecartContent = '<div class="h6">Your selection</div>';
+    let sidecartContent = '';
     if (Object.keys(selectedProducts).length === 0) {
-      sidecartContent += '<div class="sidecart-text">No items selected</div>';
+      sidecartContent = '<div class="sidecart-text">No items selected</div>';
     } else {
-      sidecartContent += '<ul class="sidecart-list">';
+      sidecartContent = '<ul class="sidecart-list">';
       for (const [productId, product] of Object.entries(selectedProducts)) {
         sidecartContent += `
           <li class="sidecart-item" data-product-id="${productId}">
             <div class="sidecart-item-title">${product.title}</div>
             <div class="sidecart-item-variant">${product.variantTitle}</div>
             <div class="sidecart-item-quantity">Quantity: ${product.quantity}</div>
-            <button class="sidecart-item-remove" data-product-id="${productId}">Remove</button>
+            <button type="button" class="sidecart-item-remove" data-product-id="${productId}">Remove</button>
           </li>
         `;
       }
       sidecartContent += '</ul>';
     }
-    sidecart.innerHTML = sidecartContent;
+    sidecartItems.innerHTML = sidecartContent;
+
+    // Update form inputs
+    sidecartForm.innerHTML = ''; // Clear existing inputs
+    for (const product of Object.values(selectedProducts)) {
+      const input = document.createElement('input');
+      input.type = 'hidden';
+      input.name = 'items[][id]';
+      input.value = product.variantId;
+      sidecartForm.appendChild(input);
+
+      const quantityInput = document.createElement('input');
+      quantityInput.type = 'hidden';
+      quantityInput.name = 'items[][quantity]';
+      quantityInput.value = product.quantity;
+      sidecartForm.appendChild(quantityInput);
+    }
+
+    // Re-append the submit button
+    const submitButton = document.createElement('button');
+    submitButton.type = 'submit';
+    submitButton.className = 'button button--primary';
+    submitButton.id = 'add-to-cart-button';
+    submitButton.textContent = 'Add to Cart';
+    sidecartForm.appendChild(submitButton);
 
     // Add event listeners for remove buttons
     document.querySelectorAll('.sidecart-item-remove').forEach(button => {
