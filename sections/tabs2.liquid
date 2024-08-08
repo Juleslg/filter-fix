@@ -47,6 +47,10 @@
 
 
 <div class="sidecart">
+    
+<form action="/cart/add" method="post" id="sidecart-form" style="display: none;">
+  <input type="hidden" name="items" id="sidecart-items" value="[]">
+</form>
   
     <div class="h6">Your selection</div>
     <div class="sidecart-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repudiandae maiores provident non, molestiae quibusdam ex consequuntur ab? Quidem, natus, veritatis eius quam inventore commodi, incidunt maiores placeat vero alias minima.</div>
@@ -213,71 +217,71 @@ padding-bottom: 1rem ;
     color: rgb(var(--accent-color-darker));
   }
 
+  .add-to-cart-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: rgb(var(--accent-color));
+    color: rgb(var(--background-color));
+    border: none;
+    border-radius: 4px;
+    font-size: 1em;
+    cursor: pointer;
+    margin-top: 15px;
+  }
+
+  .add-to-cart-button:hover {
+    background-color: rgb(var(--accent-color-darker));
+  }
+
 </style>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   const addToSidecartButtons = document.querySelectorAll('.add-to-sidecart');
   const sidecart = document.querySelector('.sidecart');
+  const sidecartForm = document.getElementById('sidecart-form');
+  const sidecartItems = document.getElementById('sidecart-items');
   let selectedProducts = {};
 
   function updateSidecart() {
-    let sidecartContent = '<div class="h6">Your selection</div>';
-    if (Object.keys(selectedProducts).length === 0) {
-      sidecartContent += '<div class="sidecart-text">No items selected</div>';
-    } else {
-      sidecartContent += '<ul class="sidecart-list">';
-      for (const [productId, product] of Object.entries(selectedProducts)) {
-        sidecartContent += `
-          <li class="sidecart-item" data-product-id="${productId}">
-            <div class="sidecart-item-title">${product.title}</div>
-            <div class="sidecart-item-variant">${product.variantTitle}</div>
-            <div class="sidecart-item-quantity">Quantity: ${product.quantity}</div>
-            <button class="sidecart-item-remove" data-product-id="${productId}">Remove</button>
-          </li>
-        `;
-      }
-      sidecartContent += '</ul>';
-    }
-    sidecart.innerHTML = sidecartContent;
+    // ... (keep the existing updateSidecart function) ...
 
-    // Add event listeners for remove buttons
-    document.querySelectorAll('.sidecart-item-remove').forEach(button => {
-      button.addEventListener('click', removeFromSidecart);
-    });
+    // Update the hidden form input with the selected products
+    const formItems = Object.values(selectedProducts).map(product => ({
+      id: product.variantId,
+      quantity: product.quantity
+    }));
+    sidecartItems.value = JSON.stringify(formItems);
   }
 
   function addToSidecart(event) {
-    const button = event.currentTarget;
-    const productId = button.getAttribute('data-product-id');
-    const variantId = button.getAttribute('data-variant-id');
-    const variantTitle = button.getAttribute('data-variant-title');
-    const productTitle = button.closest('.product-card').querySelector('.product-title').textContent;
-
-    if (selectedProducts[productId]) {
-      selectedProducts[productId].quantity += 1;
-    } else {
-      selectedProducts[productId] = {
-        id: productId,
-        variantId: variantId,
-        variantTitle: variantTitle,
-        title: productTitle,
-        quantity: 1
-      };
-    }
-
-    updateSidecart();
+    // ... (keep the existing addToSidecart function) ...
   }
 
   function removeFromSidecart(event) {
-    const productId = event.currentTarget.getAttribute('data-product-id');
-    delete selectedProducts[productId];
-    updateSidecart();
+    // ... (keep the existing removeFromSidecart function) ...
+  }
+
+  function addToCart() {
+    if (Object.keys(selectedProducts).length === 0) {
+      alert('No items selected');
+      return;
+    }
+
+    sidecartForm.submit();
   }
 
   addToSidecartButtons.forEach(button => {
     button.addEventListener('click', addToSidecart);
   });
+
+  // Add a button to submit the form and add items to cart
+  const addToCartButton = document.createElement('button');
+  addToCartButton.textContent = 'Add to Cart';
+  addToCartButton.classList.add('add-to-cart-button');
+  addToCartButton.addEventListener('click', addToCart);
+  sidecart.appendChild(addToCartButton);
 
   // Initialize sidecart
   updateSidecart();
