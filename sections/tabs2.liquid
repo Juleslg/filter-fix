@@ -53,9 +53,6 @@
   
 </div>
 
-<form action="/cart/add" method="post" id="sidecart-form" style="display: none;">
-  <input type="hidden" name="items" id="sidecart-items" value="[]">
-</form>
 
       </div>
 
@@ -196,71 +193,52 @@ padding-bottom: 1rem ;
     display: block;
   }
 
-  .add-to-cart-button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    background-color: rgb(var(--accent-color));
-    color: rgb(var(--background-color));
-    border: none;
-    border-radius: 4px;
-    font-size: 1em;
-    cursor: pointer;
-    margin-top: 15px;
-  }
-
-  .add-to-cart-button:hover {
-    background-color: rgb(var(--accent-color-darker));
-  }
-  
 </style>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   const addToSidecartButtons = document.querySelectorAll('.add-to-sidecart');
   const sidecart = document.querySelector('.sidecart');
-  const sidecartForm = document.getElementById('sidecart-form');
-  const sidecartItems = document.getElementById('sidecart-items');
-  let selectedProducts = {};
+  let selectedProducts = [];
 
   function updateSidecart() {
-    // ... (keep the existing updateSidecart function) ...
-
-    // Update the hidden form input with the selected products
-    const formItems = Object.values(selectedProducts).map(product => ({
-      id: product.variantId,
-      quantity: product.quantity
-    }));
-    sidecartItems.value = JSON.stringify(formItems);
-  }
-
-  function addToSidecart(event) {
-    // ... (keep the existing addToSidecart function) ...
-  }
-
-  function removeFromSidecart(event) {
-    // ... (keep the existing removeFromSidecart function) ...
-  }
-
-  function addToCart() {
-    if (Object.keys(selectedProducts).length === 0) {
-      alert('No items selected');
-      return;
+    let sidecartContent = '<div class="h6">Your selection</div>';
+    if (selectedProducts.length === 0) {
+      sidecartContent += '<div class="sidecart-text">No items selected</div>';
+    } else {
+      sidecartContent += '<ul class="sidecart-list">';
+      selectedProducts.forEach(product => {
+        sidecartContent += `
+          <li>
+            <span>${product.title}</span>
+            <span>${product.variantTitle}</span>
+          </li>
+        `;
+      });
+      sidecartContent += '</ul>';
     }
-
-    sidecartForm.submit();
+    sidecart.innerHTML = sidecartContent;
   }
 
   addToSidecartButtons.forEach(button => {
-    button.addEventListener('click', addToSidecart);
-  });
+    button.addEventListener('click', function() {
+      const productHandle = this.getAttribute('handle');
+      const productId = this.getAttribute('data-product-id');
+      const variantId = this.getAttribute('data-variant-id');
+      const variantTitle = this.getAttribute('data-variant-title');
+      const productTitle = this.closest('.product-card').querySelector('.product-title').textContent;
+      
+      selectedProducts.push({
+        handle: productHandle,
+        id: productId,
+        variantId: variantId,
+        variantTitle: variantTitle,
+        title: productTitle
+      });
 
-  // Add a button to submit the form and add items to cart
-  const addToCartButton = document.createElement('button');
-  addToCartButton.textContent = 'Add to Cart';
-  addToCartButton.classList.add('add-to-cart-button');
-  addToCartButton.addEventListener('click', addToCart);
-  sidecart.appendChild(addToCartButton);
+      updateSidecart();
+    });
+  });
 
   // Initialize sidecart
   updateSidecart();
