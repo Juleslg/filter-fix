@@ -215,20 +215,3 @@ Supported variables
 </product-card>
 
 
-<script>
-
-document.addEventListener('DOMContentLoaded', function() {
-  const productCards = document.querySelectorAll('.product-card__figure');
-
-  productCards.forEach(card => {
-    card.addEventListener('mouseenter', function() {
-      const productId = this.dataset.productId;
-      const variantId = this.dataset.variantId;
-      const variantTitle = this.dataset.variantTitle;
-
-      console.log(`Hovering over product ${productId}, variant ${variantId}: ${variantTitle}`);
-    });
-  });
-});
-
-</script>
