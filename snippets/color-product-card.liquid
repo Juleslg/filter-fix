@@ -144,7 +144,7 @@ Supported variables
       {%- endif -%}
 
 
-      <button class="add-to-sidecart" handle="{{ product.handle | escape }}">
+      <button class="add-to-sidecart" data-product-id="{{ product.id }}" data-variant-id="{{ variant_sel.id }}" data-variant-title="{{ variant_sel.title | escape }}"  handle="{{ product.handle | escape }}">
         {% render 'icon' with 'plus' %}
       </button>
 
