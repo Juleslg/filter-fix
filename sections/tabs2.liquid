@@ -213,6 +213,21 @@ padding-bottom: 1rem ;
     font: var(--button-font);
     letter-spacing: var(--button-letter-spacing);
   }
+
+  .sidecart .h6 {
+    cursor: pointer;
+    position: relative;
+    padding-right: 30px; /* Make room for the close icon */
+  }
+
+  .sidecart .h6::after {
+    content: '×';
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5em;
+  }
 }
 
   .sidecart .h6 {
@@ -348,163 +363,164 @@ padding-bottom: 1rem ;
 </style>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const addToSidecartButtons = document.querySelectorAll('.add-to-sidecart');
-      const sidecartItems = document.getElementById('sidecart-items');
-      const sidecartForm = document.getElementById('sidecart-form');
-      let selectedProducts = {};
-    
-      // Add this new code for mobile toggle functionality
-      const sidecart = document.querySelector('.sidecart');
-      const mobileToggle = document.createElement('div');
-      mobileToggle.className = 'mobile-sidecart-toggle';
-      mobileToggle.textContent = 'Your Selection';
-      document.body.appendChild(mobileToggle);
-    
-      mobileToggle.addEventListener('click', function() {
-        sidecart.classList.toggle('active');
-      });
-    
-      // Close sidecart when clicking outside
-      document.addEventListener('click', function(event) {
-        if (!sidecart.contains(event.target) && !mobileToggle.contains(event.target)) {
-          sidecart.classList.remove('active');
-        }
-      });
-    
-      function updateSidecart() {
-        let sidecartContent = '';
-        if (Object.keys(selectedProducts).length === 0) {
-          sidecartContent = '<div class="sidecart-text">No items selected</div>';
-        } else {
-          sidecartContent = '<ul class="sidecart-list">';
-          for (const [key, product] of Object.entries(selectedProducts)) {
-            sidecartContent += `
-              <li class="sidecart-item" data-product-key="${key}">
-                <div class="sidecart-item-info">
-                  <div class="sidecart-item-title">${product.title}</div>
-                  <div class="sidecart-item-variant">${product.variantTitle}</div>
-                </div>
-                <div class="sidecart-item-quantity">
-                  <button type="button" class="quantity-button decrease" data-product-key="${key}">-</button>
-                  <input type="number" class="quantity-input" value="${product.quantity}" min="1" data-product-key="${key}">
-                  <button type="button" class="quantity-button increase" data-product-key="${key}">+</button>
-                </div>
-                <button type="button" class="sidecart-item-remove" data-product-key="${key}">×</button>
-              </li>
-            `;
-          }
-          sidecartContent += '</ul>';
-        }
-        sidecartItems.innerHTML = sidecartContent;
-    
-        // Update form inputs
-        sidecartForm.innerHTML = ''; // Clear existing inputs
-        for (const product of Object.values(selectedProducts)) {
-          const input = document.createElement('input');
-          input.type = 'hidden';
-          input.name = 'items[][id]';
-          input.value = product.variantId;
-          sidecartForm.appendChild(input);
-    
-          const quantityInput = document.createElement('input');
-          quantityInput.type = 'hidden';
-          quantityInput.name = 'items[][quantity]';
-          quantityInput.value = product.quantity;
-          sidecartForm.appendChild(quantityInput);
-        }
-    
-        // Re-append the submit button
-        const submitButton = document.createElement('button');
-        submitButton.type = 'submit';
-        submitButton.className = 'button button--primary';
-        submitButton.id = 'add-to-cart-button';
-        submitButton.textContent = 'Add to Cart';
-        sidecartForm.appendChild(submitButton);
-    
-        // Add event listeners for quantity buttons and remove buttons
-        document.querySelectorAll('.quantity-button').forEach(button => {
-          button.addEventListener('click', updateQuantity);
-        });
-        document.querySelectorAll('.quantity-input').forEach(input => {
-          input.addEventListener('change', updateQuantityFromInput);
-        });
-        document.querySelectorAll('.sidecart-item-remove').forEach(button => {
-          button.addEventListener('click', removeFromSidecart);
-        });
-    
-        // Show/hide mobile toggle based on whether there are items in the cart
-        if (Object.keys(selectedProducts).length === 0) {
-          mobileToggle.style.display = 'none';
-        } else {
-          mobileToggle.style.display = 'block';
-        }
+document.addEventListener('DOMContentLoaded', function() {
+  const addToSidecartButtons = document.querySelectorAll('.add-to-sidecart');
+  const sidecartItems = document.getElementById('sidecart-items');
+  const sidecartForm = document.getElementById('sidecart-form');
+  let selectedProducts = {};
+
+  const sidecart = document.querySelector('.sidecart');
+  const mobileToggle = document.createElement('div');
+  mobileToggle.className = 'mobile-sidecart-toggle';
+  mobileToggle.textContent = 'Your Selection';
+  document.body.appendChild(mobileToggle);
+
+  const sidecartHeader = sidecart.querySelector('.h6');
+
+  mobileToggle.addEventListener('click', function() {
+    sidecart.classList.add('active');
+  });
+
+  sidecartHeader.addEventListener('click', function() {
+    if (window.innerWidth <= 768) { // Only close on mobile
+      sidecart.classList.remove('active');
+    }
+  });
+
+  function updateSidecart() {
+    let sidecartContent = '';
+    if (Object.keys(selectedProducts).length === 0) {
+      sidecartContent = '<div class="sidecart-text">No items selected</div>';
+    } else {
+      sidecartContent = '<ul class="sidecart-list">';
+      for (const [key, product] of Object.entries(selectedProducts)) {
+        sidecartContent += `
+          <li class="sidecart-item" data-product-key="${key}">
+            <div class="sidecart-item-info">
+              <div class="sidecart-item-title">${product.title}</div>
+              <div class="sidecart-item-variant">${product.variantTitle}</div>
+            </div>
+            <div class="sidecart-item-quantity">
+              <button type="button" class="quantity-button decrease" data-product-key="${key}">-</button>
+              <input type="number" class="quantity-input" value="${product.quantity}" min="1" data-product-key="${key}">
+              <button type="button" class="quantity-button increase" data-product-key="${key}">+</button>
+            </div>
+            <button type="button" class="sidecart-item-remove" data-product-key="${key}">×</button>
+          </li>
+        `;
       }
-    
-      function addToSidecart(event) {
-        const button = event.currentTarget;
-        const productId = button.getAttribute('data-product-id');
-        const variantId = button.getAttribute('data-variant-id');
-        const variantTitle = button.getAttribute('data-variant-title');
-        const productTitle = button.closest('.product-card').querySelector('.product-title').textContent;
-    
-        // Create a unique key for each product variant combination
-        const key = `${productId}-${variantId}`;
-    
-        if (selectedProducts[key]) {
-          selectedProducts[key].quantity += 1;
-        } else {
-          selectedProducts[key] = {
-            id: productId,
-            variantId: variantId,
-            variantTitle: variantTitle,
-            title: productTitle,
-            quantity: 1
-          };
-        }
-    
-        updateSidecart();
-      }
-    
-      function removeFromSidecart(event) {
-        const key = event.currentTarget.getAttribute('data-product-key');
-        delete selectedProducts[key];
-        updateSidecart();
-      }
-    
-      function updateQuantity(event) {
-        const button = event.currentTarget;
-        const key = button.getAttribute('data-product-key');
-        const isIncrease = button.classList.contains('increase');
-        
-        if (selectedProducts[key]) {
-          selectedProducts[key].quantity += isIncrease ? 1 : -1;
-          if (selectedProducts[key].quantity < 1) {
-            selectedProducts[key].quantity = 1;
-          }
-          updateSidecart();
-        }
-      }
-    
-      function updateQuantityFromInput(event) {
-        const input = event.currentTarget;
-        const key = input.getAttribute('data-product-key');
-        const newQuantity = parseInt(input.value, 10);
-        
-        if (selectedProducts[key] && newQuantity > 0) {
-          selectedProducts[key].quantity = newQuantity;
-          updateSidecart();
-        }
-      }
-    
-      addToSidecartButtons.forEach(button => {
-        button.addEventListener('click', addToSidecart);
-      });
-    
-      // Initialize sidecart
-      updateSidecart();
+      sidecartContent += '</ul>';
+    }
+    sidecartItems.innerHTML = sidecartContent;
+
+    // Update form inputs
+    sidecartForm.innerHTML = ''; // Clear existing inputs
+    for (const product of Object.values(selectedProducts)) {
+      const input = document.createElement('input');
+      input.type = 'hidden';
+      input.name = 'items[][id]';
+      input.value = product.variantId;
+      sidecartForm.appendChild(input);
+
+      const quantityInput = document.createElement('input');
+      quantityInput.type = 'hidden';
+      quantityInput.name = 'items[][quantity]';
+      quantityInput.value = product.quantity;
+      sidecartForm.appendChild(quantityInput);
+    }
+
+    // Re-append the submit button
+    const submitButton = document.createElement('button');
+    submitButton.type = 'submit';
+    submitButton.className = 'button button--primary';
+    submitButton.id = 'add-to-cart-button';
+    submitButton.textContent = 'Add to Cart';
+    sidecartForm.appendChild(submitButton);
+
+    // Add event listeners for quantity buttons and remove buttons
+    document.querySelectorAll('.quantity-button').forEach(button => {
+      button.addEventListener('click', updateQuantity);
     });
-    </script>
+    document.querySelectorAll('.quantity-input').forEach(input => {
+      input.addEventListener('change', updateQuantityFromInput);
+    });
+    document.querySelectorAll('.sidecart-item-remove').forEach(button => {
+      button.addEventListener('click', removeFromSidecart);
+    });
+
+    // Show/hide mobile toggle based on whether there are items in the cart
+    if (Object.keys(selectedProducts).length === 0) {
+      mobileToggle.style.display = 'none';
+      sidecart.classList.remove('active'); // Close sidecart if no items
+    } else {
+      mobileToggle.style.display = 'block';
+    }
+  }
+
+  function addToSidecart(event) {
+    const button = event.currentTarget;
+    const productId = button.getAttribute('data-product-id');
+    const variantId = button.getAttribute('data-variant-id');
+    const variantTitle = button.getAttribute('data-variant-title');
+    const productTitle = button.closest('.product-card').querySelector('.product-title').textContent;
+
+    // Create a unique key for each product variant combination
+    const key = `${productId}-${variantId}`;
+
+    if (selectedProducts[key]) {
+      selectedProducts[key].quantity += 1;
+    } else {
+      selectedProducts[key] = {
+        id: productId,
+        variantId: variantId,
+        variantTitle: variantTitle,
+        title: productTitle,
+        quantity: 1
+      };
+    }
+
+    updateSidecart();
+  }
+
+  function removeFromSidecart(event) {
+    const key = event.currentTarget.getAttribute('data-product-key');
+    delete selectedProducts[key];
+    updateSidecart();
+  }
+
+  function updateQuantity(event) {
+    const button = event.currentTarget;
+    const key = button.getAttribute('data-product-key');
+    const isIncrease = button.classList.contains('increase');
+    
+    if (selectedProducts[key]) {
+      selectedProducts[key].quantity += isIncrease ? 1 : -1;
+      if (selectedProducts[key].quantity < 1) {
+        selectedProducts[key].quantity = 1;
+      }
+      updateSidecart();
+    }
+  }
+
+  function updateQuantityFromInput(event) {
+    const input = event.currentTarget;
+    const key = input.getAttribute('data-product-key');
+    const newQuantity = parseInt(input.value, 10);
+    
+    if (selectedProducts[key] && newQuantity > 0) {
+      selectedProducts[key].quantity = newQuantity;
+      updateSidecart();
+    }
+  }
+
+  addToSidecartButtons.forEach(button => {
+    button.addEventListener('click', addToSidecart);
+  });
+
+  // Initialize sidecart
+  updateSidecart();
+});
+</script>
 
 
 {% schema %}
