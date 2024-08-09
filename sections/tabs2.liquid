@@ -218,37 +218,69 @@ padding-bottom: 1rem ;
   }
 
   .sidecart-item {
-    padding: 10px 0;
-    border-bottom: 1px solid rgba(var(--text-color-rgb), 0.1);
-  }
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(var(--text-color-rgb), 0.1);
+}
 
-  .sidecart-item:last-child {
-    border-bottom: none;
-  }
+.sidecart-item-info {
+  flex-grow: 1;
+}
 
-  .sidecart-item-title {
-    font-weight: bold;
-  }
+.sidecart-item-title {
+  font-weight: bold;
+}
 
-  .sidecart-item-variant,
-  .sidecart-item-quantity {
-    font-size: 0.9em;
-    color: rgba(var(--text-color-rgb), 0.8);
-  }
+.sidecart-item-variant {
+  font-size: 0.9em;
+  color: rgba(var(--text-color-rgb), 0.8);
+}
 
-  .sidecart-item-remove {
-    background: none;
-    border: none;
-    color: rgb(var(--accent-color));
-    cursor: pointer;
-    font-size: 0.9em;
-    padding: 5px 0;
-    text-decoration: underline;
-  }
+.sidecart-item-quantity {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
 
-  .sidecart-item-remove:hover {
-    color: rgb(var(--accent-color-darker));
-  }
+.quantity-button {
+  background: none;
+  border: 1px solid rgba(var(--text-color-rgb), 0.3);
+  color: rgb(var(--text-color));
+  cursor: pointer;
+  font-size: 1em;
+  padding: 0 5px;
+  height: 24px;
+  width: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quantity-input {
+  width: 30px;
+  text-align: center;
+  border: none;
+  font-size: 0.9em;
+  margin: 0 5px;
+}
+
+.sidecart-item-remove {
+  background: none;
+  border: none;
+  color: rgb(var(--accent-color));
+  cursor: pointer;
+  font-size: 1.2em;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidecart-item-remove:hover {
+  color: rgb(var(--accent-color-darker));
+}
 
 </style>
 
@@ -268,10 +300,16 @@ document.addEventListener('DOMContentLoaded', function() {
       for (const [key, product] of Object.entries(selectedProducts)) {
         sidecartContent += `
           <li class="sidecart-item" data-product-key="${key}">
-            <div class="sidecart-item-title">${product.title}</div>
-            <div class="sidecart-item-variant">${product.variantTitle}</div>
-            <div class="sidecart-item-quantity">Quantity: ${product.quantity}</div>
-            <button type="button" class="sidecart-item-remove" data-product-key="${key}">Remove</button>
+            <div class="sidecart-item-info">
+              <div class="sidecart-item-title">${product.title}</div>
+              <div class="sidecart-item-variant">${product.variantTitle}</div>
+            </div>
+            <div class="sidecart-item-quantity">
+              <button type="button" class="quantity-button decrease" data-product-key="${key}">-</button>
+              <input type="number" class="quantity-input" value="${product.quantity}" min="1" data-product-key="${key}">
+              <button type="button" class="quantity-button increase" data-product-key="${key}">+</button>
+            </div>
+            <button type="button" class="sidecart-item-remove" data-product-key="${key}">×</button>
           </li>
         `;
       }
@@ -303,7 +341,13 @@ document.addEventListener('DOMContentLoaded', function() {
     submitButton.textContent = 'Add to Cart';
     sidecartForm.appendChild(submitButton);
 
-    // Add event listeners for remove buttons
+    // Add event listeners for quantity buttons and remove buttons
+    document.querySelectorAll('.quantity-button').forEach(button => {
+      button.addEventListener('click', updateQuantity);
+    });
+    document.querySelectorAll('.quantity-input').forEach(input => {
+      input.addEventListener('change', updateQuantityFromInput);
+    });
     document.querySelectorAll('.sidecart-item-remove').forEach(button => {
       button.addEventListener('click', removeFromSidecart);
     });
@@ -338,6 +382,31 @@ document.addEventListener('DOMContentLoaded', function() {
     const key = event.currentTarget.getAttribute('data-product-key');
     delete selectedProducts[key];
     updateSidecart();
+  }
+
+  function updateQuantity(event) {
+    const button = event.currentTarget;
+    const key = button.getAttribute('data-product-key');
+    const isIncrease = button.classList.contains('increase');
+    
+    if (selectedProducts[key]) {
+      selectedProducts[key].quantity += isIncrease ? 1 : -1;
+      if (selectedProducts[key].quantity < 1) {
+        selectedProducts[key].quantity = 1;
+      }
+      updateSidecart();
+    }
+  }
+
+  function updateQuantityFromInput(event) {
+    const input = event.currentTarget;
+    const key = input.getAttribute('data-product-key');
+    const newQuantity = parseInt(input.value, 10);
+    
+    if (selectedProducts[key] && newQuantity > 0) {
+      selectedProducts[key].quantity = newQuantity;
+      updateSidecart();
+    }
   }
 
   addToSidecartButtons.forEach(button => {
