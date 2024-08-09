@@ -212,6 +212,14 @@ padding-bottom: 1rem ;
     backdrop-filter: none;
     font: var(--button-font);
     letter-spacing: var(--button-letter-spacing);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .sidecart-count {
+    margin-left: 5px;
+    font-weight: normal;
   }
 
   .sidecart .h6 {
@@ -371,7 +379,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const sidecart = document.querySelector('.sidecart');
   const mobileToggle = document.createElement('div');
   mobileToggle.className = 'mobile-sidecart-toggle';
-  mobileToggle.textContent = 'Your Selection';
+  mobileToggle.innerHTML = 'Your Selection <span class="sidecart-count">(0)</span>';
   document.body.appendChild(mobileToggle);
 
   const sidecartHeader = sidecart.querySelector('.h6');
@@ -447,8 +455,13 @@ document.addEventListener('DOMContentLoaded', function() {
       button.addEventListener('click', removeFromSidecart);
     });
 
+    // Update the item count in the mobile toggle
+    const itemCount = Object.values(selectedProducts).reduce((total, product) => total + product.quantity, 0);
+    const countElement = mobileToggle.querySelector('.sidecart-count');
+    countElement.textContent = `(${itemCount})`;
+
     // Show/hide mobile toggle based on whether there are items in the cart
-    if (Object.keys(selectedProducts).length === 0) {
+    if (itemCount === 0) {
       mobileToggle.style.display = 'none';
       sidecart.classList.remove('active'); // Close sidecart if no items
     } else {
