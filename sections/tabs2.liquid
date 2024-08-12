@@ -55,7 +55,7 @@
                 <!-- Hidden inputs will be dynamically added here -->
             <button type="submit" class="button button--primary" id="add-to-cart-button">Add to Cart</button>
             </form>
-            <button class="button button--primary">Debug</button>
+            <button id="debug-button" class="button button--primary">Debuuug</button>
     </div>
 
 
@@ -414,7 +414,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const addToSidecartButtons = document.querySelectorAll('.add-to-sidecart');
   const sidecartItems = document.getElementById('sidecart-items');
   const sidecartForm = document.getElementById('sidecart-form');
-  const debugButton = document.querySelector('.sidecart .button--primary:last-child');
+  const debugButton = document.querySelector('#debug-button');
   const addToCartButton = document.getElementById('add-to-cart-button');
   let selectedProducts = {};
 
