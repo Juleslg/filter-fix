@@ -599,12 +599,11 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Clear the selectedProducts object after successful form submission
     selectedProducts = {};
-    
+    deleteAllItems();
     // Update the sidecart to reflect the empty state
     setTimeout(function() {
       updateSidecart();
     }, 50);
-    deleteAllItems()
   });
 
   // Initialize sidecart
