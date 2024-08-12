@@ -445,6 +445,9 @@ document.addEventListener('DOMContentLoaded', function() {
         `;
       }
       sidecartContent += '</ul>';
+      
+      // Add "Delete All" button
+      sidecartContent += '<button type="button" id="delete-all-button" class="button button--secondary">Delete All</button>';
     }
     sidecartItems.innerHTML = sidecartContent;
 
@@ -482,6 +485,12 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.sidecart-item-remove').forEach(button => {
       button.addEventListener('click', removeFromSidecart);
     });
+
+    // Add event listener for "Delete All" button
+    const deleteAllButton = document.getElementById('delete-all-button');
+    if (deleteAllButton) {
+      deleteAllButton.addEventListener('click', deleteAllItems);
+    }
 
     // Update the item count in the mobile toggle
     const itemCount = Object.values(selectedProducts).reduce((total, product) => total + product.quantity, 0);
@@ -554,8 +563,26 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
+  function deleteAllItems() {
+    selectedProducts = {};
+    updateSidecart();
+  }
+
   addToSidecartButtons.forEach(button => {
     button.addEventListener('click', addToSidecart);
+  });
+
+  // Add to cart form submission
+  sidecartForm.addEventListener('submit', function(event) {
+    // You can add any additional logic here before form submission if needed
+    
+    // Clear the selectedProducts object after successful form submission
+    selectedProducts = {};
+    
+    // Update the sidecart to reflect the empty state
+    setTimeout(function() {
+      updateSidecart();
+    }, 100);
   });
 
   // Initialize sidecart
