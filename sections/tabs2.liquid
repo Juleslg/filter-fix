@@ -493,17 +493,6 @@ document.addEventListener('DOMContentLoaded', function() {
     submitButton.textContent = 'Add to Cart';
     sidecartForm.appendChild(submitButton);
 
-    // Add click event listener to the submit button
-    submitButton.addEventListener('click', function(event) {
-      console.log('Add to Cart clicked');
-      
-      // Use setTimeout to clear the cart after the form submission
-      setTimeout(function() {
-        deleteAllItems();
-        updateSidecart();
-      }, 100);
-    });
-
     // Add event listeners for quantity buttons and remove buttons
     document.querySelectorAll('.quantity-button').forEach(button => {
       button.addEventListener('click', updateQuantity);
@@ -606,10 +595,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Add to cart form submission
   sidecartForm.addEventListener('submit', function(event) {
-    console.log('Form submitted');
-    // You can add any additional logic here if needed
+    // You can add any additional logic here before form submission if needed
+    console.log('form submitted');
+    // Clear the selectedProducts object after successful form submission
+    selectedProducts = {};
+    
+    // Update the sidecart to reflect the empty state
+    setTimeout(function() {
+      updateSidecart();
+    }, 50);
   });
-  
+
   // Initialize sidecart
   updateSidecart();
 });
