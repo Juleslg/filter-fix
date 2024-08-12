@@ -53,7 +53,7 @@
             </div>
             <form method="post" action="/cart/add" id="sidecart-form">
                 <!-- Hidden inputs will be dynamically added here -->
-            <button type="submit" class="button button--primary" id="add-to-cart-button">Addd to Cart</button>
+            <button type="submit" class="button button--primary" id="add-to-cart-button">Add Set to Cart</button>
             </form>
             <button id="debug-button" class="button button--primary">Debuuug</button>
     </div>
@@ -604,8 +604,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Add to cart form submission
   sidecartForm.addEventListener('click', function(event) {
-    event.preventDefault(); // Prevent the default form submission
-    sidecartForm.submit(); // Trigger the add-to-cart button
+    console.log('adios');
+    
   });
 });
 </script>
