@@ -414,6 +414,8 @@ document.addEventListener('DOMContentLoaded', function() {
   const addToSidecartButtons = document.querySelectorAll('.add-to-sidecart');
   const sidecartItems = document.getElementById('sidecart-items');
   const sidecartForm = document.getElementById('sidecart-form');
+  const debugButton = document.querySelector('.sidecart .button--primary:last-child');
+  const addToCartButton = document.getElementById('add-to-cart-button');
   let selectedProducts = {};
 
   const sidecart = document.querySelector('.sidecart');
@@ -594,8 +596,15 @@ document.addEventListener('DOMContentLoaded', function() {
     button.addEventListener('click', addToSidecart);
   });
 
+  // Debug button event listener
+  debugButton.addEventListener('click', function() {
+    console.log('Submitted');
+    addToCartButton.click(); // Trigger the add-to-cart button
+  });
+
   // Add to cart form submission
   sidecartForm.addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the default form submission
 
     // Simulate form submission (remove this in production and use actual form submission)
     setTimeout(function() {
@@ -605,7 +614,7 @@ document.addEventListener('DOMContentLoaded', function() {
       
       // Update the sidecart to reflect the empty state
       updateSidecart();
-    }, 50); // Simulating a 1-second delay for form submission
+    }, 50); // Simulating a 50ms delay for form submission
   });
 
   // Initialize sidecart
