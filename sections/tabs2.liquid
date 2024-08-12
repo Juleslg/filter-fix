@@ -607,15 +607,32 @@ document.addEventListener('DOMContentLoaded', function() {
     // You can add any additional logic here before form submission if needed
     console.log('Selected products:', selectedProducts);
 
-    // Simulate form submission (remove this in production and use actual form submission)
-    setTimeout(function() {
-      console.log('Form submission completed');
+    // Use fetch to submit the form data
+    fetch(sidecartForm.action, {
+      method: sidecartForm.method,
+      body: new FormData(sidecartForm),
+      headers: {
+        'X-Requested-With': 'XMLHttpRequest'
+      }
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log('Form submission completed', data);
       // Clear the selectedProducts object after successful form submission
       selectedProducts = {};
       
       // Update the sidecart to reflect the empty state
       updateSidecart();
-    }, 1000); // Simulating a 1-second delay for form submission
+
+      // Optionally, you can update the cart here or show a success message
+      // For example:
+      // updateCartCount(data.item_count);
+      // showSuccessMessage('Items added to cart successfully!');
+    })
+    .catch(error => {
+      console.error('Error submitting form:', error);
+      // Handle error (e.g., show error message to user)
+    });
   });
 
   // Initialize sidecart
