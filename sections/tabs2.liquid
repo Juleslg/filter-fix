@@ -202,6 +202,23 @@ padding-bottom: 1rem ;
     bottom: 0;
   }
 
+  .delete-all-container {
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  #delete-all-link {
+    color: rgb(var(--text-color));
+    text-decoration: underline;
+    font-size: 0.9em;
+    cursor: pointer;
+  }
+
+  #delete-all-link:hover {
+    opacity: 0.8;
+  }
+
   .sidecart-items-container {
     max-height: calc(80vh - 120px);
     overflow-y: auto;
@@ -446,8 +463,8 @@ document.addEventListener('DOMContentLoaded', function() {
       }
       sidecartContent += '</ul>';
       
-      // Add "Delete All" button
-      sidecartContent += '<button type="button" id="delete-all-button" class="button button--secondary">Delete All</button>';
+      // Add "Delete All" text link
+      sidecartContent += '<div class="delete-all-container"><a href="#" id="delete-all-link">Delete all</a></div>';
     }
     sidecartItems.innerHTML = sidecartContent;
 
@@ -486,10 +503,13 @@ document.addEventListener('DOMContentLoaded', function() {
       button.addEventListener('click', removeFromSidecart);
     });
 
-    // Add event listener for "Delete All" button
-    const deleteAllButton = document.getElementById('delete-all-button');
-    if (deleteAllButton) {
-      deleteAllButton.addEventListener('click', deleteAllItems);
+    // Add event listener for "Delete All" link
+    const deleteAllLink = document.getElementById('delete-all-link');
+    if (deleteAllLink) {
+      deleteAllLink.addEventListener('click', function(event) {
+        event.preventDefault();
+        deleteAllItems();
+      });
     }
 
     // Update the item count in the mobile toggle
