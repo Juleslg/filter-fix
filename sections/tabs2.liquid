@@ -164,6 +164,25 @@ padding-bottom: 1rem ;
     padding-bottom: 60px; /* Add space for the sticky button */
   }
 
+  .sidecart-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 99;
+  }
+
+  .sidecart-overlay.active {
+    display: block;
+  }
+
+  .sidecart {
+    z-index: 101; /* Ensure the sidecart is above the overlay */
+  }
+
   .sidecart {
     position: fixed;
     bottom: -100%;
@@ -386,13 +405,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
   const sidecartHeader = sidecart.querySelector('.h6');
 
+  // Create overlay element
+  const overlay = document.createElement('div');
+  overlay.className = 'sidecart-overlay';
+  document.body.appendChild(overlay);
+
   mobileToggle.addEventListener('click', function() {
     sidecart.classList.add('active');
+    overlay.classList.add('active');
   });
 
-  sidecartHeader.addEventListener('click', function() {
-    if (window.innerWidth <= 768) { // Only close on mobile
+  overlay.addEventListener('click', function(event) {
+    if (event.target === overlay) {
       sidecart.classList.remove('active');
+      overlay.classList.remove('active');
     }
   });
 
@@ -465,7 +491,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Show/hide mobile toggle based on whether there are items in the cart
     if (itemCount === 0) {
       mobileToggle.style.display = 'none';
-      sidecart.classList.remove('active'); // Close sidecart if no items
+      sidecart.classList.remove('active');
+      overlay.classList.remove('active');
     } else {
       mobileToggle.style.display = 'block';
     }
