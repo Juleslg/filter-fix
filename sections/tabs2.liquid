@@ -598,9 +598,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Debug button event listener
   debugButton.addEventListener('click', function() {
-    console.log('Submitttttted Bitch');
-       sidecartForm.submit() // Trigger the add-to-cart button
-  });
+  console.log('Submitttttted Bitch');
+  sidecartForm.submit(); // Trigger the add-to-cart button
+  sidecart.classList.add('active'); // Open the cart drawer
+  overlay.classList.add('active'); // Show the overlay
+});
 
   // Add to cart form submission
   sidecartForm.addEventListener('submit', function(event) {
