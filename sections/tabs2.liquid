@@ -53,7 +53,7 @@
             </div>
             <form method="post" action="/cart/add" id="sidecart-form">
                 <!-- Hidden inputs will be dynamically added here -->
-            <button type="submit" class="button button--primary" id="add-to-cart-button">Add to Cart</button>
+            <button type="submit" class="button button--primary" id="add-to-cart-button">Addd to Cart</button>
             </form>
             <button id="debug-button" class="button button--primary">Debuuug</button>
     </div>
@@ -600,27 +600,13 @@ document.addEventListener('DOMContentLoaded', function() {
   debugButton.addEventListener('click', function() {
   console.log('Submitttttted Bitch');
   sidecartForm.submit(); // Trigger the add-to-cart button
-  sidecart.classList.add('active'); // Open the cart drawer
-  overlay.classList.add('active'); // Show the overlay
 });
 
   // Add to cart form submission
-  sidecartForm.addEventListener('submit', function(event) {
+  sidecartForm.addEventListener('click', function(event) {
     event.preventDefault(); // Prevent the default form submission
-
-    // Simulate form submission (remove this in production and use actual form submission)
-    setTimeout(function() {
-      console.log('Form submission completed');
-      // Clear the selectedProducts object after successful form submission
-      selectedProducts = {};
-      
-      // Update the sidecart to reflect the empty state
-      updateSidecart();
-    }, 50); // Simulating a 50ms delay for form submission
+    sidecartForm.submit(); // Trigger the add-to-cart button
   });
-
-  // Initialize sidecart
-  updateSidecart();
 });
 </script>
 
