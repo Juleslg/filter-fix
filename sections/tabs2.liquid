@@ -53,11 +53,10 @@
             </div>
             <form method="post" action="/cart/add" id="sidecart-form">
                 <!-- Hidden inputs will be dynamically added here -->
-            <button type="submit" class="button button--primary" id="add-to-cart-button">Add Set to Cart</button>
+            <button type="submit" class="button button--primary" id="add-to-cart-button">Add to Cart</button>
             </form>
-            <button type="submit" id="debug-button" class="button button--primary">Debg</button>
     </div>
- 
+
 
       </div>
 
@@ -414,8 +413,6 @@ document.addEventListener('DOMContentLoaded', function() {
   const addToSidecartButtons = document.querySelectorAll('.add-to-sidecart');
   const sidecartItems = document.getElementById('sidecart-items');
   const sidecartForm = document.getElementById('sidecart-form');
-  const debugButton = document.querySelector('#debug-button');
-  const addToCartButton = document.getElementById('add-to-cart-button');
   let selectedProducts = {};
 
   const sidecart = document.querySelector('.sidecart');
@@ -596,19 +593,10 @@ document.addEventListener('DOMContentLoaded', function() {
     button.addEventListener('click', addToSidecart);
   });
 
-  // Debug button event listener
-  debugButton.addEventListener('click', function(event) {
-    event.preventDefault();
-    addToCartButton.click();
-    
-  
-  
-});
-
   // Add to cart form submission
-  sidecartForm.addEventListener('click', function(event) {
+  sidecartForm.addEventListener('submit', function(event) {
     event.preventDefault();
-    
+    sidecartForm.submit();
   });
 });
 </script>
