@@ -595,30 +595,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Add to cart form submission
   sidecartForm.addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent the default form submission
-
-    // Get the form data
-    const formData = new FormData(sidecartForm);
-
-    // Submit the form data using fetch
-    fetch('/cart/add', {
-      method: 'POST',
-      body: formData
-    })
-    .then(response => response.json())
-    .then(data => {
-      // Clear the selectedProducts object after successful form submission
-      selectedProducts = {};
-      
-      // Update the sidecart to reflect the empty state
+    // You can add any additional logic here before form submission if needed
+    
+    // Clear the selectedProducts object after successful form submission
+    selectedProducts = {};
+    
+    // Update the sidecart to reflect the empty state
+    setTimeout(function() {
       updateSidecart();
-
-      // Optional: Show a success message or update the cart count
-      console.log('Items added to cart successfully');
-    })
-    .catch(error => {
-      console.error('Error adding items to cart:', error);
-    });
+    }, 100);
   });
 
   // Initialize sidecart
