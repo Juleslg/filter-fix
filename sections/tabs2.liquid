@@ -595,17 +595,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Add to cart form submission
   sidecartForm.addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent the default form submission
-    console.log('Form submitted');
-    
-    // Add a check to see if the form is empty
-    if (Object.keys(selectedProducts).length === 0) {
-      console.log('No items in cart, submission cancelled');
-      return;
-    }
-
-    // You can add any additional logic here before form submission if needed
-    console.log('Selected products:', selectedProducts);
 
     // Simulate form submission (remove this in production and use actual form submission)
     setTimeout(function() {
@@ -615,7 +604,7 @@ document.addEventListener('DOMContentLoaded', function() {
       
       // Update the sidecart to reflect the empty state
       updateSidecart();
-    }, 1000); // Simulating a 1-second delay for form submission
+    }, 50); // Simulating a 1-second delay for form submission
   });
 
   // Initialize sidecart
