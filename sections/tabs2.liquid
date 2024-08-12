@@ -589,7 +589,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function deleteAllItems() {
     selectedProducts = {};
-    updateSidecart(); 
+    updateSidecart();
   }
 
   addToSidecartButtons.forEach(button => {
@@ -598,12 +598,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Debug button event listener
   debugButton.addEventListener('click', function() {
-    console.log('Submitted Bitch');
-    sidecartForm.submit() // Trigger the add-to-cart button
+    console.log('Submitttttted Bitch');
+       sidecartForm.submit() // Trigger the add-to-cart button
   });
 
   // Add to cart form submission
-  sidecartForm.addEventListener('click', function(event) {
+  sidecartForm.addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the default form submission
+
     // Simulate form submission (remove this in production and use actual form submission)
     setTimeout(function() {
       console.log('Form submission completed');
@@ -612,10 +614,7 @@ document.addEventListener('DOMContentLoaded', function() {
       
       // Update the sidecart to reflect the empty state
       updateSidecart();
-    }, 50);
-
-    sidecartForm.submit()
-     // Simulating a 50ms delay for form submission
+    }, 50); // Simulating a 50ms delay for form submission
   });
 
   // Initialize sidecart
