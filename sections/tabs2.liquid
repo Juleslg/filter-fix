@@ -595,19 +595,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Add to cart form submission
   sidecartForm.addEventListener('submit', function(event) {
-  event.preventDefault(); // Prevent the default form submission
+    // You can add any additional logic here before form submission if needed
+    console.log('form submitted');
+    // Clear the selectedProducts object after successful form submission
+    selectedProducts = {};
+    
+    // Update the sidecart to reflect the empty state
+    setTimeout(function() {
+      updateSidecart();
+    }, 50);
+  });
 
-  console.log('form submitted');
-  deleteAllItems();  // Call deleteAllItems() immediately
-
-  // Clear the selectedProducts object
-  selectedProducts = {};
-
-  // Update the sidecart to reflect the empty state
+  // Initialize sidecart
   updateSidecart();
-
-  // Submit the form programmatically
-  this.submit();
 });
 </script>
 
