@@ -472,8 +472,6 @@ document.addEventListener('DOMContentLoaded', function() {
         `;
       }
       sidecartContent += '</ul>';
-      
-      // Add "Delete All" text link
       sidecartContent += '<div class="delete-all-container"><a href="#" id="delete-all-link">Delete all</a></div>';
     }
     sidecartItems.innerHTML = sidecartContent;
@@ -489,8 +487,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
       const quantityInput = document.createElement('input');
       quantityInput.type = 'hidden';
-      quantityInput.name = 'items[][quantity]';
-      quantityInput.value = product.quantity;
+      input.name = 'items[][quantity]';
+      input.value = product.quantity;
       sidecartForm.appendChild(quantityInput);
     }
 
@@ -617,7 +615,9 @@ document.addEventListener('DOMContentLoaded', function() {
       const responseJson = await response.json();
       document.documentElement.dispatchEvent(new CustomEvent('theme:loading:end', { bubbles: true }));
       const cartContent = await (await fetch('/cart.js')).json();
-      cartContent['sections'] = responseJson['sections'];
+      if (responseJson.sections) {
+        cartContent['sections'] = responseJson['sections'];
+      }
       document.documentElement.dispatchEvent(new CustomEvent('cart:change', {
         bubbles: true,
         detail: {
@@ -625,6 +625,11 @@ document.addEventListener('DOMContentLoaded', function() {
           cart: cartContent
         }
       }));
+      // Open the cart drawer
+      const cartDrawer = document.getElementById('cart-drawer');
+      if (cartDrawer) {
+        cartDrawer.classList.add('active');
+      }
     } else {
       const responseJson = await response.json();
       document.documentElement.dispatchEvent(new CustomEvent('cart:error', {
