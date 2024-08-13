@@ -614,28 +614,14 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     if (response.ok) {
-      const responseJson = await response.json();
-      document.documentElement.dispatchEvent(new CustomEvent('theme:loading:end', { bubbles: true }));
-      const cartContent = await (await fetch('/cart.js')).json();
-      cartContent['sections'] = responseJson['sections'];
-      document.documentElement.dispatchEvent(new CustomEvent('cart:change', {
-        bubbles: true,
-        detail: {
-          baseEvent: 'variant:add',
-          cart: cartContent
+      console.log('Cart added successfully');
         }
-      }));
+     
     } else {
-      const responseJson = await response.json();
-      document.documentElement.dispatchEvent(new CustomEvent('cart:error', {
-        bubbles: true,
-        detail: {
-          error: responseJson['description']
-        }
-      }));
+      console.log('Cart not added');
     }
   });
-});
+
 </script>
 
 
