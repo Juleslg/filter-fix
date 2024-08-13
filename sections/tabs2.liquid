@@ -56,7 +56,7 @@
                 <!-- Hidden inputs will be dynamically added here -->
             <button type="submit" class="button button--primary" id="add-to-cart-button">Add to Cart</button>
             </form>
-            <button data-cd-cart-btn aria-controls="cart-drawer" id="add-to-cart-button-2" class="button button--primary">Add to Cart Second</button>
+            <button data-cd-cart-btn id="add-to-cart-button-2" class="button button--primary">Add to Cart Second</button>
     </div>
 
 
@@ -609,7 +609,9 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   addToCartButton2.addEventListener('click', function() {
+    event.preventDefault();
     sidecartForm.submit();
+    
   });
 });
 </script>
