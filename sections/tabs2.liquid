@@ -602,17 +602,38 @@ document.addEventListener('DOMContentLoaded', function() {
     button.addEventListener('click', addToSidecart);
   });
 
-  // Add to cart form submission
-  sidecartForm.addEventListener('submit', function(event) {
+  addToCartButton2.addEventListener('click', async function(event) {
     event.preventDefault();
-    // Trigger the cart drawer
-    document.dispatchEvent(new CustomEvent('cart:change', { detail: { cart: selectedProducts } }));
-  });
+    const formData = new FormData(sidecartForm);
+    const response = await fetch('/cart/add.js', {
+      method: 'POST',
+      body: formData,
+      headers: {
+        'X-Requested-With': 'XMLHttpRequest'
+      }
+    });
 
-  addToCartButton2.addEventListener('click', function(event) {
-    console.log('addToCartButton2 clicked');
-    event.preventDefault();
-    sidecartForm.submit();
+    if (response.ok) {
+      const responseJson = await response.json();
+      document.documentElement.dispatchEvent(new CustomEvent('theme:loading:end', { bubbles: true }));
+      const cartContent = await (await fetch('/cart.js')).json();
+      cartContent['sections'] = responseJson['sections'];
+      document.documentElement.dispatchEvent(new CustomEvent('cart:change', {
+        bubbles: true,
+        detail: {
+          baseEvent: 'variant:add',
+          cart: cartContent
+        }
+      }));
+    } else {
+      const responseJson = await response.json();
+      document.documentElement.dispatchEvent(new CustomEvent('cart:error', {
+        bubbles: true,
+        detail: {
+          error: responseJson['description']
+        }
+      }));
+    }
   });
 });
 </script>
