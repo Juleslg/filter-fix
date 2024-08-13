@@ -627,7 +627,8 @@ document.addEventListener('DOMContentLoaded', function() {
       }));
 
       // Clear the selection
-      selectedProducts = {};
+      deleteAllItems();
+
       
       // Update sidecart with success message
       sidecartItems.innerHTML = '<div class="sidecart-text">Set added to the cart!</div>';
