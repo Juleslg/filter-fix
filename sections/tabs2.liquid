@@ -56,7 +56,7 @@
                 <!-- Hidden inputs will be dynamically added here -->
             <button type="submit" class="button button--primary" id="add-to-cart-button">Add to Cart</button>
             </form>
-            <button id="add-to-cart-button-2" class="button button--primary">Add to Cart Second</button>
+            <button data-cd-cart-btn aria-controls="cart-drawer" id="add-to-cart-button-2" class="button button--primary">Add to Cart Second</button>
     </div>
 
 
@@ -608,44 +608,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
   });
 
-  addToCartButton2.addEventListener('click', function(event) {
-  event.preventDefault();
-  addToCartAndOpenDrawer();
-});
-
-async function addToCartAndOpenDrawer() {
-  const formData = new FormData(sidecartForm);
-  
-  try {
-    const response = await fetch(`${Shopify.routes.root}cart/add.js`, {
-      method: 'POST',
-      body: formData
-    });
-
-    if (response.ok) {
-      const cartContent = await (await fetch(`${Shopify.routes.root}cart.js`)).json();
-      
-      // Dispatch the cart:change event
-      document.documentElement.dispatchEvent(new CustomEvent('cart:change', {
-        bubbles: true,
-        detail: {
-          baseEvent: 'variant:add',
-          cart: cartContent
-        }
-      }));
-
-      // Open the cart drawer
-      const cartDrawer = document.querySelector('cart-drawer');
-      if (cartDrawer) {
-        cartDrawer.show();
-      }
-    } else {
-      console.error('Error adding product to cart');
-    }
-  } catch (error) {
-    console.error('Error:', error);
-  }
-}
+  addToCartButton2.addEventListener('click', function() {
+    sidecartForm.submit();
+  });
 });
 </script>
 
