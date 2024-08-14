@@ -99,12 +99,22 @@
             "products_count": 16,
             "open_on_mobile": false
           }
+        },
+        "collection_tab_QhErEr": {
+          "type": "collection_tab",
+          "settings": {
+            "title": "Poupouli",
+            "collection": "dessertteller",
+            "products_count": 16,
+            "open_on_mobile": false
+          }
         }
       },
       "block_order": [
         "collection_tab_9Y33za",
         "collection_tab_GhQn7L",
-        "collection_tab_mmJKCU"
+        "collection_tab_mmJKCU",
+        "collection_tab_QhErEr"
       ],
       "settings": {
         "separate_section_with_border": true,
