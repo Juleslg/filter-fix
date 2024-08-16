@@ -77,7 +77,7 @@
           "type": "collection_tab",
           "settings": {
             "title": "Plates",
-            "collection": "essteller",
+            "collection": "small-plates",
             "products_count": 16,
             "open_on_mobile": false
           }
@@ -85,8 +85,8 @@
         "collection_tab_GhQn7L": {
           "type": "collection_tab",
           "settings": {
-            "title": "Gelix",
-            "collection": "aberta",
+            "title": "Big Plates",
+            "collection": "big-plates-mix-match",
             "products_count": 16,
             "open_on_mobile": false
           }
@@ -94,8 +94,8 @@
         "collection_tab_mmJKCU": {
           "type": "collection_tab",
           "settings": {
-            "title": "Dose",
-            "collection": "dosen-butterdosen",
+            "title": "Small Bowl",
+            "collection": "small-bowls",
             "products_count": 16,
             "open_on_mobile": false
           }
@@ -103,8 +103,8 @@
         "collection_tab_QhErEr": {
           "type": "collection_tab",
           "settings": {
-            "title": "Poupouli",
-            "collection": "dessertteller",
+            "title": "Deep Plates",
+            "collection": "deep-plate-mix-match",
             "products_count": 16,
             "open_on_mobile": false
           }
