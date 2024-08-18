@@ -3113,7 +3113,7 @@ tfoot td {
 }
 
 .content-tabs--center::part(tab-list) {
-  width: max-content;
+  width: 100%;
   margin-inline: auto;
 }
 
