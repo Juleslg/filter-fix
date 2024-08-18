@@ -77,7 +77,7 @@
           "type": "collection_tab",
           "settings": {
             "title": "Plates",
-            "collection": "essteller",
+            "collection": "small-plates",
             "products_count": 16,
             "open_on_mobile": false
           }
@@ -85,8 +85,8 @@
         "collection_tab_GhQn7L": {
           "type": "collection_tab",
           "settings": {
-            "title": "Gelix",
-            "collection": "aberta",
+            "title": "Big Plates",
+            "collection": "big-plates-mix-match",
             "products_count": 16,
             "open_on_mobile": false
           }
@@ -94,8 +94,17 @@
         "collection_tab_mmJKCU": {
           "type": "collection_tab",
           "settings": {
-            "title": "Dose",
-            "collection": "dosen-butterdosen",
+            "title": "Small Bowl",
+            "collection": "small-bowls",
+            "products_count": 16,
+            "open_on_mobile": false
+          }
+        },
+        "collection_tab_QhErEr": {
+          "type": "collection_tab",
+          "settings": {
+            "title": "Deep Plates",
+            "collection": "deep-plate-mix-match",
             "products_count": 16,
             "open_on_mobile": false
           }
@@ -104,12 +113,13 @@
       "block_order": [
         "collection_tab_9Y33za",
         "collection_tab_GhQn7L",
-        "collection_tab_mmJKCU"
+        "collection_tab_mmJKCU",
+        "collection_tab_QhErEr"
       ],
       "settings": {
         "separate_section_with_border": true,
-        "subheading": "Subheading",
-        "title": "Collection Tabs",
+        "subheading": "Build your own",
+        "title": "Small Dinner Set",
         "text_alignment": "center",
         "hide_product_information": false,
         "products_per_row_mobile": "2",
