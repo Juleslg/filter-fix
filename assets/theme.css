@@ -3120,7 +3120,7 @@ tfoot td {
 }
 
 .content-tabs--center::part(tab-panel-list) {
-  width: min(800px, 100%);
+  width: 100%;
   text-align: center;
   margin-inline: auto;
   display: block;
