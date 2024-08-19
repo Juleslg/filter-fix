@@ -498,12 +498,12 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   const progressRules = [
-    { id: '{{ section.settings.progress_product_1 }}', quantity: {{ section.settings.progress_quantity_1 }} },
-    { id: '{{ section.settings.progress_product_2 }}', quantity: {{ section.settings.progress_quantity_2 }} },
-    { id: '{{ section.settings.progress_product_3 }}', quantity: {{ section.settings.progress_quantity_3 }} },
-    { id: '{{ section.settings.progress_product_4 }}', quantity: {{ section.settings.progress_quantity_4 }} }
-  ].filter(rule => rule.id); // Remove any rules where the product ID wasn't entered
-
+     { id: '8691934691596', quantity: 4 },
+     { id: '8691930202380', quantity: 4 },
+     { id: '8691936166156', quantity: 4 },
+     { id: '8691926696204', quantity: 4 }
+   ];
+   
   function updateProgressBar() {
     const progressBar = document.getElementById('sidecart-progress-bar');
     let totalRules = progressRules.length;
