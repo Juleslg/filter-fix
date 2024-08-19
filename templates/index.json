@@ -108,13 +108,23 @@
             "products_count": 16,
             "open_on_mobile": false
           }
+        },
+        "collection_tab_wJMLDL": {
+          "type": "collection_tab",
+          "settings": {
+            "title": "5 Collections",
+            "collection": "",
+            "products_count": 16,
+            "open_on_mobile": false
+          }
         }
       },
       "block_order": [
         "collection_tab_9Y33za",
         "collection_tab_GhQn7L",
         "collection_tab_mmJKCU",
-        "collection_tab_QhErEr"
+        "collection_tab_QhErEr",
+        "collection_tab_wJMLDL"
       ],
       "settings": {
         "separate_section_with_border": true,
