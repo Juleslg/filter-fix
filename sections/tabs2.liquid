@@ -465,6 +465,19 @@ padding-bottom: 1rem ;
 </style>
 
 <script>
+
+
+onsole.log('Raw progress settings:');
+console.log('Progress Product 1: {{ section.settings.progress_product_1 }}');
+console.log('Progress Quantity 1: {{ section.settings.progress_quantity_1 }}');
+console.log('Progress Product 2: {{ section.settings.progress_product_2 }}');
+console.log('Progress Quantity 2: {{ section.settings.progress_quantity_2 }}');
+console.log('Progress Product 3: {{ section.settings.progress_product_3 }}');
+console.log('Progress Quantity 3: {{ section.settings.progress_quantity_3 }}');
+console.log('Progress Product 4: {{ section.settings.progress_product_4 }}');
+console.log('Progress Quantity 4: {{ section.settings.progress_quantity_4 }}');
+
+
 document.addEventListener('DOMContentLoaded', function() {
   const addToSidecartButtons = document.querySelectorAll('.add-to-sidecart');
   const sidecartItems = document.getElementById('sidecart-items');
