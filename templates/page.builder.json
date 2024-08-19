@@ -20,6 +20,47 @@
         "page_width": "xs"
       }
     },
+    "image_text_layout_VQVGcP": {
+      "type": "image-text-layout",
+      "blocks": {
+        "subheading_xT7JMW": {
+          "type": "subheading",
+          "settings": {
+            "text": "Build your own"
+          }
+        },
+        "heading_9ityTh": {
+          "type": "heading",
+          "settings": {
+            "text": "Großes Dinner-Set",
+            "heading_tag": "h1"
+          }
+        },
+        "richtext_HhTqUC": {
+          "type": "richtext",
+          "settings": {
+            "content": "<ul><li>4x Kleine Schüssel<\/li><li>4x Kleiner Teller<\/li><li>4x Großer Teller (M)<\/li><li>4x Großer Teller (L)<\/li><li>4x Tiefer Teller <\/li><\/ul>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_xT7JMW",
+        "heading_9ityTh",
+        "richtext_HhTqUC"
+      ],
+      "settings": {
+        "separate_section_with_border": false,
+        "image": "shopify:\/\/shop_images\/C-01-SET-XLDINE-MWHITE-003-01_458eb31d-f97e-4fa5-8422-2571709f34a1.webp",
+        "reveal_on_scroll": true,
+        "image_position": "image-with-text",
+        "text_agline": "left",
+        "content_width": "sm",
+        "padding_sides_desktop": 0,
+        "padding_sides_mobile": 0,
+        "gap_img_text": 0,
+        "remove_vertical_spacing": true
+      }
+    },
     "tabs2_YG8Ckn": {
       "type": "tabs2",
       "blocks": {
@@ -66,8 +107,8 @@
         "collection_tab_tnWaMb"
       ],
       "settings": {
-        "subheading": "Build your own",
-        "title": "Großes Dinner-Set",
+        "subheading": "",
+        "title": "",
         "text_alignment": "center"
       }
     },
@@ -115,6 +156,7 @@
   },
   "order": [
     "main",
+    "image_text_layout_VQVGcP",
     "tabs2_YG8Ckn",
     "image_text_layout_NECB9Y"
   ]
