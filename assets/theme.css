@@ -3094,7 +3094,7 @@ tfoot td {
 
 
 .content-tabs::part(tab-list) {
-  border-block-end: 1px solid rgb(var(--border-color));
+  /* border-block-end: 1px solid rgb(var(--border-color)); */
   white-space: nowrap;
   grid-auto-flow: column;
   justify-content: start;
