@@ -41,12 +41,19 @@
           "settings": {
             "content": "<ul><li>4x Kleine Schüssel<\/li><li>4x Kleiner Teller<\/li><li>4x Großer Teller<\/li><li>4x Tiefer Teller <\/li><\/ul>"
           }
+        },
+        "subheading_FGKirD": {
+          "type": "subheading",
+          "settings": {
+            "text": "Save 10% | Discount applied to card"
+          }
         }
       },
       "block_order": [
         "subheading_xT7JMW",
         "heading_9ityTh",
-        "richtext_HhTqUC"
+        "richtext_HhTqUC",
+        "subheading_FGKirD"
       ],
       "settings": {
         "separate_section_with_border": false,
