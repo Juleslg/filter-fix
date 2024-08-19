@@ -29,6 +29,13 @@
             "text": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, in maxime nisi impedit quos recusandae, laboriosam temporibus tempore saepe porro nostrum? Nihil, consequatur. Saepe ut excepturi odio eius architecto pariatur!<\/p>"
           }
         },
+        "collection_tab_C8MizD": {
+          "type": "collection_tab",
+          "settings": {
+            "title": "Kleine Schüssel",
+            "collection": "small-bowls"
+          }
+        },
         "collection_tab_XVTJrF": {
           "type": "collection_tab",
           "settings": {
@@ -49,21 +56,14 @@
             "title": "Tiefer Teller",
             "collection": "deep-plate-mix-match"
           }
-        },
-        "collection_tab_C8MizD": {
-          "type": "collection_tab",
-          "settings": {
-            "title": "Kleine Schüssel",
-            "collection": "small-bowls"
-          }
         }
       },
       "block_order": [
         "description_ftPaDG",
+        "collection_tab_C8MizD",
         "collection_tab_XVTJrF",
         "collection_tab_QDGwUV",
-        "collection_tab_tnWaMb",
-        "collection_tab_C8MizD"
+        "collection_tab_tnWaMb"
       ],
       "settings": {
         "subheading": "Build your own",
