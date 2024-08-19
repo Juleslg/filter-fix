@@ -450,15 +450,13 @@ padding-bottom: 1rem ;
 .progress-bar-container {
     width: 100%;
     background-color: #f0f0f0;
-    border-radius: 5px;
     margin-bottom: 10px;
   }
 
   .progress-bar {
     width: 0;
     height: 10px;
-    background-color: #4CAF50;
-    border-radius: 5px;
+    background-color: #000000;
     transition: width 0.3s ease-in-out;
   }
 
@@ -503,7 +501,7 @@ document.addEventListener('DOMContentLoaded', function() {
      { id: '8691936166156', quantity: 4 },
      { id: '8691926696204', quantity: 4 }
    ];
-   
+
   function updateProgressBar() {
     const progressBar = document.getElementById('sidecart-progress-bar');
     let totalRules = progressRules.length;
