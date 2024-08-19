@@ -502,34 +502,27 @@ document.addEventListener('DOMContentLoaded', function() {
      { id: '8691926696204', quantity: 4 }
    ];
 
-  function updateProgressBar() {
-    const progressBar = document.getElementById('sidecart-progress-bar');
-    let totalRules = progressRules.length;
-    let satisfiedRules = 0;
+   function updateProgressBar() {
+  const progressBar = document.getElementById('sidecart-progress-bar');
+  let totalRequiredQuantity = progressRules.reduce((sum, rule) => sum + rule.quantity, 0);
+  let currentQuantity = 0;
 
-    console.log('Progress Rules:', progressRules);
-    console.log('Selected Products:', selectedProducts);
+  console.log('Progress Rules:', progressRules);
+  console.log('Selected Products:', selectedProducts);
 
-    progressRules.forEach(rule => {
-      console.log(`Checking rule for product ID: ${rule.id}, required quantity: ${rule.quantity}`);
-      const matchingProducts = Object.values(selectedProducts).filter(product => product.id === rule.id);
-      const totalQuantity = matchingProducts.reduce((sum, product) => sum + product.quantity, 0);
-      
-      if (totalQuantity > 0) {
-        console.log(`Found matching product(s) for ID ${rule.id}, total quantity: ${totalQuantity}`);
-        if (totalQuantity >= rule.quantity) {
-          satisfiedRules++;
-          console.log(`Rule satisfied for product ID: ${rule.id}`);
-        }
-      } else {
-        console.log(`No matching product found for ID: ${rule.id}`);
-      }
-    });
+  progressRules.forEach(rule => {
+    console.log(`Checking rule for product ID: ${rule.id}, required quantity: ${rule.quantity}`);
+    const matchingProducts = Object.values(selectedProducts).filter(product => product.id === rule.id);
+    const productQuantity = matchingProducts.reduce((sum, product) => sum + product.quantity, 0);
+    currentQuantity += Math.min(productQuantity, rule.quantity);
+    
+    console.log(`Product ID ${rule.id}: ${productQuantity} / ${rule.quantity}`);
+  });
 
-    const progressPercentage = (satisfiedRules / totalRules) * 100;
-    console.log(`Progress: ${satisfiedRules}/${totalRules} rules satisfied, ${progressPercentage}%`);
-    progressBar.style.width = `${progressPercentage}%`;
-  }
+  const progressPercentage = (currentQuantity / totalRequiredQuantity) * 100;
+  console.log(`Progress: ${currentQuantity}/${totalRequiredQuantity}, ${progressPercentage.toFixed(2)}%`);
+  progressBar.style.width = `${progressPercentage}%`;
+}
 
   function updateSidecart() {
     let sidecartContent = '';
