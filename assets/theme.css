@@ -3105,6 +3105,7 @@ tfoot td {
 
 @media screen and (max-width: 768px) {
   .content-tabs::part(tab-list) {
+    border-block-end: unset;
     grid-auto-flow: unset;
     display: grid;
     grid-template-columns: 1fr 1fr;
