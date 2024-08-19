@@ -741,9 +741,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Initial update
   updateSidecart();
 });
-</script>
 
-<script>
 console.log('Raw progress settings:', {
   product1: '{{ section.settings.progress_product_1 }}',
   quantity1: {{ section.settings.progress_quantity_1 | default: 0 }},
@@ -756,6 +754,11 @@ console.log('Raw progress settings:', {
 });
 
 </script>
+
+
+
+
+
 
 
 {% schema %}
