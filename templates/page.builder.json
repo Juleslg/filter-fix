@@ -70,10 +70,52 @@
         "title": "Großes Dinner-Set",
         "text_alignment": "center"
       }
+    },
+    "image_text_layout_NECB9Y": {
+      "type": "image-text-layout",
+      "blocks": {
+        "subheading_DnafB9": {
+          "type": "subheading",
+          "settings": {
+            "text": "Subheading"
+          }
+        },
+        "heading_FKdbxR": {
+          "type": "heading",
+          "settings": {
+            "text": "Image text Layout",
+            "heading_tag": "h1"
+          }
+        },
+        "richtext_BWi4jP": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_DnafB9",
+        "heading_FKdbxR",
+        "richtext_BWi4jP"
+      ],
+      "settings": {
+        "separate_section_with_border": false,
+        "image": "shopify:\/\/shop_images\/2022-05-03_Onomao1774_719cda74-baf8-463b-8928-ad49e5dd88d2.png",
+        "reveal_on_scroll": true,
+        "image_position": "image-with-text",
+        "text_agline": "left",
+        "content_width": "sm",
+        "padding_sides_desktop": 0,
+        "padding_sides_mobile": 0,
+        "gap_img_text": 0,
+        "remove_vertical_spacing": true
+      }
     }
   },
   "order": [
     "main",
-    "tabs2_YG8Ckn"
+    "tabs2_YG8Ckn",
+    "image_text_layout_NECB9Y"
   ]
 }
