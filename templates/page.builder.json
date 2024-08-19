@@ -11,6 +11,7 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "custom_css": [
 
       ],
@@ -65,8 +66,8 @@
         "collection_tab_C8MizD"
       ],
       "settings": {
-        "subheading": "Subheading",
-        "title": "Collection Tabs",
+        "subheading": "Build your own",
+        "title": "Großes Dinner-Set",
         "text_alignment": "center"
       }
     }
