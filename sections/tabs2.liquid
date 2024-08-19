@@ -498,11 +498,11 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   const progressRules = [
-    { id: {{ section.settings.progress_product_1.id | json }}, quantity: {{ section.settings.progress_quantity_1 }} },
-    { id: {{ section.settings.progress_product_2.id | json }}, quantity: {{ section.settings.progress_quantity_2 }} },
-    { id: {{ section.settings.progress_product_3.id | json }}, quantity: {{ section.settings.progress_quantity_3 }} },
-    { id: {{ section.settings.progress_product_4.id | json }}, quantity: {{ section.settings.progress_quantity_4 }} }
-  ].filter(rule => rule.id); // Remove any rules where the product wasn't selected
+  { id: {{ section.settings.progress_product_1 | json }}, quantity: {{ section.settings.progress_quantity_1 }} },
+  { id: {{ section.settings.progress_product_2 | json }}, quantity: {{ section.settings.progress_quantity_2 }} },
+  { id: {{ section.settings.progress_product_3 | json }}, quantity: {{ section.settings.progress_quantity_3 }} },
+  { id: {{ section.settings.progress_product_4 | json }}, quantity: {{ section.settings.progress_quantity_4 }} }
+].filter(rule => rule.id); // Remove any rules where the product ID wasn't entered
 
   function updateProgressBar() {
     const progressBar = document.getElementById('sidecart-progress-bar');
@@ -752,49 +752,49 @@ document.addEventListener('DOMContentLoaded', function() {
     },
     "settings": [
       {
-      "type": "product",
-      "id": "progress_product_1",
-      "label": "Progress Product 1"
-    },
-    {
-      "type": "number",
-      "id": "progress_quantity_1",
-      "label": "Progress Quantity 1",
-      "default": 1
-    },
-    {
-      "type": "product",
-      "id": "progress_product_2",
-      "label": "Progress Product 2"
-    },
-    {
-      "type": "number",
-      "id": "progress_quantity_2",
-      "label": "Progress Quantity 2",
-      "default": 1
-    },
-    {
-      "type": "product",
-      "id": "progress_product_3",
-      "label": "Progress Product 3"
-    },
-    {
-      "type": "number",
-      "id": "progress_quantity_3",
-      "label": "Progress Quantity 3",
-      "default": 1
-    },
-    {
-      "type": "product",
-      "id": "progress_product_4",
-      "label": "Progress Product 4"
-    },
-    {
-      "type": "number",
-      "id": "progress_quantity_4",
-      "label": "Progress Quantity 4",
-      "default": 1
-    },
+        "type": "text",
+        "id": "progress_product_1",
+        "label": "Progress Product 1 ID"
+      },
+      {
+        "type": "number",
+        "id": "progress_quantity_1",
+        "label": "Progress Quantity 1",
+        "default": 1
+      },
+      {
+        "type": "text",
+        "id": "progress_product_2",
+        "label": "Progress Product 2 ID"
+      },
+      {
+        "type": "number",
+        "id": "progress_quantity_2",
+        "label": "Progress Quantity 2",
+        "default": 1
+      },
+      {
+        "type": "text",
+        "id": "progress_product_3",
+        "label": "Progress Product 3 ID"
+      },
+      {
+        "type": "number",
+        "id": "progress_quantity_3",
+        "label": "Progress Quantity 3",
+        "default": 1
+      },
+      {
+        "type": "text",
+        "id": "progress_product_4",
+        "label": "Progress Product 4 ID"
+      },
+      {
+        "type": "number",
+        "id": "progress_quantity_4",
+        "label": "Progress Quantity 4",
+        "default": 1
+      },
       {
         "type": "inline_richtext",
         "id": "subheading",
