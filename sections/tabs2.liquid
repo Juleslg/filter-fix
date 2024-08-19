@@ -56,9 +56,10 @@
 
     <div class="sidecart">
         <div class="h6">Your selection</div>
+        <div class="progress-bar-container">
             <div class="sidecart-items-container">
                 <div id="sidecart-items"></div>
-            </div>
+        </div>
             <form method="post" action="/cart/add" id="sidecart-form">
                 <!-- Hidden inputs will be dynamically added here -->
             <button type="submit" class="button button--primary" style="display: none;" id="add-to-cart-button">Add to Cart</button>
@@ -444,6 +445,21 @@ padding-bottom: 1rem ;
   color: rgb(var(--accent-color-darker));
 }
 
+.progress-bar-container {
+    width: 100%;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+
+  .progress-bar {
+    width: 0;
+    height: 10px;
+    background-color: #4CAF50;
+    border-radius: 5px;
+    transition: width 0.3s ease-in-out;
+  }
+
 </style>
 
 <script>
@@ -478,6 +494,29 @@ document.addEventListener('DOMContentLoaded', function() {
       overlay.classList.remove('active');
     }
   });
+
+  const progressRules = [
+    { id: {{ section.settings.progress_product_1.id | json }}, quantity: {{ section.settings.progress_quantity_1 }} },
+    { id: {{ section.settings.progress_product_2.id | json }}, quantity: {{ section.settings.progress_quantity_2 }} },
+    { id: {{ section.settings.progress_product_3.id | json }}, quantity: {{ section.settings.progress_quantity_3 }} },
+    { id: {{ section.settings.progress_product_4.id | json }}, quantity: {{ section.settings.progress_quantity_4 }} }
+  ].filter(rule => rule.id); // Remove any rules where the product wasn't selected
+
+  function updateProgressBar() {
+    const progressBar = document.getElementById('sidecart-progress-bar');
+    let totalRules = progressRules.length;
+    let satisfiedRules = 0;
+
+    progressRules.forEach(rule => {
+      const matchingProduct = Object.values(selectedProducts).find(product => product.id === rule.id);
+      if (matchingProduct && matchingProduct.quantity >= rule.quantity) {
+        satisfiedRules++;
+      }
+    });
+
+    const progressPercentage = (satisfiedRules / totalRules) * 100;
+    progressBar.style.width = `${progressPercentage}%`;
+  }
 
   function updateSidecart() {
     let sidecartContent = '';
@@ -559,6 +598,8 @@ document.addEventListener('DOMContentLoaded', function() {
     } else {
       mobileToggle.style.display = 'block';
     }
+
+    updateProgressBar();
   }
 
   function addToSidecart(event) {
@@ -693,6 +734,50 @@ document.addEventListener('DOMContentLoaded', function() {
       "groups": ["header", "custom.overlay"]
     },
     "settings": [
+      {
+      "type": "product",
+      "id": "progress_product_1",
+      "label": "Progress Product 1"
+    },
+    {
+      "type": "number",
+      "id": "progress_quantity_1",
+      "label": "Progress Quantity 1",
+      "default": 1
+    },
+    {
+      "type": "product",
+      "id": "progress_product_2",
+      "label": "Progress Product 2"
+    },
+    {
+      "type": "number",
+      "id": "progress_quantity_2",
+      "label": "Progress Quantity 2",
+      "default": 1
+    },
+    {
+      "type": "product",
+      "id": "progress_product_3",
+      "label": "Progress Product 3"
+    },
+    {
+      "type": "number",
+      "id": "progress_quantity_3",
+      "label": "Progress Quantity 3",
+      "default": 1
+    },
+    {
+      "type": "product",
+      "id": "progress_product_4",
+      "label": "Progress Product 4"
+    },
+    {
+      "type": "number",
+      "id": "progress_quantity_4",
+      "label": "Progress Quantity 4",
+      "default": 1
+    },
       {
         "type": "inline_richtext",
         "id": "subheading",
