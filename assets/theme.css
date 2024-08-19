@@ -3096,12 +3096,21 @@ tfoot td {
 .content-tabs::part(tab-list) {
   border-block-end: 1px solid rgb(var(--border-color));
   white-space: nowrap;
-  grid-auto-flow: row;
-  justify-content: center;
+  grid-auto-flow: column;
+  justify-content: start;
   gap: 2.5rem;
   margin-block-end: 1.5rem;
   display: grid;
 }
+
+@media screen and (max-width: 768px) {
+  .content-tabs::part(tab-list) {
+    grid-auto-flow: row;
+    justify-content: center;
+  }
+}
+
+
 
 .content-tabs [role="tab"] {
   box-shadow: 0 1px rgb(var(--text-color));
