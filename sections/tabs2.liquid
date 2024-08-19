@@ -505,16 +505,31 @@ document.addEventListener('DOMContentLoaded', function() {
   ].filter(rule => rule.id); // Remove any rules where the product wasn't selected
 
   function updateProgressBar() {
-    const progressBar = document.getElementById('sidecart-progress-bar');
-    let totalRules = progressRules.length;
-    let satisfiedRules = 0;
+  const progressBar = document.getElementById('sidecart-progress-bar');
+  let totalRules = progressRules.length;
+  let satisfiedRules = 0;
 
-    progressRules.forEach(rule => {
-      const matchingProduct = Object.values(selectedProducts).find(product => product.id === rule.id);
-      if (matchingProduct && matchingProduct.quantity >= rule.quantity) {
+  console.log('Progress Rules:', progressRules);
+  console.log('Selected Products:', selectedProducts);
+
+  progressRules.forEach(rule => {
+    console.log(`Checking rule for product ID: ${rule.id}, required quantity: ${rule.quantity}`);
+    const matchingProduct = Object.values(selectedProducts).find(product => product.id === rule.id);
+    if (matchingProduct) {
+      console.log(`Found matching product: ${matchingProduct.title}, current quantity: ${matchingProduct.quantity}`);
+      if (matchingProduct.quantity >= rule.quantity) {
         satisfiedRules++;
+        console.log(`Rule satisfied for product ID: ${rule.id}`);
       }
-    });
+    } else {
+      console.log(`No matching product found for ID: ${rule.id}`);
+    }
+  });
+
+  const progressPercentage = (satisfiedRules / totalRules) * 100;
+  console.log(`Progress: ${satisfiedRules}/${totalRules} rules satisfied, ${progressPercentage}%`);
+  progressBar.style.width = `${progressPercentage}%`;
+}
 
     const progressPercentage = (satisfiedRules / totalRules) * 100;
     progressBar.style.width = `${progressPercentage}%`;
@@ -605,29 +620,33 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   function addToSidecart(event) {
-    const button = event.currentTarget;
-    const productId = button.getAttribute('data-product-id');
-    const variantId = button.getAttribute('data-variant-id');
-    const variantTitle = button.getAttribute('data-variant-title');
-    const productTitle = button.closest('.product-card').querySelector('.product-title').textContent;
+  const button = event.currentTarget;
+  const productId = button.getAttribute('data-product-id');
+  const variantId = button.getAttribute('data-variant-id');
+  const variantTitle = button.getAttribute('data-variant-title');
+  const productTitle = button.closest('.product-card').querySelector('.product-title').textContent;
 
-    // Create a unique key for each product variant combination
-    const key = `${productId}-${variantId}`;
+  console.log('Adding to sidecart:', { productId, variantId, variantTitle, productTitle });
 
-    if (selectedProducts[key]) {
-      selectedProducts[key].quantity += 1;
-    } else {
-      selectedProducts[key] = {
-        id: productId,
-        variantId: variantId,
-        variantTitle: variantTitle,
-        title: productTitle,
-        quantity: 1
-      };
-    }
+  // Create a unique key for each product variant combination
+  const key = `${productId}-${variantId}`;
 
-    updateSidecart();
+  if (selectedProducts[key]) {
+    selectedProducts[key].quantity += 1;
+  } else {
+    selectedProducts[key] = {
+      id: productId,
+      variantId: variantId,
+      variantTitle: variantTitle,
+      title: productTitle,
+      quantity: 1
+    };
   }
+
+  console.log('Updated selectedProducts:', selectedProducts);
+
+  updateSidecart();
+}
 
   function removeFromSidecart(event) {
     const key = event.currentTarget.getAttribute('data-product-key');
