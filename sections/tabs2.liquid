@@ -3,7 +3,7 @@
   <div class="container {% if section.settings.text_alignment == 'center' %}container--xl{% endif %}">
     <div class="section-stack">
       {%- render 'section-header', subheading: section.settings.subheading, heading: section.settings.title, content: section.settings.content, text_alignment: section.settings.text_alignment -%}
-      <div class="collection-description">Lorem, ispum ipsum dolor sit amet consectetur adipisicing elit. Dolor, in maxime nisi impedit quos recusandae, laboriosam temporibus tempore saepe porro nostrum? Nihil, consequatur. Saepe ut excepturi odio eius architecto pariatur!</div>
+      <div class="collection-description">{{ section.settings.description }}</div>
 <div class="maincontainer">
       <x-tabs class="content-tabs {% if section.settings.text_alignment == 'center' %}content-tabs--center{% endif %} sm:block">
         <template shadowrootmode="open">
@@ -686,6 +686,12 @@ document.addEventListener('DOMContentLoaded', function() {
       "groups": ["header", "custom.overlay"]
     },
     "settings": [
+      {
+    "type": "textarea",
+    "id": "description",
+    "label": "Description",
+    "default": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, in maxime nisi impedit quos recusandae, laboriosam temporibus tempore saepe porro nostrum? Nihil, consequatur. Saepe ut excepturi odio eius architecto pariatur!"
+  },
       {
         "type": "inline_richtext",
         "id": "subheading",
