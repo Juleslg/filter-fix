@@ -18,9 +18,61 @@
         "show_title": true,
         "page_width": "xs"
       }
+    },
+    "tabs2_YG8Ckn": {
+      "type": "tabs2",
+      "blocks": {
+        "description_ftPaDG": {
+          "type": "description",
+          "settings": {
+            "text": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, in maxime nisi impedit quos recusandae, laboriosam temporibus tempore saepe porro nostrum? Nihil, consequatur. Saepe ut excepturi odio eius architecto pariatur!<\/p>"
+          }
+        },
+        "collection_tab_XVTJrF": {
+          "type": "collection_tab",
+          "settings": {
+            "title": "Kleiner Teller",
+            "collection": "small-plates"
+          }
+        },
+        "collection_tab_QDGwUV": {
+          "type": "collection_tab",
+          "settings": {
+            "title": "Großer Teller",
+            "collection": "big-plates-mix-match"
+          }
+        },
+        "collection_tab_tnWaMb": {
+          "type": "collection_tab",
+          "settings": {
+            "title": "Tiefer Teller",
+            "collection": "deep-plate-mix-match"
+          }
+        },
+        "collection_tab_C8MizD": {
+          "type": "collection_tab",
+          "settings": {
+            "title": "Kleine Schüssel",
+            "collection": "small-bowls"
+          }
+        }
+      },
+      "block_order": [
+        "description_ftPaDG",
+        "collection_tab_XVTJrF",
+        "collection_tab_QDGwUV",
+        "collection_tab_tnWaMb",
+        "collection_tab_C8MizD"
+      ],
+      "settings": {
+        "subheading": "Subheading",
+        "title": "Collection Tabs",
+        "text_alignment": "center"
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "tabs2_YG8Ckn"
   ]
 }
