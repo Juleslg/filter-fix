@@ -51,6 +51,25 @@
     "collection_list_7kCRWw": {
       "type": "collection-list",
       "blocks": {
+        "collection_nYEHir": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "image": "shopify:\/\/shop_images\/C-01-SET-XLDINE-TEAL-003-02_a5ec2ee3-dbc4-44bf-9cea-8bed92709817.jpg",
+            "expand_collection": false,
+            "content_position": "place-self-end-center text-center",
+            "subheading": "",
+            "title": "",
+            "button_text": "Großes Dinner-Set",
+            "button_link": "shopify:\/\/pages\/builder",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "button_style": "outline",
+            "button_background": "#1c1b1b",
+            "button_text_color": "#1c1b1b"
+          }
+        },
         "collection_A3XwBf": {
           "type": "collection",
           "settings": {
@@ -127,25 +146,6 @@
             "button_text_color": "#1c1b1b"
           }
         },
-        "collection_nYEHir": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "image": "shopify:\/\/shop_images\/C-01-SET-XLDINE-TEAL-003-02_a5ec2ee3-dbc4-44bf-9cea-8bed92709817.jpg",
-            "expand_collection": false,
-            "content_position": "place-self-end-center text-center",
-            "subheading": "",
-            "title": "",
-            "button_text": "Großes Dinner-Set",
-            "button_link": "",
-            "text_color": "#ffffff",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0,
-            "button_style": "outline",
-            "button_background": "#1c1b1b",
-            "button_text_color": "#1c1b1b"
-          }
-        },
         "collection_TPkcwp": {
           "type": "collection",
           "settings": {
@@ -205,11 +205,11 @@
         }
       },
       "block_order": [
+        "collection_nYEHir",
         "collection_A3XwBf",
         "collection_rYntak",
         "collection_wVDa3b",
         "collection_rmGVe6",
-        "collection_nYEHir",
         "collection_TPkcwp",
         "collection_637waf",
         "collection_YHn7x9"
@@ -220,7 +220,7 @@
         "show_text_outside": false,
         "space_items": true,
         "stack_collections": true,
-        "collections_per_row_desktop": 4,
+        "collections_per_row_desktop": 3,
         "padding_sides_desktop": 0,
         "padding_sides_mobile": 0,
         "subheading": "",

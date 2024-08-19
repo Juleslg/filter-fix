@@ -77,45 +77,41 @@
           "type": "collection_tab",
           "settings": {
             "title": "Plates",
-            "collection": "small-plates",
-            "products_count": 16,
-            "open_on_mobile": false
+            "collection": "small-plates"
           }
         },
         "collection_tab_GhQn7L": {
           "type": "collection_tab",
           "settings": {
             "title": "Big Plates",
-            "collection": "big-plates-mix-match",
-            "products_count": 16,
-            "open_on_mobile": false
+            "collection": "big-plates-mix-match"
           }
         },
         "collection_tab_mmJKCU": {
           "type": "collection_tab",
           "settings": {
             "title": "Small Bowl",
-            "collection": "small-bowls",
-            "products_count": 16,
-            "open_on_mobile": false
+            "collection": "small-bowls"
           }
         },
         "collection_tab_QhErEr": {
           "type": "collection_tab",
           "settings": {
             "title": "Deep Plates",
-            "collection": "deep-plate-mix-match",
-            "products_count": 16,
-            "open_on_mobile": false
+            "collection": "deep-plate-mix-match"
           }
         },
         "collection_tab_wJMLDL": {
           "type": "collection_tab",
           "settings": {
             "title": "5 Collections",
-            "collection": "",
-            "products_count": 16,
-            "open_on_mobile": false
+            "collection": ""
+          }
+        },
+        "description_RNnNDB": {
+          "type": "description",
+          "settings": {
+            "text": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, in maxime nisi impedit quos recusandae, laboriosam temporibus tempore saepe porro nostrum? Nihil, consequatur. Saepe ut excepturi odio eius architecto pariatur!<\/p>"
           }
         }
       },
@@ -124,18 +120,13 @@
         "collection_tab_GhQn7L",
         "collection_tab_mmJKCU",
         "collection_tab_QhErEr",
-        "collection_tab_wJMLDL"
+        "collection_tab_wJMLDL",
+        "description_RNnNDB"
       ],
       "settings": {
-        "separate_section_with_border": true,
         "subheading": "Build your own",
         "title": "Small Dinner Set",
-        "text_alignment": "center",
-        "hide_product_information": false,
-        "products_per_row_mobile": "2",
-        "products_size_desktop": "medium",
-        "horizontal_spacing_factor": 1,
-        "vertical_spacing_factor": 1
+        "text_alignment": "center"
       }
     },
     "image_overlay_link_y6HAxQ": {
