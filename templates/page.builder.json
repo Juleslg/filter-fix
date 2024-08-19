@@ -20,6 +20,13 @@
         "page_width": "xs"
       }
     },
+    "spacer_ndy8YK": {
+      "type": "spacer",
+      "settings": {
+        "spacer_Desktop": 3,
+        "spacer_Mobil": 2
+      }
+    },
     "image_text_layout_VQVGcP": {
       "type": "image-text-layout",
       "blocks": {
@@ -62,7 +69,7 @@
         "image_position": "image-with-text",
         "text_agline": "left",
         "content_width": "sm",
-        "padding_sides_desktop": 150,
+        "padding_sides_desktop": 200,
         "padding_sides_mobile": 0,
         "gap_img_text": 0,
         "remove_vertical_spacing": true
@@ -163,6 +170,7 @@
   },
   "order": [
     "main",
+    "spacer_ndy8YK",
     "image_text_layout_VQVGcP",
     "tabs2_YG8Ckn",
     "image_text_layout_NECB9Y"
