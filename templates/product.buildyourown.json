@@ -150,6 +150,52 @@
         "max_image_zoom_level": 1
       }
     },
+    "b4c06846-c2c8-48e5-8bfe-46933ad7eeb9": {
+      "type": "image-text-layout",
+      "blocks": {
+        "template--18431048483084__b4c06846-c2c8-48e5-8bfe-46933ad7eeb9-subheading-1": {
+          "type": "subheading",
+          "disabled": true,
+          "settings": {
+            "text": "Subheading"
+          }
+        },
+        "template--18431048483084__b4c06846-c2c8-48e5-8bfe-46933ad7eeb9-heading-1": {
+          "type": "heading",
+          "settings": {
+            "text": "{{ product.metafields.custom.heritage.value.titel.value }}",
+            "heading_tag": "h3"
+          }
+        },
+        "template--18431048483084__b4c06846-c2c8-48e5-8bfe-46933ad7eeb9-richtext-1": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>.{{ product.metafields.custom.heritage.value.body | metafield_tag }}<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "template--18431048483084__b4c06846-c2c8-48e5-8bfe-46933ad7eeb9-subheading-1",
+        "template--18431048483084__b4c06846-c2c8-48e5-8bfe-46933ad7eeb9-heading-1",
+        "template--18431048483084__b4c06846-c2c8-48e5-8bfe-46933ad7eeb9-richtext-1"
+      ],
+      "custom_css": [
+        "\/* Targeting the element with the class \"image-with-text\" *\/.image-with-text {background-color: #f5f3ee; \/* Change this to your desired background color *\/}"
+      ],
+      "settings": {
+        "separate_section_with_border": false,
+        "image": "{{ product.metafields.custom.heritage.value.image.value }}",
+        "mobile_image": "{{ product.metafields.custom.heritage.value.mobile_image.value }}",
+        "reveal_on_scroll": true,
+        "image_position": "image-with-text image-with-text--reverse",
+        "text_agline": "left",
+        "content_width": "lg",
+        "padding_sides_desktop": 0,
+        "padding_sides_mobile": 0,
+        "gap_img_text": 0,
+        "remove_vertical_spacing": true
+      }
+    },
     "tabs2_xAwLxq": {
       "type": "tabs2",
       "blocks": {
@@ -208,52 +254,6 @@
         "subheading": "",
         "title": "",
         "text_alignment": "center"
-      }
-    },
-    "b4c06846-c2c8-48e5-8bfe-46933ad7eeb9": {
-      "type": "image-text-layout",
-      "blocks": {
-        "template--18431048483084__b4c06846-c2c8-48e5-8bfe-46933ad7eeb9-subheading-1": {
-          "type": "subheading",
-          "disabled": true,
-          "settings": {
-            "text": "Subheading"
-          }
-        },
-        "template--18431048483084__b4c06846-c2c8-48e5-8bfe-46933ad7eeb9-heading-1": {
-          "type": "heading",
-          "settings": {
-            "text": "{{ product.metafields.custom.heritage.value.titel.value }}",
-            "heading_tag": "h3"
-          }
-        },
-        "template--18431048483084__b4c06846-c2c8-48e5-8bfe-46933ad7eeb9-richtext-1": {
-          "type": "richtext",
-          "settings": {
-            "content": "<p>.{{ product.metafields.custom.heritage.value.body | metafield_tag }}<\/p>"
-          }
-        }
-      },
-      "block_order": [
-        "template--18431048483084__b4c06846-c2c8-48e5-8bfe-46933ad7eeb9-subheading-1",
-        "template--18431048483084__b4c06846-c2c8-48e5-8bfe-46933ad7eeb9-heading-1",
-        "template--18431048483084__b4c06846-c2c8-48e5-8bfe-46933ad7eeb9-richtext-1"
-      ],
-      "custom_css": [
-        "\/* Targeting the element with the class \"image-with-text\" *\/.image-with-text {background-color: #f5f3ee; \/* Change this to your desired background color *\/}"
-      ],
-      "settings": {
-        "separate_section_with_border": false,
-        "image": "{{ product.metafields.custom.heritage.value.image.value }}",
-        "mobile_image": "{{ product.metafields.custom.heritage.value.mobile_image.value }}",
-        "reveal_on_scroll": true,
-        "image_position": "image-with-text image-with-text--reverse",
-        "text_agline": "left",
-        "content_width": "lg",
-        "padding_sides_desktop": 0,
-        "padding_sides_mobile": 0,
-        "gap_img_text": 0,
-        "remove_vertical_spacing": true
       }
     },
     "021343f7-70e9-4a5a-9354-0bd8a50940a8": {
@@ -320,8 +320,8 @@
   },
   "order": [
     "main",
-    "tabs2_xAwLxq",
     "b4c06846-c2c8-48e5-8bfe-46933ad7eeb9",
+    "tabs2_xAwLxq",
     "021343f7-70e9-4a5a-9354-0bd8a50940a8",
     "234da89a-3e7d-44bd-9b00-d1ca481f7c71"
   ]
