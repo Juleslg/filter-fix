@@ -496,11 +496,13 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   const progressRules = [
-    { id: '{{ section.settings.progress_product_1 }}', quantity: {{ section.settings.progress_quantity_1 }} },
-    { id: '{{ section.settings.progress_product_2 }}', quantity: {{ section.settings.progress_quantity_2 }} },
-    { id: '{{ section.settings.progress_product_3 }}', quantity: {{ section.settings.progress_quantity_3 }} },
-    { id: '{{ section.settings.progress_product_4 }}', quantity: {{ section.settings.progress_quantity_4 }} }
-  ].filter(rule => rule.id && rule.id.trim() !== '' && rule.quantity > 0);
+    { id: '8691934691596', quantity: 4 },
+    { id: '8691930202380', quantity: 4 },
+    { id: '8691936166156', quantity: 4 },
+    { id: '8691926696204', quantity: 4 }
+  ];
+
+  console.log('Initial Progress Rules:', progressRules);
 
   function updateProgressBar() {
     const progressBar = document.getElementById('sidecart-progress-bar');
@@ -518,11 +520,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     progressRules.forEach(rule => {
       console.log(`Checking rule for product ID: ${rule.id}, required quantity: ${rule.quantity}`);
-      const matchingProducts = Object.entries(selectedProducts).filter(([key, product]) => {
-        const productId = key.split('-')[0]; // Get the part before the "-"
-        return productId === rule.id;
-      });
-      const productQuantity = matchingProducts.reduce((sum, [_, product]) => sum + product.quantity, 0);
+      const matchingProducts = Object.values(selectedProducts).filter(product => product.id === rule.id);
+      const productQuantity = matchingProducts.reduce((sum, product) => sum + product.quantity, 0);
       currentQuantity += Math.min(productQuantity, rule.quantity);
       
       console.log(`Product ID ${rule.id}: ${productQuantity} / ${rule.quantity}`);
@@ -632,7 +631,7 @@ document.addEventListener('DOMContentLoaded', function() {
       selectedProducts[key].quantity += 1;
     } else {
       selectedProducts[key] = {
-        id: productId, // Store the full product ID here
+        id: productId,
         variantId: variantId,
         variantTitle: variantTitle,
         title: productTitle,
