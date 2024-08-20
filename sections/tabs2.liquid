@@ -496,33 +496,33 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   const progressRules = [
-     { id: '8691934691596', quantity: 4 },
-     { id: '8691930202380', quantity: 4 },
-     { id: '8691936166156', quantity: 4 },
-     { id: '8691926696204', quantity: 4 }
-   ];
+    { id: '{{ section.settings.progress_product_1 }}', quantity: {{ section.settings.progress_quantity_1 }} },
+    { id: '{{ section.settings.progress_product_2 }}', quantity: {{ section.settings.progress_quantity_2 }} },
+    { id: '{{ section.settings.progress_product_3 }}', quantity: {{ section.settings.progress_quantity_3 }} },
+    { id: '{{ section.settings.progress_product_4 }}', quantity: {{ section.settings.progress_quantity_4 }} }
+  ].filter(rule => rule.id && rule.id.trim() !== '' && rule.quantity > 0);
 
-   function updateProgressBar() {
-  const progressBar = document.getElementById('sidecart-progress-bar');
-  let totalRequiredQuantity = progressRules.reduce((sum, rule) => sum + rule.quantity, 0);
-  let currentQuantity = 0;
+  function updateProgressBar() {
+    const progressBar = document.getElementById('sidecart-progress-bar');
+    let totalRequiredQuantity = progressRules.reduce((sum, rule) => sum + rule.quantity, 0);
+    let currentQuantity = 0;
 
-  console.log('Progress Rules:', progressRules);
-  console.log('Selected Products:', selectedProducts);
+    console.log('Progress Rules:', progressRules);
+    console.log('Selected Products:', selectedProducts);
 
-  progressRules.forEach(rule => {
-    console.log(`Checking rule for product ID: ${rule.id}, required quantity: ${rule.quantity}`);
-    const matchingProducts = Object.values(selectedProducts).filter(product => product.id === rule.id);
-    const productQuantity = matchingProducts.reduce((sum, product) => sum + product.quantity, 0);
-    currentQuantity += Math.min(productQuantity, rule.quantity);
-    
-    console.log(`Product ID ${rule.id}: ${productQuantity} / ${rule.quantity}`);
-  });
+    progressRules.forEach(rule => {
+      console.log(`Checking rule for product ID: ${rule.id}, required quantity: ${rule.quantity}`);
+      const matchingProducts = Object.values(selectedProducts).filter(product => product.id === rule.id);
+      const productQuantity = matchingProducts.reduce((sum, product) => sum + product.quantity, 0);
+      currentQuantity += Math.min(productQuantity, rule.quantity);
+      
+      console.log(`Product ID ${rule.id}: ${productQuantity} / ${rule.quantity}`);
+    });
 
-  const progressPercentage = (currentQuantity / totalRequiredQuantity) * 100;
-  console.log(`Progress: ${currentQuantity}/${totalRequiredQuantity}, ${progressPercentage.toFixed(2)}%`);
-  progressBar.style.width = `${progressPercentage}%`;
-}
+    const progressPercentage = (currentQuantity / totalRequiredQuantity) * 100;
+    console.log(`Progress: ${currentQuantity}/${totalRequiredQuantity}, ${progressPercentage.toFixed(2)}%`);
+    progressBar.style.width = `${progressPercentage}%`;
+  }
 
   function updateSidecart() {
     let sidecartContent = '';
@@ -549,14 +549,13 @@ document.addEventListener('DOMContentLoaded', function() {
       }
       sidecartContent += '</ul>';
       
-      // Add "Delete All" text link
       sidecartContent += '<div class="delete-all-container"><a href="#" id="delete-all-link">Delete all</a></div>';
       addToCartButton2.style.display = 'block';
     }
     sidecartItems.innerHTML = sidecartContent;
 
     // Update form inputs
-    sidecartForm.innerHTML = ''; // Clear existing inputs
+    sidecartForm.innerHTML = '';
     for (const product of Object.values(selectedProducts)) {
       const input = document.createElement('input');
       input.type = 'hidden';
@@ -617,8 +616,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     console.log('Adding to sidecart:', { productId, variantId, variantTitle, productTitle });
 
-    // Use only the productId as the key
-    const key = productId;
+    // Use productId-variantId as the key to maintain variant information
+    const key = `${productId}-${variantId}`;
 
     if (selectedProducts[key]) {
       selectedProducts[key].quantity += 1;
@@ -732,18 +731,6 @@ document.addEventListener('DOMContentLoaded', function() {
   // Initial update
   updateSidecart();
 });
-
-console.log('Raw progress settings:', {
-  product1: '{{ section.settings.progress_product_1 }}',
-  quantity1: {{ section.settings.progress_quantity_1 | default: 0 }},
-  product2: '{{ section.settings.progress_product_2 }}',
-  quantity2: {{ section.settings.progress_quantity_2 | default: 0 }},
-  product3: '{{ section.settings.progress_product_3 }}',
-  quantity3: {{ section.settings.progress_quantity_3 | default: 0 }},
-  product4: '{{ section.settings.progress_product_4 }}',
-  quantity4: {{ section.settings.progress_quantity_4 | default: 0 }}
-});
-
 </script>
 
 
