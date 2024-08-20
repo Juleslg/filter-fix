@@ -143,6 +143,57 @@
         "max_image_zoom_level": 1
       }
     },
+    "tabs2_xAwLxq": {
+      "type": "tabs2",
+      "blocks": {
+        "description_YdLjbk": {
+          "type": "description",
+          "settings": {
+            "text": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, in maxime nisi impedit quos recusandae, laboriosam temporibus tempore saepe porro nostrum? Nihil, consequatur. Saepe ut excepturi odio eius architecto pariatur!<\/p>"
+          }
+        },
+        "collection_tab_BD4Fpf": {
+          "type": "collection_tab",
+          "settings": {
+            "title": "Collection",
+            "collection": ""
+          }
+        },
+        "collection_tab_LixRxR": {
+          "type": "collection_tab",
+          "settings": {
+            "title": "Collection",
+            "collection": ""
+          }
+        },
+        "collection_tab_38wiT9": {
+          "type": "collection_tab",
+          "settings": {
+            "title": "Collection",
+            "collection": ""
+          }
+        }
+      },
+      "block_order": [
+        "description_YdLjbk",
+        "collection_tab_BD4Fpf",
+        "collection_tab_LixRxR",
+        "collection_tab_38wiT9"
+      ],
+      "settings": {
+        "progress_product_1": "",
+        "progress_quantity_1": 1,
+        "progress_product_2": "",
+        "progress_quantity_2": 1,
+        "progress_product_3": "",
+        "progress_quantity_3": 1,
+        "progress_product_4": "",
+        "progress_quantity_4": 1,
+        "subheading": "",
+        "title": "",
+        "text_alignment": "center"
+      }
+    },
     "d64b2df3-7a6f-4ee5-b3ca-1578d758bb9c": {
       "type": "image-with-text",
       "blocks": {
@@ -301,6 +352,7 @@
   },
   "order": [
     "main",
+    "tabs2_xAwLxq",
     "d64b2df3-7a6f-4ee5-b3ca-1578d758bb9c",
     "b4c06846-c2c8-48e5-8bfe-46933ad7eeb9",
     "021343f7-70e9-4a5a-9354-0bd8a50940a8",
