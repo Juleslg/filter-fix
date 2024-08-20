@@ -23,6 +23,8 @@ Supported variables
 {%- endcomment -%}
 
 {%- liquid
+  assign available_variants = product.variants | where: "available"
+
   if hide_product_information
     assign show_badges = false
     assign show_rating = false
@@ -44,130 +46,131 @@ Supported variables
   endif
 -%}
 
-<product-card class="product-card" {% if reveal %}reveal-on-scroll="true"{% endif %} handle="{{ product.handle | escape }}">
-  {%- comment -%}
-  --------------------------------------------------------------------------------------------------------------------
-  PRODUCT MEDIA
-  --------------------------------------------------------------------------------------------------------------------
-  {%- endcomment -%}
+{%- for variant_sel in available_variants -%}
+  <product-card class="product-card" {% if reveal %}reveal-on-scroll="true"{% endif %} handle="{{ product.handle | escape }}">
+    {%- comment -%}
+    --------------------------------------------------------------------------------------------------------------------
+    PRODUCT MEDIA
+    --------------------------------------------------------------------------------------------------------------------
+    {%- endcomment -%}
 
-  {%- if product.media.size > 0 and variant_sel.available -%}
-    <div class="product-card__figure" data-product-id="{{ product.id }}" data-variant-id="{{ variant_sel.id }}" data-variant-title="{{ variant_sel.title | escape }}">
-      {%- if show_badges -%}
-        {%- render 'product-badges', product: product, vertical: true -%}
-      {%- endif -%}
-      
-      <a href="{{ variant_sel.url }}" class="product-card__media" data-instant>
-        {%- capture sizes -%}
-          {%- if stacked -%}
-            (max-width: 699px) calc(100vw / {{ section.settings.products_per_row_mobile }}), (max-width: 999px) calc(100vw / {{ 3 | at_most: section.settings.products_per_row_desktop | default: 3 }} - 64px), calc((100vw - 96px) / {{ section.settings.products_per_row_desktop | default: 3 }} - (24px / {{ section.settings.products_per_row_desktop | default: 3 }} * {{ section.settings.products_per_row_desktop | default: 3 | minus: 1 }}))
-          {%- else -%}
-            (max-width: 699px) 74vw, (max-width: 999px) 38vw, calc((100vw - 96px) / {{ section.settings.products_per_row_desktop | default: 3 }} - (24px / {{ section.settings.products_per_row_desktop | default: 3 }} * {{ section.settings.products_per_row_desktop | default: 3 | minus: 1 }}))
-          {%- endif -%}
-        {%- endcapture -%}
-
-        {%- capture main_image_classes -%}product-card__image product-card__image--primary {% if settings.product_image_aspect_ratio contains 'crop' %}object-cover{% endif %} aspect-{{ settings.product_image_aspect_ratio | split: '_' | first }}{%- endcapture -%}
-        {%- if variant_sel.featured_media.preview_image != null -%}
-          {{- variant_sel.featured_media.preview_image | image_url: width: product.featured_media.width | image_tag: loading: 'lazy', sizes: sizes, widths: '200,300,400,500,600,700,800,1000,1200,1400,1600,1800', class: main_image_classes -}}
-        {% else %}
-          {{- product.featured_media | image_url: width: product.featured_media.width | image_tag: loading: 'lazy', sizes: sizes, widths: '200,300,400,500,600,700,800,1000,1200,1400,1600,1800', class: main_image_classes -}}
-        {% endif %}
-        {%- if show_secondary_image and product.media.size > 1 -%}
-          {%- assign next_media = product.media[variant_sel.featured_media.position] | default: product.media[1] -%}
-          {{- next_media | image_url: width: next_media.width | image_tag: class: 'product-card__image product-card__image--secondary', loading: 'lazy', fetchpriority: 'low', sizes: sizes, widths: '200,300,400,500,600,700,800,1000,1200,1400,1600,1800' -}}
+    {%- if product.media.size > 0 -%}
+      <div class="product-card__figure" data-product-id="{{ product.id }}" data-variant-id="{{ variant_sel.id }}" data-variant-title="{{ variant_sel.title | escape }}">
+        {%- if show_badges -%}
+          {%- render 'product-badges', product: product, vertical: true -%}
         {%- endif -%}
-      </a>
+        
+        <a href="{{ variant_sel.url }}" class="product-card__media" data-instant>
+          {%- capture sizes -%}
+            {%- if stacked -%}
+              (max-width: 699px) calc(100vw / {{ section.settings.products_per_row_mobile }}), (max-width: 999px) calc(100vw / {{ 3 | at_most: section.settings.products_per_row_desktop | default: 3 }} - 64px), calc((100vw - 96px) / {{ section.settings.products_per_row_desktop | default: 3 }} - (24px / {{ section.settings.products_per_row_desktop | default: 3 }} * {{ section.settings.products_per_row_desktop | default: 3 | minus: 1 }}))
+            {%- else -%}
+              (max-width: 699px) 74vw, (max-width: 999px) 38vw, calc((100vw - 96px) / {{ section.settings.products_per_row_desktop | default: 3 }} - (24px / {{ section.settings.products_per_row_desktop | default: 3 }} * {{ section.settings.products_per_row_desktop | default: 3 | minus: 1 }}))
+            {%- endif -%}
+          {%- endcapture -%}
 
-      {%- if show_quick_buy -%}
-        {%- if product.variants.size == 1 and product.selling_plan_groups.size == 0 -%}
-          {%- form 'product', product, is: 'product-form' -%}
-            <input type="hidden" name="on_success" value="force_open_drawer">
-            <input type="hidden" name="quantity" value="1">
-            <input type="hidden" name="id" value="{{ variant_sel.id }}">
-            <button type="submit" class="product-card__quick-add-button">
-              <span class="sr-only">{{ 'product.general.add_to_cart_button' | t }}</span>
+          {%- capture main_image_classes -%}product-card__image product-card__image--primary {% if settings.product_image_aspect_ratio contains 'crop' %}object-cover{% endif %} aspect-{{ settings.product_image_aspect_ratio | split: '_' | first }}{%- endcapture -%}
+          {%- if variant_sel.featured_media.preview_image != null -%}
+            {{- variant_sel.featured_media.preview_image | image_url: width: product.featured_media.width | image_tag: loading: 'lazy', sizes: sizes, widths: '200,300,400,500,600,700,800,1000,1200,1400,1600,1800', class: main_image_classes -}}
+          {% else %}
+            {{- product.featured_media | image_url: width: product.featured_media.width | image_tag: loading: 'lazy', sizes: sizes, widths: '200,300,400,500,600,700,800,1000,1200,1400,1600,1800', class: main_image_classes -}}
+          {% endif %}
+          {%- if show_secondary_image and product.media.size > 1 -%}
+            {%- assign next_media = product.media[variant_sel.featured_media.position] | default: product.media[1] -%}
+            {{- next_media | image_url: width: next_media.width | image_tag: class: 'product-card__image product-card__image--secondary', loading: 'lazy', fetchpriority: 'low', sizes: sizes, widths: '200,300,400,500,600,700,800,1000,1200,1400,1600,1800' -}}
+          {%- endif -%}
+        </a>
+
+        {%- if show_quick_buy -%}
+          {%- if product.variants.size == 1 and product.selling_plan_groups.size == 0 -%}
+            {%- form 'product', product, is: 'product-form' -%}
+              <input type="hidden" name="on_success" value="force_open_drawer">
+              <input type="hidden" name="quantity" value="1">
+              <input type="hidden" name="id" value="{{ variant_sel.id }}">
+              <button type="submit" class="product-card__quick-add-button">
+                <span class="sr-only">{{ 'product.general.add_to_cart_button' | t }}</span>
+                {%- render 'icon' with 'plus' -%}
+              </button>
+            {%- endform -%}
+          {%- else -%}
+            {%- capture quick_buy_id -%}product-quick-buy-{{ section.id }}-{{ block.id }}-{{ quick_buy_context }}-{{ variant_sel.id }}{%- endcapture -%}
+
+            <button type="button" aria-controls="{{ quick_buy_id }}" class="product-card__quick-add-button">
+              <span class="sr-only">{{ 'product.general.choose_options' | t }}</span>
               {%- render 'icon' with 'plus' -%}
             </button>
-          {%- endform -%}
-        {%- else -%}
-          {%- capture quick_buy_id -%}product-quick-buy-{{ section.id }}-{{ block.id }}-{{ quick_buy_context }}-{{ variant_sel.id }}{%- endcapture -%}
 
-          <button type="button" aria-controls="{{ quick_buy_id }}" class="product-card__quick-add-button">
-            <span class="sr-only">{{ 'product.general.choose_options' | t }}</span>
-            {%- render 'icon' with 'plus' -%}
-          </button>
-
-          <quick-buy-modal handle="{{ product.handle }}?variant={{ variant_sel.id }}" class="quick-buy-modal modal" id="{{ quick_buy_id }}">
-          </quick-buy-modal>
-        {%- endif -%}
-      {%- endif -%}
-
-      <button class="add-to-sidecart" data-product-id="{{ product.id }}" data-variant-id="{{ variant_sel.id }}" data-variant-title="{{ variant_sel.title | escape }}"  handle="{{ product.handle | escape }}">
-        {% render 'icon' with 'plus' %}
-      </button>
-    </div>
-  {%- endif -%}
-
-  {%- comment -%}
-  --------------------------------------------------------------------------------------------------------------------
-  PRODUCT INFO
-  --------------------------------------------------------------------------------------------------------------------
-  {%- endcomment -%}
-
-  <div class="product-card__info empty:hidden">
-    {%- assign text_class = '' -%}
-
-    {%- if settings.product_card_text_font == 'heading' -%}
-      {%- assign text_class = 'h6' -%}
-    {%- endif -%}
-
-    {%- if show_title or show_prices or show_vendor and product.vendor != blank -%}
-      <div class="v-stack justify-items-center gap-2">
-        {%- if show_vendor and product.vendor != blank -%}
-          {%- capture vendor_class -%}smallcaps {% if settings.product_card_text_font == 'heading' %}heading{% endif %}{% endcapture %}
-          {%- render 'vendor' with product.vendor, class: vendor_class -%}
+            <quick-buy-modal handle="{{ product.handle }}?variant={{ variant_sel.id }}" class="quick-buy-modal modal" id="{{ quick_buy_id }}">
+            </quick-buy-modal>
+          {%- endif -%}
         {%- endif -%}
 
-        {%- if show_title or show_prices -%}
-          <div class="v-stack justify-items-center gap-1">
-            {%- if show_title -%}
-              <a href="{{ variant_sel.url }}" class="product-title {% if text_class != blank %}{{ text_class }}{% endif %} {% if settings.product_title_max_lines > 0 %}line-clamp{% endif %}" {% if settings.product_title_max_lines > 0 %}style="--line-clamp-count: {{ settings.product_title_max_lines }}"{% endif %} data-instant>
-                {{- product.title -}}
-              </a>
-            {%- endif -%}
-
-            {%- if show_prices -%}
-              {%- render 'price-list', product: product, context: 'card' -%}
-            {%- endif -%}
-          </div>
-        {%- endif -%}
+        <button class="add-to-sidecart" data-product-id="{{ product.id }}" data-variant-id="{{ variant_sel.id }}" data-variant-title="{{ variant_sel.title | escape }}"  handle="{{ product.handle | escape }}">
+          {% render 'icon' with 'plus' %}
+        </button>
       </div>
     {%- endif -%}
 
-    {%- if show_swatches and settings.product_color_display != 'hide' -%}
-      {%- assign color_label_list = 'general.label.color' | t | replace: ', ', ',' | downcase | split: ',' -%}
+    {%- comment -%}
+    --------------------------------------------------------------------------------------------------------------------
+    PRODUCT INFO
+    --------------------------------------------------------------------------------------------------------------------
+    {%- endcomment -%}
 
-      {%- for color_label in color_label_list -%}
-        {%- if product.options_by_name[color_label] != blank -%}
-          {%- assign product_option = product.options_by_name[color_label] -%}
-          {%- capture name -%}swatch-{{ quick_buy_context }}-{{ section.id }}-{{ variant_sel.id }}-{{ product_option.position }}{%- endcapture -%}
+    <div class="product-card__info empty:hidden">
+      {%- assign text_class = '' -%}
 
-          {%- case settings.product_color_display -%}
-            {%- when 'count' -%}
-              <p class="smallcaps text-subdued">{{- 'product.general.available_colors_count' | t: count: product_option.values.size -}}</p>
+      {%- if settings.product_card_text_font == 'heading' -%}
+        {%- assign text_class = 'h6' -%}
+      {%- endif -%}
 
-            {%- when 'swatch' -%}
-              
-          {%- endcase -%}
+      {%- if show_title or show_prices or show_vendor and product.vendor != blank -%}
+        <div class="v-stack justify-items-center gap-2">
+          {%- if show_vendor and product.vendor != blank -%}
+            {%- capture vendor_class -%}smallcaps {% if settings.product_card_text_font == 'heading' %}heading{% endif %}{% endcapture %}
+            {%- render 'vendor' with product.vendor, class: vendor_class -%}
+          {%- endif -%}
 
-          {%- break -%}
-        {%- endif -%}
-      {%- endfor -%}
-    {%- endif -%}
+          {%- if show_title or show_prices -%}
+            <div class="v-stack justify-items-center gap-1">
+              {%- if show_title -%}
+                <a href="{{ variant_sel.url }}" class="product-title {% if text_class != blank %}{{ text_class }}{% endif %} {% if settings.product_title_max_lines > 0 %}line-clamp{% endif %}" {% if settings.product_title_max_lines > 0 %}style="--line-clamp-count: {{ settings.product_title_max_lines }}"{% endif %} data-instant>
+                  {{- product.title -}}
+                </a>
+              {%- endif -%}
 
-    {%- if show_rating -%}
-      {%- render 'product-rating', product: product, show_empty: settings.show_product_rating_if_empty, display_mode: settings.product_rating_mode -%}
-    {%- endif -%}
-  </div>
+              {%- if show_prices -%}
+                {%- render 'price-list', product: product, context: 'card' -%}
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+
+      {%- if show_swatches and settings.product_color_display != 'hide' -%}
+        {%- assign color_label_list = 'general.label.color' | t | replace: ', ', ',' | downcase | split: ',' -%}
+
+        {%- for color_label in color_label_list -%}
+          {%- if product.options_by_name[color_label] != blank -%}
+            {%- assign product_option = product.options_by_name[color_label] -%}
+            {%- capture name -%}swatch-{{ quick_buy_context }}-{{ section.id }}-{{ variant_sel.id }}-{{ product_option.position }}{%- endcapture -%}
+
+            {%- case settings.product_color_display -%}
+              {%- when 'count' -%}
+                <p class="smallcaps text-subdued">{{- 'product.general.available_colors_count' | t: count: product_option.values.size -}}</p>
+
+              {%- when 'swatch' -%}
+                
+            {%- endcase -%}
+
+            {%- break -%}
+          {%- endif -%}
+        {%- endfor -%}
+      {%- endif -%}
+
+      {%- if show_rating -%}
+        {%- render 'product-rating', product: product, show_empty: settings.show_product_rating_if_empty, display_mode: settings.product_rating_mode -%}
+      {%- endif -%}
+    </div>
   </product-card>
-
+{%- endfor -%}
