@@ -32,11 +32,6 @@
             "show_taxes_notice": false
           }
         },
-        "separator_CpwDAk": {
-          "type": "separator",
-          "settings": {
-          }
-        },
         "description": {
           "type": "description",
           "settings": {
@@ -132,7 +127,6 @@
         "flair_product_badges_labels_product_badges_9nqTrC",
         "title",
         "price",
-        "separator_CpwDAk",
         "description",
         "f4adc097-1575-4f9b-9c57-248ac31f7f6c",
         "6a9dd1a0-a95e-4beb-bdfe-fb500f1306ff",
