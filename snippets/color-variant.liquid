@@ -11,6 +11,7 @@
       {% assign colorlist = '' %}
       {% assign color = '' %}
       {% for variant in product.variants %}
+      {% if variant.available %}  <!-- Check if variant is in stock -->
       {% capture color %}
       {{ variant.options[index] }}
       {% endcapture %}
@@ -33,6 +34,7 @@
         {% endcapture %}
         {% assign colorlist = tempList %}
         {% endunless %}
+        {% endif %}  <!-- End of in-stock check -->
         {% endfor %}
       {% endif %}
     {% endfor %}
