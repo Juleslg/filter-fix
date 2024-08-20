@@ -20,7 +20,7 @@
             "product": "{{product}}"
           }
         },
-        "title": {
+        "title_YLn4Rm": {
           "type": "title",
           "settings": {
             "heading_tag": "h3"
@@ -111,7 +111,7 @@
       },
       "block_order": [
         "flair_product_badges_labels_product_badges_9nqTrC",
-        "title",
+        "title_YLn4Rm",
         "price",
         "description",
         "f4adc097-1575-4f9b-9c57-248ac31f7f6c",
