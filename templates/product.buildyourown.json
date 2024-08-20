@@ -39,6 +39,12 @@
             "show_below_gallery": false
           }
         },
+        "more_information_G6krxH": {
+          "type": "more_information",
+          "settings": {
+            "text": "More information"
+          }
+        },
         "f4adc097-1575-4f9b-9c57-248ac31f7f6c": {
           "type": "feature_with_icon",
           "settings": {
@@ -114,6 +120,7 @@
         "title_YLn4Rm",
         "price",
         "description",
+        "more_information_G6krxH",
         "f4adc097-1575-4f9b-9c57-248ac31f7f6c",
         "6a9dd1a0-a95e-4beb-bdfe-fb500f1306ff",
         "4152ba1c-dbde-46e6-acf1-4b6db7fcb1f1",
@@ -232,7 +239,6 @@
         "template--18431048483084__b4c06846-c2c8-48e5-8bfe-46933ad7eeb9-heading-1",
         "template--18431048483084__b4c06846-c2c8-48e5-8bfe-46933ad7eeb9-richtext-1"
       ],
-      "disabled": true,
       "custom_css": [
         "\/* Targeting the element with the class \"image-with-text\" *\/.image-with-text {background-color: #f5f3ee; \/* Change this to your desired background color *\/}"
       ],
@@ -288,7 +294,6 @@
         "template--18038109045004__021343f7-70e9-4a5a-9354-0bd8a50940a8-question-3",
         "91948184-2f52-46bd-9066-446fca908e3e"
       ],
-      "disabled": true,
       "settings": {
         "separate_section_with_border": false,
         "show_categories": false,
