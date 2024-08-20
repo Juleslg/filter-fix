@@ -32,17 +32,21 @@
             "show_taxes_notice": false
           }
         },
+        "button_VpXTTy": {
+          "type": "button",
+          "settings": {
+            "link": "",
+            "text": "Build now!",
+            "stretch": false,
+            "background": "",
+            "text_color": ""
+          }
+        },
         "description": {
           "type": "description",
           "settings": {
             "collapse_content": false,
             "show_below_gallery": false
-          }
-        },
-        "more_information_G6krxH": {
-          "type": "more_information",
-          "settings": {
-            "text": "<a href=\"#id_section:shopify-section-template--23175012188428__tabs2_xAwLxq\" title=\"#id_section:shopify-section-template--23175012188428__tabs2_xAwLxq\">Build now!<\/a>"
           }
         },
         "f4adc097-1575-4f9b-9c57-248ac31f7f6c": {
@@ -119,8 +123,8 @@
         "flair_product_badges_labels_product_badges_9nqTrC",
         "title_YLn4Rm",
         "price",
+        "button_VpXTTy",
         "description",
-        "more_information_G6krxH",
         "f4adc097-1575-4f9b-9c57-248ac31f7f6c",
         "6a9dd1a0-a95e-4beb-bdfe-fb500f1306ff",
         "4152ba1c-dbde-46e6-acf1-4b6db7fcb1f1",
@@ -242,6 +246,7 @@
         "collection_tab_LixRxR",
         "collection_tab_CwV3kC"
       ],
+      "disabled": true,
       "settings": {
         "progress_product_1": "",
         "progress_quantity_1": 1,
