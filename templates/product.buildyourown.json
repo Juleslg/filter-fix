@@ -12,28 +12,6 @@
     "main": {
       "type": "main-product",
       "blocks": {
-        "ee0d06b9-3753-4786-8cae-0f27a1c20af3": {
-          "type": "badges",
-          "disabled": true,
-          "settings": {
-          }
-        },
-        "56d7e56b-faf7-482f-aafa-a930459d27bd": {
-          "type": "custom_badge",
-          "disabled": true,
-          "settings": {
-            "show_sold_out": true,
-            "text_color_sold_out_badge": "#1c1b1b",
-            "bg_color_sold_out_badge": "#f0eae2",
-            "metafield_badge": true,
-            "text_color_metafield_badge": "#1c1c1c",
-            "bg_color_metafield_badge": "#f0eae2",
-            "show_custom_text": true,
-            "text_badge": "",
-            "text_color_custom_badge": "#1c1b1b",
-            "bg_color_custom_badge": "#f0eae2"
-          }
-        },
         "flair_product_badges_labels_product_badges_9nqTrC": {
           "type": "shopify:\/\/apps\/flair-product-badges-labels\/blocks\/product-badges\/51d5ae10-f90f-4540-9ec6-f09f14107bf4",
           "settings": {
@@ -54,55 +32,9 @@
             "show_taxes_notice": false
           }
         },
-        "8feb2d1f-7bf1-4fe2-9df1-c66a10b31184": {
-          "type": "shopify:\/\/apps\/reviews-io\/blocks\/reviewsio-rating-output\/92a082e5-b297-4e88-b428-ac96cbc505f9",
-          "settings": {
-          }
-        },
-        "73c767cc-401c-4ae7-87f1-99ad63408429": {
-          "type": "set-color",
-          "disabled": true,
-          "settings": {
-          }
-        },
-        "variant_picker": {
-          "type": "variant_picker",
-          "settings": {
-            "hide_sold_out_variants": false,
-            "selector_type": "block",
-            "color_selector_type": "color",
-            "size_chart_page": ""
-          }
-        },
-        "cc1c28f9-9759-4de3-bcdd-b6b74d5a20a3": {
-          "type": "buy_buttons_quantity",
-          "settings": {
-            "show_payment_button": false,
-            "show_gift_card_recipient": false,
-            "atc_button_background": "#1c1c1c",
-            "atc_button_text_color": "#ffffff",
-            "payment_button_background": "",
-            "payment_button_text_color": ""
-          }
-        },
         "separator_CpwDAk": {
           "type": "separator",
           "settings": {
-          }
-        },
-        "offers_Ek6gtU": {
-          "type": "offers",
-          "settings": {
-            "stack_offers": false,
-            "offer_1_title": "Build your own breakfast",
-            "offer_1_content": "<p>Share some temporary offers to your customers.<\/p>",
-            "offer_2_title": "",
-            "offer_2_content": "",
-            "offer_3_title": "",
-            "offer_3_content": "",
-            "background": "",
-            "text_color": "",
-            "border_color": ""
           }
         },
         "description": {
@@ -197,17 +129,10 @@
         }
       },
       "block_order": [
-        "ee0d06b9-3753-4786-8cae-0f27a1c20af3",
-        "56d7e56b-faf7-482f-aafa-a930459d27bd",
         "flair_product_badges_labels_product_badges_9nqTrC",
         "title",
         "price",
-        "8feb2d1f-7bf1-4fe2-9df1-c66a10b31184",
-        "73c767cc-401c-4ae7-87f1-99ad63408429",
-        "variant_picker",
-        "cc1c28f9-9759-4de3-bcdd-b6b74d5a20a3",
         "separator_CpwDAk",
-        "offers_Ek6gtU",
         "description",
         "f4adc097-1575-4f9b-9c57-248ac31f7f6c",
         "6a9dd1a0-a95e-4beb-bdfe-fb500f1306ff",
