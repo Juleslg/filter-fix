@@ -78,20 +78,6 @@
             "border_color": ""
           }
         },
-        "23ed3908-a656-458f-ba3d-c86d5cf70eaf": {
-          "type": "feature_with_icon",
-          "disabled": true,
-          "settings": {
-            "text": "",
-            "link": "",
-            "icon": "none",
-            "custom_icon": "{{ product.metafields.custom.productfeatures_ceramics.value.icon_4.value }}",
-            "icon_width": 64,
-            "background": "#ffffff",
-            "text_color": "#6b6b6b",
-            "border_color": ""
-          }
-        },
         "abbaf8b5-b9ec-4221-94fd-526c92b8db2d": {
           "type": "accordion",
           "settings": {
@@ -131,7 +117,6 @@
         "f4adc097-1575-4f9b-9c57-248ac31f7f6c",
         "6a9dd1a0-a95e-4beb-bdfe-fb500f1306ff",
         "4152ba1c-dbde-46e6-acf1-4b6db7fcb1f1",
-        "23ed3908-a656-458f-ba3d-c86d5cf70eaf",
         "abbaf8b5-b9ec-4221-94fd-526c92b8db2d",
         "6c7fb9ef-a6ef-4172-92bc-cbc0f4790210",
         "9d81e38c-cb5b-43a6-9076-6be6c50b1751"
@@ -156,25 +141,6 @@
         "enable_video_looping": true,
         "enable_image_zoom": true,
         "max_image_zoom_level": 1
-      }
-    },
-    "related-products": {
-      "type": "related-products",
-      "custom_css": [
-        ".badge--custom {background: white; color: #1c1c1c; padding: 3px 10px;}"
-      ],
-      "settings": {
-        "separate_section_with_border": false,
-        "hide_product_information": false,
-        "stack_products": false,
-        "recommendations_count": 8,
-        "products_per_row_mobile": "2",
-        "products_per_row_desktop": 4,
-        "horizontal_spacing_factor": 0.4,
-        "vertical_spacing_factor": 1,
-        "subheading": "",
-        "title": "Vervollständige deinen Tisch",
-        "content": ""
       }
     },
     "d64b2df3-7a6f-4ee5-b3ca-1578d758bb9c": {
@@ -335,7 +301,6 @@
   },
   "order": [
     "main",
-    "related-products",
     "d64b2df3-7a6f-4ee5-b3ca-1578d758bb9c",
     "b4c06846-c2c8-48e5-8bfe-46933ad7eeb9",
     "021343f7-70e9-4a5a-9354-0bd8a50940a8",
