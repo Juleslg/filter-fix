@@ -510,10 +510,19 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('Progress Rules:', progressRules);
     console.log('Selected Products:', selectedProducts);
 
+    if (totalRequiredQuantity === 0) {
+      console.log('No valid progress rules found.');
+      progressBar.style.width = '0%';
+      return;
+    }
+
     progressRules.forEach(rule => {
       console.log(`Checking rule for product ID: ${rule.id}, required quantity: ${rule.quantity}`);
-      const matchingProducts = Object.values(selectedProducts).filter(product => product.id === rule.id);
-      const productQuantity = matchingProducts.reduce((sum, product) => sum + product.quantity, 0);
+      const matchingProducts = Object.entries(selectedProducts).filter(([key, product]) => {
+        const productId = key.split('-')[0]; // Get the part before the "-"
+        return productId === rule.id;
+      });
+      const productQuantity = matchingProducts.reduce((sum, [_, product]) => sum + product.quantity, 0);
       currentQuantity += Math.min(productQuantity, rule.quantity);
       
       console.log(`Product ID ${rule.id}: ${productQuantity} / ${rule.quantity}`);
@@ -623,7 +632,7 @@ document.addEventListener('DOMContentLoaded', function() {
       selectedProducts[key].quantity += 1;
     } else {
       selectedProducts[key] = {
-        id: productId,
+        id: productId, // Store the full product ID here
         variantId: variantId,
         variantTitle: variantTitle,
         title: productTitle,
