@@ -160,17 +160,10 @@
             "collection": "small-plates"
           }
         },
-        "collection_tab_38wiT9": {
-          "type": "collection_tab",
-          "settings": {
-            "title": "Große Teller (M)",
-            "collection": "big-plates-mix-match"
-          }
-        },
         "collection_tab_LixRxR": {
           "type": "collection_tab",
           "settings": {
-            "title": "Große Teller (L)",
+            "title": "Große Teller",
             "collection": "big-plates-mix-match"
           }
         },
@@ -192,7 +185,6 @@
       "block_order": [
         "description_YdLjbk",
         "collection_tab_BD4Fpf",
-        "collection_tab_38wiT9",
         "collection_tab_LixRxR",
         "collection_tab_CwV3kC",
         "collection_tab_V6Dtc7"
