@@ -1,0 +1,192 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "custom_css": [
+
+      ],
+      "settings": {
+        "show_title": true,
+        "page_width": "xs"
+      }
+    },
+    "image_text_layout_VQVGcP": {
+      "type": "image-text-layout",
+      "blocks": {
+        "subheading_xT7JMW": {
+          "type": "subheading",
+          "settings": {
+            "text": "Mix & Match"
+          }
+        },
+        "heading_9ityTh": {
+          "type": "heading",
+          "settings": {
+            "text": "Kleines Dinner-Set",
+            "heading_tag": "h2"
+          }
+        },
+        "richtext_HhTqUC": {
+          "type": "richtext",
+          "settings": {
+            "content": "<ul><li>4x Kleine Schüssel<\/li><li>4x Kleiner Teller<\/li><li>4x Großer Teller<\/li><li>4x Tiefer Teller <\/li><\/ul>"
+          }
+        },
+        "subheading_FGKirD": {
+          "type": "subheading",
+          "settings": {
+            "text": "Spare 15% | Rabatt wird im Warenkorb angewendet"
+          }
+        },
+        "button_kDyLYE": {
+          "type": "button",
+          "settings": {
+            "style": "outline",
+            "text": "Build now!",
+            "url": "",
+            "background": "#1c1b1b",
+            "text_color": "#1c1b1b"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_xT7JMW",
+        "heading_9ityTh",
+        "richtext_HhTqUC",
+        "subheading_FGKirD",
+        "button_kDyLYE"
+      ],
+      "custom_css": [
+        ".image-with-text {background-color: #f5f3ef; \/* Light gray color *\/}"
+      ],
+      "settings": {
+        "separate_section_with_border": false,
+        "image": "shopify:\/\/shop_images\/magnific-lVjhqlXMs9prrEQQaZWP-C-01-SET-XLDINE-MWHITE-003-01_cb6313f0-206b-441b-8bf6-e27ffef8a62e.png",
+        "reveal_on_scroll": true,
+        "image_position": "image-with-text",
+        "text_agline": "left",
+        "content_width": "sm",
+        "padding_sides_desktop": 0,
+        "padding_sides_mobile": 0,
+        "gap_img_text": 0,
+        "remove_vertical_spacing": true
+      }
+    },
+    "tabs2_YG8Ckn": {
+      "type": "tabs2",
+      "blocks": {
+        "description_ftPaDG": {
+          "type": "description",
+          "settings": {
+            "text": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, in maxime nisi impedit quos recusandae, laboriosam temporibus tempore saepe porro nostrum? Nihil, consequatur. Saepe ut excepturi odio eius architecto pariatur!<\/p>"
+          }
+        },
+        "collection_tab_C8MizD": {
+          "type": "collection_tab",
+          "settings": {
+            "title": "Kleine Schüssel",
+            "collection": "small-bowls"
+          }
+        },
+        "collection_tab_XVTJrF": {
+          "type": "collection_tab",
+          "settings": {
+            "title": "Kleiner Teller",
+            "collection": "small-plates"
+          }
+        },
+        "collection_tab_QDGwUV": {
+          "type": "collection_tab",
+          "settings": {
+            "title": "Großer Teller",
+            "collection": "big-plates-mix-match"
+          }
+        },
+        "collection_tab_tnWaMb": {
+          "type": "collection_tab",
+          "settings": {
+            "title": "Tiefer Teller",
+            "collection": "deep-plate-mix-match"
+          }
+        }
+      },
+      "block_order": [
+        "description_ftPaDG",
+        "collection_tab_C8MizD",
+        "collection_tab_XVTJrF",
+        "collection_tab_QDGwUV",
+        "collection_tab_tnWaMb"
+      ],
+      "settings": {
+        "progress_product_1": "8691934691596",
+        "progress_quantity_1": 4,
+        "progress_product_2": "8691930202380",
+        "progress_quantity_2": 4,
+        "progress_product_3": "8691936166156",
+        "progress_quantity_3": 4,
+        "progress_product_4": "8691926696204",
+        "progress_quantity_4": 4,
+        "subheading": "",
+        "title": "",
+        "text_alignment": "center"
+      }
+    },
+    "image_text_layout_NECB9Y": {
+      "type": "image-text-layout",
+      "blocks": {
+        "subheading_DnafB9": {
+          "type": "subheading",
+          "settings": {
+            "text": "Subheading"
+          }
+        },
+        "heading_FKdbxR": {
+          "type": "heading",
+          "settings": {
+            "text": "Image text Layout",
+            "heading_tag": "h1"
+          }
+        },
+        "richtext_BWi4jP": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_DnafB9",
+        "heading_FKdbxR",
+        "richtext_BWi4jP"
+      ],
+      "settings": {
+        "separate_section_with_border": false,
+        "image": "shopify:\/\/shop_images\/2022-05-03_Onomao1774_719cda74-baf8-463b-8928-ad49e5dd88d2.png",
+        "reveal_on_scroll": true,
+        "image_position": "image-with-text",
+        "text_agline": "left",
+        "content_width": "sm",
+        "padding_sides_desktop": 0,
+        "padding_sides_mobile": 0,
+        "gap_img_text": 0,
+        "remove_vertical_spacing": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_text_layout_VQVGcP",
+    "tabs2_YG8Ckn",
+    "image_text_layout_NECB9Y"
+  ]
+}
