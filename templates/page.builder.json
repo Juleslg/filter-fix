@@ -20,13 +20,6 @@
         "page_width": "xs"
       }
     },
-    "spacer_ndy8YK": {
-      "type": "spacer",
-      "settings": {
-        "spacer_Desktop": 3,
-        "spacer_Mobil": 2
-      }
-    },
     "image_text_layout_VQVGcP": {
       "type": "image-text-layout",
       "blocks": {
@@ -39,7 +32,7 @@
         "heading_9ityTh": {
           "type": "heading",
           "settings": {
-            "text": "Großes Dinner-Set",
+            "text": "Kleines Dinner-Set",
             "heading_tag": "h1"
           }
         },
@@ -52,7 +45,7 @@
         "subheading_FGKirD": {
           "type": "subheading",
           "settings": {
-            "text": "Save 10% | Discount applied to card"
+            "text": "Spare 15% | Rabatt wird im Warenkorb angewendet"
           }
         }
       },
@@ -64,12 +57,12 @@
       ],
       "settings": {
         "separate_section_with_border": false,
-        "image": "shopify:\/\/shop_images\/C-01-SET-XLDINE-MWHITE-003-01_458eb31d-f97e-4fa5-8422-2571709f34a1.webp",
+        "image": "shopify:\/\/shop_images\/C-01-SET-XLDINE-MWHITE-003-01_cb6313f0-206b-441b-8bf6-e27ffef8a62e.png",
         "reveal_on_scroll": true,
         "image_position": "image-with-text",
         "text_agline": "left",
         "content_width": "sm",
-        "padding_sides_desktop": 200,
+        "padding_sides_desktop": 0,
         "padding_sides_mobile": 0,
         "gap_img_text": 0,
         "remove_vertical_spacing": true
@@ -121,6 +114,14 @@
         "collection_tab_tnWaMb"
       ],
       "settings": {
+        "progress_product_1": "",
+        "progress_quantity_1": 1,
+        "progress_product_2": "",
+        "progress_quantity_2": 1,
+        "progress_product_3": "",
+        "progress_quantity_3": 1,
+        "progress_product_4": "",
+        "progress_quantity_4": 1,
         "subheading": "",
         "title": "",
         "text_alignment": "center"
@@ -170,7 +171,6 @@
   },
   "order": [
     "main",
-    "spacer_ndy8YK",
     "image_text_layout_VQVGcP",
     "tabs2_YG8Ckn",
     "image_text_layout_NECB9Y"
