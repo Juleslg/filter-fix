@@ -500,7 +500,7 @@ document.addEventListener('DOMContentLoaded', function() {
     { id: '{{ section.settings.progress_product_2 }}', quantity: {{ section.settings.progress_quantity_2 }} },
     { id: '{{ section.settings.progress_product_3 }}', quantity: {{ section.settings.progress_quantity_3 }} },
     { id: '{{ section.settings.progress_product_4 }}', quantity: {{ section.settings.progress_quantity_4 }} }
-  ];
+  ].filter(product => product.id && product.quantity);
 
   console.log('hi');
   
@@ -804,6 +804,18 @@ document.addEventListener('DOMContentLoaded', function() {
         "label": "Progress Quantity 4",
         "default": 1
       },
+      {
+        "type": "text",
+        "id": "progress_product_5",
+        "label": "Progress Product 5 ID"
+      },
+      {
+        "type": "number",
+        "id": "progress_quantity_5",
+        "label": "Progress Quantity 5",
+        "default": 1
+      },
+      
       {
         "type": "inline_richtext",
         "id": "subheading",
