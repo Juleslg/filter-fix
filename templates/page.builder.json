@@ -20,13 +20,6 @@
         "page_width": "xs"
       }
     },
-    "spacer_ndy8YK": {
-      "type": "spacer",
-      "settings": {
-        "spacer_Desktop": 3,
-        "spacer_Mobil": 2
-      }
-    },
     "image_text_layout_VQVGcP": {
       "type": "image-text-layout",
       "blocks": {
@@ -64,7 +57,7 @@
       ],
       "settings": {
         "separate_section_with_border": false,
-        "image": "shopify:\/\/shop_images\/C-01-SET-XLDINE-MWHITE-003-01_458eb31d-f97e-4fa5-8422-2571709f34a1.png",
+        "image": "shopify:\/\/shop_images\/C-01-SET-XLDINE-MWHITE-003-01_cb6313f0-206b-441b-8bf6-e27ffef8a62e.png",
         "reveal_on_scroll": true,
         "image_position": "image-with-text",
         "text_agline": "left",
@@ -178,7 +171,6 @@
   },
   "order": [
     "main",
-    "spacer_ndy8YK",
     "image_text_layout_VQVGcP",
     "tabs2_YG8Ckn",
     "image_text_layout_NECB9Y"
