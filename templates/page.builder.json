@@ -33,7 +33,7 @@
           "type": "heading",
           "settings": {
             "text": "Kleines Dinner-Set",
-            "heading_tag": "h1"
+            "heading_tag": "h2"
           }
         },
         "richtext_HhTqUC": {
@@ -76,7 +76,7 @@
         "image_position": "image-with-text",
         "text_agline": "left",
         "content_width": "sm",
-        "padding_sides_desktop": 90,
+        "padding_sides_desktop": 150,
         "padding_sides_mobile": 0,
         "gap_img_text": 0,
         "remove_vertical_spacing": false
