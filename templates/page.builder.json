@@ -39,7 +39,7 @@
         "heading_9ityTh": {
           "type": "heading",
           "settings": {
-            "text": "Großes Dinner-Set",
+            "text": "Kleines Dinner-Set",
             "heading_tag": "h1"
           }
         },
@@ -52,7 +52,7 @@
         "subheading_FGKirD": {
           "type": "subheading",
           "settings": {
-            "text": "Save 10% | Discount applied to card"
+            "text": "Spare 15% | Rabatt wird im Warenkorb angewendet"
           }
         }
       },
