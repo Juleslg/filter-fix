@@ -68,7 +68,7 @@
         "reveal_on_scroll": true,
         "image_position": "image-with-text",
         "text_agline": "left",
-        "content_width": "sm",
+        "content_width": "lg",
         "padding_sides_desktop": 0,
         "padding_sides_mobile": 0,
         "gap_img_text": 0,
