@@ -626,7 +626,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const variantTitle = button.getAttribute('data-variant-title');
     const productTitle = button.closest('.product-card').querySelector('.product-title').textContent;
 
-    console.log('Adding to sidecart:', { productId, variantId, variantTitle, productTitle });
+
 
     // Use productId-variantId as the key to maintain variant information
     const key = `${productId}-${variantId}`;
