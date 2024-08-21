@@ -91,41 +91,25 @@
             "text": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, in maxime nisi impedit quos recusandae, laboriosam temporibus tempore saepe porro nostrum? Nihil, consequatur. Saepe ut excepturi odio eius architecto pariatur!<\/p>"
           }
         },
-        "collection_tab_C8MizD": {
+        "collection_tab_tnWaMb": {
           "type": "collection_tab",
           "settings": {
-            "title": "Kleine Schüssel",
-            "collection": "small-bowls"
-          }
-        },
-        "collection_tab_XVTJrF": {
-          "type": "collection_tab",
-          "settings": {
-            "title": "Kleiner Teller",
-            "collection": "small-plates"
+            "title": "Espressobecher",
+            "collection": "espresso-becher"
           }
         },
         "collection_tab_QDGwUV": {
           "type": "collection_tab",
           "settings": {
-            "title": "Großer Teller",
-            "collection": "big-plates-mix-match"
-          }
-        },
-        "collection_tab_tnWaMb": {
-          "type": "collection_tab",
-          "settings": {
-            "title": "Tiefer Teller",
-            "collection": "deep-plate-mix-match"
+            "title": "Becher",
+            "collection": "mugs-mixmatch"
           }
         }
       },
       "block_order": [
         "description_ftPaDG",
-        "collection_tab_C8MizD",
-        "collection_tab_XVTJrF",
-        "collection_tab_QDGwUV",
-        "collection_tab_tnWaMb"
+        "collection_tab_tnWaMb",
+        "collection_tab_QDGwUV"
       ],
       "settings": {
         "progress_product_1": "8691934691596",
