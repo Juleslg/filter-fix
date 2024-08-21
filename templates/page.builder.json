@@ -76,10 +76,10 @@
         "image_position": "image-with-text",
         "text_agline": "left",
         "content_width": "sm",
-        "padding_sides_desktop": 0,
+        "padding_sides_desktop": 90,
         "padding_sides_mobile": 0,
         "gap_img_text": 0,
-        "remove_vertical_spacing": true
+        "remove_vertical_spacing": false
       }
     },
     "tabs2_YG8Ckn": {
