@@ -64,12 +64,12 @@
       ],
       "settings": {
         "separate_section_with_border": false,
-        "image": "shopify:\/\/shop_images\/C-01-SET-XLDINE-MWHITE-003-01_458eb31d-f97e-4fa5-8422-2571709f34a1.webp",
+        "image": "shopify:\/\/shop_images\/C-01-SET-XLDINE-MWHITE-003-01_458eb31d-f97e-4fa5-8422-2571709f34a1.png",
         "reveal_on_scroll": true,
         "image_position": "image-with-text",
         "text_agline": "left",
         "content_width": "sm",
-        "padding_sides_desktop": 200,
+        "padding_sides_desktop": 0,
         "padding_sides_mobile": 0,
         "gap_img_text": 0,
         "remove_vertical_spacing": true
@@ -121,6 +121,14 @@
         "collection_tab_tnWaMb"
       ],
       "settings": {
+        "progress_product_1": "",
+        "progress_quantity_1": 1,
+        "progress_product_2": "",
+        "progress_quantity_2": 1,
+        "progress_product_3": "",
+        "progress_quantity_3": 1,
+        "progress_product_4": "",
+        "progress_quantity_4": 1,
         "subheading": "",
         "title": "",
         "text_alignment": "center"
