@@ -55,6 +55,9 @@
         "richtext_HhTqUC",
         "subheading_FGKirD"
       ],
+      "custom_css": [
+        ".image-with-text {background-color: #F5F3EF; \/* Light gray color *\/}"
+      ],
       "settings": {
         "separate_section_with_border": false,
         "image": "shopify:\/\/shop_images\/magnific-lVjhqlXMs9prrEQQaZWP-C-01-SET-XLDINE-MWHITE-003-01_cb6313f0-206b-441b-8bf6-e27ffef8a62e.png",
