@@ -26,7 +26,7 @@
         "subheading_xT7JMW": {
           "type": "subheading",
           "settings": {
-            "text": "Build your own"
+            "text": "Mix & Match"
           }
         },
         "heading_9ityTh": {
@@ -47,16 +47,27 @@
           "settings": {
             "text": "Spare 15% | Rabatt wird im Warenkorb angewendet"
           }
+        },
+        "button_kDyLYE": {
+          "type": "button",
+          "settings": {
+            "style": "outline",
+            "text": "Build now!",
+            "url": "",
+            "background": "#1c1b1b",
+            "text_color": "#1c1b1b"
+          }
         }
       },
       "block_order": [
         "subheading_xT7JMW",
         "heading_9ityTh",
         "richtext_HhTqUC",
-        "subheading_FGKirD"
+        "subheading_FGKirD",
+        "button_kDyLYE"
       ],
       "custom_css": [
-        ".image-with-text {background-color: #F5F3EF; \/* Light gray color *\/}"
+        ".image-with-text {background-color: #f5f3ef; \/* Light gray color *\/}"
       ],
       "settings": {
         "separate_section_with_border": false,
