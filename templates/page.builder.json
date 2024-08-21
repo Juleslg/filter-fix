@@ -57,6 +57,12 @@
             "background": "#1c1b1b",
             "text_color": "#1c1b1b"
           }
+        },
+        "page_iaMAPY": {
+          "type": "page",
+          "settings": {
+            "page": "builder"
+          }
         }
       },
       "block_order": [
@@ -64,7 +70,8 @@
         "heading_9ityTh",
         "richtext_HhTqUC",
         "subheading_FGKirD",
-        "button_kDyLYE"
+        "button_kDyLYE",
+        "page_iaMAPY"
       ],
       "custom_css": [
         ".image-with-text {background-color: #f5f3ef; \/* Light gray color *\/}"
