@@ -495,14 +495,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  let userProductIds = [
-    { id: '{{ section.settings.progress_product_1 }}', quantity: {{ section.settings.progress_quantity_1 }} },
-    { id: '{{ section.settings.progress_product_2 }}', quantity: {{ section.settings.progress_quantity_2 }} },
-    { id: '{{ section.settings.progress_product_3 }}', quantity: {{ section.settings.progress_quantity_3 }} },
-    { id: '{{ section.settings.progress_product_4 }}', quantity: {{ section.settings.progress_quantity_4 }} }
-  ].filter(product => product.id && product.quantity); // Filter out any empty entries
-
-  const progressRules = userProductIds;
+  let userProductIds = [];
 
   const progressRules = [
     { id: '8691934691596', quantity: 4 },
