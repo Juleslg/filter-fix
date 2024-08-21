@@ -32,20 +32,20 @@
         "heading_9ityTh": {
           "type": "heading",
           "settings": {
-            "text": "Kleines Dinner-Set",
+            "text": "Kaffee-Set",
             "heading_tag": "h2"
           }
         },
         "richtext_HhTqUC": {
           "type": "richtext",
           "settings": {
-            "content": "<ul><li>4x Kleine Schüssel<\/li><li>4x Kleiner Teller<\/li><li>4x Großer Teller<\/li><li>4x Tiefer Teller <\/li><\/ul>"
+            "content": "<ul><li>4x Becher<\/li><li>4x Espressobecher<\/li><\/ul>"
           }
         },
         "subheading_FGKirD": {
           "type": "subheading",
           "settings": {
-            "text": "Spare 15% | Rabatt wird im Warenkorb angewendet"
+            "text": "Spare 10% | Rabatt wird im Warenkorb angewendet"
           }
         },
         "button_kDyLYE": {
@@ -136,6 +136,8 @@
         "progress_quantity_3": 4,
         "progress_product_4": "8691926696204",
         "progress_quantity_4": 4,
+        "progress_product_5": "",
+        "progress_quantity_5": 1,
         "subheading": "",
         "title": "",
         "text_alignment": "center"
