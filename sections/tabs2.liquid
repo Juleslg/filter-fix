@@ -505,6 +505,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
   const progressRules = userProductIds;
 
+  // Add this new object to store product titles
+  const productTitles = {
+    {% for i in (1..5) %}
+      {% assign product_id = section.settings["progress_product_" | append: i] %}
+      {% if product_id != blank %}
+        "{{ product_id }}": "{{ all_products[product_id].title | escape }}",
+      {% endif %}
+    {% endfor %}
+  };
+
   function updateProgressBar() {
     const progressBar = document.getElementById('sidecart-progress-bar');
     let totalRequiredQuantity = progressRules.reduce((sum, rule) => sum + rule.quantity, 0);
@@ -619,10 +629,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   function getProductTitle(productId) {
-    // This function should return the title of the product based on its ID
-    // You might need to fetch this information from your product data
-    // For now, we'll return a placeholder title
-    return `Product ${productId}`;
+    return productTitles[productId] || `Product ${productId}`;
   }
 
   function addToSidecart(event) {
