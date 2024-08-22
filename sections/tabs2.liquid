@@ -495,44 +495,31 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  let userProductIds = [
+  let progressRules = [
     { id: '{{ section.settings.progress_product_1 }}', quantity: {{ section.settings.progress_quantity_1 }} },
     { id: '{{ section.settings.progress_product_2 }}', quantity: {{ section.settings.progress_quantity_2 }} },
     { id: '{{ section.settings.progress_product_3 }}', quantity: {{ section.settings.progress_quantity_3 }} },
-    { id: '{{ section.settings.progress_product_4 }}', quantity: {{ section.settings.progress_quantity_4 }} }
-  ].filter(product => product.id && product.quantity);
-
-  console.log('hi');
-  
-  const progressRules = userProductIds;
-
-
+    { id: '{{ section.settings.progress_product_4 }}', quantity: {{ section.settings.progress_quantity_4 }} },
+    { id: '{{ section.settings.progress_product_5 }}', quantity: {{ section.settings.progress_quantity_5 }} }
+  ].filter(rule => rule.id && rule.quantity);
 
   function updateProgressBar() {
     const progressBar = document.getElementById('sidecart-progress-bar');
     let totalRequiredQuantity = progressRules.reduce((sum, rule) => sum + rule.quantity, 0);
     let currentQuantity = 0;
 
-    console.log('Progress Rules:', progressRules);
-    console.log('Selected Products:', selectedProducts);
-
     if (totalRequiredQuantity === 0) {
-      console.log('No valid progress rules found.');
       progressBar.style.width = '0%';
       return;
     }
 
     progressRules.forEach(rule => {
-      console.log(`Checking rule for product ID: ${rule.id}, required quantity: ${rule.quantity}`);
       const matchingProducts = Object.values(selectedProducts).filter(product => product.id === rule.id);
       const productQuantity = matchingProducts.reduce((sum, product) => sum + product.quantity, 0);
       currentQuantity += Math.min(productQuantity, rule.quantity);
-      
-      console.log(`Product ID ${rule.id}: ${productQuantity} / ${rule.quantity}`);
     });
 
     const progressPercentage = (currentQuantity / totalRequiredQuantity) * 100;
-    console.log(`Progress: ${currentQuantity}/${totalRequiredQuantity}, ${progressPercentage.toFixed(2)}%`);
     progressBar.style.width = `${progressPercentage}%`;
   }
 
@@ -543,19 +530,47 @@ document.addEventListener('DOMContentLoaded', function() {
       addToCartButton2.style.display = 'none';
     } else {
       sidecartContent = '<ul class="sidecart-list">';
+      let groupedProducts = {};
+
       for (const [key, product] of Object.entries(selectedProducts)) {
+        if (!groupedProducts[product.id]) {
+          groupedProducts[product.id] = {
+            title: product.title,
+            variants: [],
+            totalQuantity: 0,
+            progressRule: progressRules.find(rule => rule.id === product.id)
+          };
+        }
+        groupedProducts[product.id].variants.push({
+          key: key,
+          variantTitle: product.variantTitle,
+          quantity: product.quantity
+        });
+        groupedProducts[product.id].totalQuantity += product.quantity;
+      }
+
+      for (const [productId, group] of Object.entries(groupedProducts)) {
+        let progressText = '';
+        if (group.progressRule) {
+          progressText = ` (${Math.min(group.totalQuantity, group.progressRule.quantity)}/${group.progressRule.quantity})`;
+        }
+
         sidecartContent += `
-          <li class="sidecart-item" data-product-key="${key}">
+          <li class="sidecart-item">
             <div class="sidecart-item-info">
-              <div class="sidecart-item-title">${product.title}</div>
-              <div class="sidecart-item-variant">${product.variantTitle}</div>
+              <div class="sidecart-item-title">${group.title}${progressText}</div>
+              ${group.variants.map(variant => `
+                <div class="sidecart-item-variant">
+                  ${variant.variantTitle}
+                  <div class="sidecart-item-quantity">
+                    <button type="button" class="quantity-button decrease" data-product-key="${variant.key}">-</button>
+                    <input type="number" class="quantity-input" value="${variant.quantity}" min="1" data-product-key="${variant.key}">
+                    <button type="button" class="quantity-button increase" data-product-key="${variant.key}">+</button>
+                  </div>
+                  <button type="button" class="sidecart-item-remove" data-product-key="${variant.key}">×</button>
+                </div>
+              `).join('')}
             </div>
-            <div class="sidecart-item-quantity">
-              <button type="button" class="quantity-button decrease" data-product-key="${key}">-</button>
-              <input type="number" class="quantity-input" value="${product.quantity}" min="1" data-product-key="${key}">
-              <button type="button" class="quantity-button increase" data-product-key="${key}">+</button>
-            </div>
-            <button type="button" class="sidecart-item-remove" data-product-key="${key}">×</button>
           </li>
         `;
       }
@@ -626,9 +641,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const variantTitle = button.getAttribute('data-variant-title');
     const productTitle = button.closest('.product-card').querySelector('.product-title').textContent;
 
-
-
-    // Use productId-variantId as the key to maintain variant information
     const key = `${productId}-${variantId}`;
 
     if (selectedProducts[key]) {
@@ -642,8 +654,6 @@ document.addEventListener('DOMContentLoaded', function() {
         quantity: 1
       };
     }
-
-    console.log('Updated selectedProducts:', selectedProducts);
 
     updateSidecart();
   }
@@ -739,6 +749,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }));
     }
   });
+
   // Initial update
   updateSidecart();
 });
