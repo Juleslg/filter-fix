@@ -508,7 +508,8 @@ document.addEventListener('DOMContentLoaded', function() {
   // Add this new object to store product titles
   const productTitles = {
     {% for i in (1..5) %}
-      {% assign product_id = section.settings["progress_product_" | append: i] %}
+      {% capture product_setting %}progress_product_{{ i }}{% endcapture %}
+      {% assign product_id = section.settings[product_setting] %}
       {% if product_id != blank %}
         "{{ product_id }}": "{{ all_products[product_id].title | escape }}",
       {% endif %}
@@ -538,7 +539,7 @@ document.addEventListener('DOMContentLoaded', function() {
   function updateSidecart() {
     let sidecartContent = '';
     if (Object.keys(selectedProducts).length === 0) {
-      sidecartContent = '<div class="sidecart-text">Build your set</div>';
+      sidecartContent = '<div class="sidecart-text">Start adding some products to build your set</div>';
       addToCartButton2.style.display = 'none';
     } else {
       sidecartContent = '';
