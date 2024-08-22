@@ -496,43 +496,32 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   let userProductIds = [
-    { id: '{{ section.settings.progress_product_1 }}', quantity: {{ section.settings.progress_quantity_1 }} },
-    { id: '{{ section.settings.progress_product_2 }}', quantity: {{ section.settings.progress_quantity_2 }} },
-    { id: '{{ section.settings.progress_product_3 }}', quantity: {{ section.settings.progress_quantity_3 }} },
-    { id: '{{ section.settings.progress_product_4 }}', quantity: {{ section.settings.progress_quantity_4 }} }
+    { id: '{{ section.settings.progress_product_1 }}', quantity: {{ section.settings.progress_quantity_1 }}, text: '{{ section.settings.progress_text_1 }}' },
+    { id: '{{ section.settings.progress_product_2 }}', quantity: {{ section.settings.progress_quantity_2 }}, text: '{{ section.settings.progress_text_2 }}' },
+    { id: '{{ section.settings.progress_product_3 }}', quantity: {{ section.settings.progress_quantity_3 }}, text: '{{ section.settings.progress_text_3 }}' },
+    { id: '{{ section.settings.progress_product_4 }}', quantity: {{ section.settings.progress_quantity_4 }}, text: '{{ section.settings.progress_text_4 }}' },
+    { id: '{{ section.settings.progress_product_5 }}', quantity: {{ section.settings.progress_quantity_5 }}, text: '{{ section.settings.progress_text_5 }}' }
   ].filter(product => product.id && product.quantity);
 
-  console.log('hi');
-  
   const progressRules = userProductIds;
-
-
 
   function updateProgressBar() {
     const progressBar = document.getElementById('sidecart-progress-bar');
     let totalRequiredQuantity = progressRules.reduce((sum, rule) => sum + rule.quantity, 0);
     let currentQuantity = 0;
 
-    console.log('Progress Rules:', progressRules);
-    console.log('Selected Products:', selectedProducts);
-
     if (totalRequiredQuantity === 0) {
-      console.log('No valid progress rules found.');
       progressBar.style.width = '0%';
       return;
     }
 
     progressRules.forEach(rule => {
-      console.log(`Checking rule for product ID: ${rule.id}, required quantity: ${rule.quantity}`);
       const matchingProducts = Object.values(selectedProducts).filter(product => product.id === rule.id);
       const productQuantity = matchingProducts.reduce((sum, product) => sum + product.quantity, 0);
       currentQuantity += Math.min(productQuantity, rule.quantity);
-      
-      console.log(`Product ID ${rule.id}: ${productQuantity} / ${rule.quantity}`);
     });
 
     const progressPercentage = (currentQuantity / totalRequiredQuantity) * 100;
-    console.log(`Progress: ${currentQuantity}/${totalRequiredQuantity}, ${progressPercentage.toFixed(2)}%`);
     progressBar.style.width = `${progressPercentage}%`;
   }
 
@@ -544,10 +533,14 @@ document.addEventListener('DOMContentLoaded', function() {
     } else {
       sidecartContent = '<ul class="sidecart-list">';
       for (const [key, product] of Object.entries(selectedProducts)) {
+        const progressRule = progressRules.find(rule => rule.id === product.id);
+        const requiredQuantity = progressRule ? progressRule.quantity : 0;
+        const progressText = progressRule ? progressRule.text : product.title;
+        
         sidecartContent += `
           <li class="sidecart-item" data-product-key="${key}">
             <div class="sidecart-item-info">
-              <div class="sidecart-item-title">${product.title}</div>
+              <div class="sidecart-item-title">${product.quantity}/${requiredQuantity} ${progressText}</div>
               <div class="sidecart-item-variant">${product.variantTitle}</div>
             </div>
             <div class="sidecart-item-quantity">
@@ -626,9 +619,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const variantTitle = button.getAttribute('data-variant-title');
     const productTitle = button.closest('.product-card').querySelector('.product-title').textContent;
 
-
-
-    // Use productId-variantId as the key to maintain variant information
     const key = `${productId}-${variantId}`;
 
     if (selectedProducts[key]) {
@@ -642,8 +632,6 @@ document.addEventListener('DOMContentLoaded', function() {
         quantity: 1
       };
     }
-
-    console.log('Updated selectedProducts:', selectedProducts);
 
     updateSidecart();
   }
