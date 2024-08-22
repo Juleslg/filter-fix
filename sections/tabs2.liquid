@@ -556,24 +556,26 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         sidecartContent += `
-          <li class="sidecart-item">
-            <div class="sidecart-item-info">
-              <div class="sidecart-item-title">${group.title}${progressText}</div>
-              ${group.variants.map(variant => `
-                <div class="sidecart-item-variant">
-                  ${variant.variantTitle}
-                  <div class="sidecart-item-quantity">
-                    <button type="button" class="quantity-button decrease" data-product-key="${variant.key}">-</button>
-                    <input type="number" class="quantity-input" value="${variant.quantity}" min="1" data-product-key="${variant.key}">
-                    <button type="button" class="quantity-button increase" data-product-key="${variant.key}">+</button>
-                  </div>
-                  <button type="button" class="sidecart-item-remove" data-product-key="${variant.key}">×</button>
+      <li class="sidecart-item">
+        <div class="sidecart-item-info">
+          <div class="sidecart-item-title">${group.title}${progressText}</div>
+          ${group.variants.map(variant => `
+            <div class="sidecart-item-variant">
+              <span class="variant-title">${variant.variantTitle}</span>
+              <div class="sidecart-item-controls">
+                <div class="sidecart-item-quantity">
+                  <button type="button" class="quantity-button decrease" data-product-key="${variant.key}">-</button>
+                  <input type="number" class="quantity-input" value="${variant.quantity}" min="1" data-product-key="${variant.key}">
+                  <button type="button" class="quantity-button increase" data-product-key="${variant.key}">+</button>
                 </div>
-              `).join('')}
+                <button type="button" class="sidecart-item-remove" data-product-key="${variant.key}">×</button>
+              </div>
             </div>
-          </li>
-        `;
-      }
+          `).join('')}
+        </div>
+      </li>
+    `;
+  }
       sidecartContent += '</ul>';
       
       sidecartContent += '<div class="delete-all-container"><a href="#" id="delete-all-link">Delete all</a></div>';
