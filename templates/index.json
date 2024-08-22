@@ -80,6 +80,13 @@
             "collection": "small-plates"
           }
         },
+        "collection_tab_QhErEr": {
+          "type": "collection_tab",
+          "settings": {
+            "title": "Deep Plates",
+            "collection": "deep-plate-mix-match"
+          }
+        },
         "collection_tab_GhQn7L": {
           "type": "collection_tab",
           "settings": {
@@ -92,13 +99,6 @@
           "settings": {
             "title": "Small Bowl",
             "collection": "small-bowls"
-          }
-        },
-        "collection_tab_QhErEr": {
-          "type": "collection_tab",
-          "settings": {
-            "title": "Deep Plates",
-            "collection": "deep-plate-mix-match"
           }
         },
         "collection_tab_wJMLDL": {
@@ -117,9 +117,9 @@
       },
       "block_order": [
         "collection_tab_9Y33za",
+        "collection_tab_QhErEr",
         "collection_tab_GhQn7L",
         "collection_tab_mmJKCU",
-        "collection_tab_QhErEr",
         "collection_tab_wJMLDL",
         "description_RNnNDB"
       ],
