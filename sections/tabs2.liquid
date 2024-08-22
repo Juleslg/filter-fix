@@ -739,26 +739,6 @@ document.addEventListener('DOMContentLoaded', function() {
       }));
     }
   });
-
-
-  const productInfo = [
-    {% for i in (1..5) %}
-      {% capture setting_key %}progress_product_{{ i }}{% endcapture %}
-      {% assign product_id = section.settings[setting_key] %}
-      {% if product_id != blank %}
-        {% assign product = all_products[product_id] %}
-        {% if product != blank %}
-          { id: '{{ product.id }}', title: '{{ product.title | escape }}' },
-        {% endif %}
-      {% endif %}
-    {% endfor %}
-  ];
-
-  console.log('Product IDs and Titles:');
-  productInfo.forEach(product => {
-    console.log(`Product ID: ${product.id}, Title: ${product.title}`);
-  });
-
   // Initial update
   updateSidecart();
 });
