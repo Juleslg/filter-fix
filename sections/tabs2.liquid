@@ -531,24 +531,46 @@ document.addEventListener('DOMContentLoaded', function() {
       sidecartContent = '<div class="sidecart-text">Start adding some products to build your set</div>';
       addToCartButton2.style.display = 'none';
     } else {
-      sidecartContent = '<ul class="sidecart-list">';
+      let groupedProducts = {};
+      
       for (const [key, product] of Object.entries(selectedProducts)) {
+        if (!groupedProducts[product.id]) {
+          groupedProducts[product.id] = {
+            ...product,
+            variants: []
+          };
+        }
+        groupedProducts[product.id].variants.push({
+          variantId: product.variantId,
+          variantTitle: product.variantTitle,
+          quantity: product.quantity
+        });
+      }
+
+      sidecartContent = '<ul class="sidecart-list">';
+      for (const product of Object.values(groupedProducts)) {
         const progressRule = progressRules.find(rule => rule.id === product.id);
         const requiredQuantity = progressRule ? progressRule.quantity : 0;
         const progressText = progressRule ? progressRule.text : product.title;
         
+        const totalQuantity = product.variants.reduce((sum, variant) => sum + variant.quantity, 0);
+        
         sidecartContent += `
-          <li class="sidecart-item" data-product-key="${key}">
+          <li class="sidecart-item" data-product-id="${product.id}">
             <div class="sidecart-item-info">
-              <div class="sidecart-item-title">${product.quantity}/${requiredQuantity} ${progressText}</div>
-              <div class="sidecart-item-variant">${product.variantTitle}</div>
+              <div class="sidecart-item-title">${totalQuantity}/${requiredQuantity} ${progressText}</div>
+              ${product.variants.map(variant => `
+                <div class="sidecart-item-variant">
+                  ${variant.variantTitle} / SINGLE UNIT
+                  <div class="sidecart-item-quantity">
+                    <button type="button" class="quantity-button decrease" data-product-id="${product.id}" data-variant-id="${variant.variantId}">-</button>
+                    <input type="number" class="quantity-input" value="${variant.quantity}" min="1" data-product-id="${product.id}" data-variant-id="${variant.variantId}">
+                    <button type="button" class="quantity-button increase" data-product-id="${product.id}" data-variant-id="${variant.variantId}">+</button>
+                  </div>
+                  <button type="button" class="sidecart-item-remove" data-product-id="${product.id}" data-variant-id="${variant.variantId}">×</button>
+                </div>
+              `).join('')}
             </div>
-            <div class="sidecart-item-quantity">
-              <button type="button" class="quantity-button decrease" data-product-key="${key}">-</button>
-              <input type="number" class="quantity-input" value="${product.quantity}" min="1" data-product-key="${key}">
-              <button type="button" class="quantity-button increase" data-product-key="${key}">+</button>
-            </div>
-            <button type="button" class="sidecart-item-remove" data-product-key="${key}">×</button>
           </li>
         `;
       }
@@ -636,21 +658,17 @@ document.addEventListener('DOMContentLoaded', function() {
     updateSidecart();
   }
 
-  function removeFromSidecart(event) {
-    const key = event.currentTarget.getAttribute('data-product-key');
-    delete selectedProducts[key];
-    updateSidecart();
-  }
-
   function updateQuantity(event) {
     const button = event.currentTarget;
-    const key = button.getAttribute('data-product-key');
+    const productId = button.getAttribute('data-product-id');
+    const variantId = button.getAttribute('data-variant-id');
     const isIncrease = button.classList.contains('increase');
     
+    const key = `${productId}-${variantId}`;
     if (selectedProducts[key]) {
       selectedProducts[key].quantity += isIncrease ? 1 : -1;
       if (selectedProducts[key].quantity < 1) {
-        selectedProducts[key].quantity = 1;
+        delete selectedProducts[key];
       }
       updateSidecart();
     }
@@ -658,13 +676,26 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function updateQuantityFromInput(event) {
     const input = event.currentTarget;
-    const key = input.getAttribute('data-product-key');
+    const productId = input.getAttribute('data-product-id');
+    const variantId = input.getAttribute('data-variant-id');
     const newQuantity = parseInt(input.value, 10);
     
+    const key = `${productId}-${variantId}`;
     if (selectedProducts[key] && newQuantity > 0) {
       selectedProducts[key].quantity = newQuantity;
-      updateSidecart();
+    } else if (newQuantity <= 0) {
+      delete selectedProducts[key];
     }
+    updateSidecart();
+  }
+
+  function removeFromSidecart(event) {
+    const button = event.currentTarget;
+    const productId = button.getAttribute('data-product-id');
+    const variantId = button.getAttribute('data-variant-id');
+    const key = `${productId}-${variantId}`;
+    delete selectedProducts[key];
+    updateSidecart();
   }
 
   function deleteAllItems() {
