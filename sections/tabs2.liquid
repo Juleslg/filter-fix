@@ -573,7 +573,7 @@ document.addEventListener('DOMContentLoaded', function() {
           ${group.variants.map(variant => `
             <div class="sidecart-item-variant">
               <span class="variant-title">${variant.variantTitle}</span>
-              <div class="sidecart-item-controls">
+              <div class="sidecart-item-controls" style="display: flex; align-items: center;">
                 <div class="sidecart-item-quantity">
                   <button type="button" class="quantity-button decrease" data-product-key="${variant.key}">-</button>
                   <input type="number" class="quantity-input" value="${variant.quantity}" min="1" data-product-key="${variant.key}">
