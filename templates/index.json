@@ -80,6 +80,13 @@
             "collection": "small-plates"
           }
         },
+        "collection_tab_QhErEr": {
+          "type": "collection_tab",
+          "settings": {
+            "title": "Deep Plates",
+            "collection": "deep-plate-mix-match"
+          }
+        },
         "collection_tab_GhQn7L": {
           "type": "collection_tab",
           "settings": {
@@ -92,13 +99,6 @@
           "settings": {
             "title": "Small Bowl",
             "collection": "small-bowls"
-          }
-        },
-        "collection_tab_QhErEr": {
-          "type": "collection_tab",
-          "settings": {
-            "title": "Deep Plates",
-            "collection": "deep-plate-mix-match"
           }
         },
         "collection_tab_wJMLDL": {
@@ -117,21 +117,28 @@
       },
       "block_order": [
         "collection_tab_9Y33za",
+        "collection_tab_QhErEr",
         "collection_tab_GhQn7L",
         "collection_tab_mmJKCU",
-        "collection_tab_QhErEr",
         "collection_tab_wJMLDL",
         "description_RNnNDB"
       ],
       "settings": {
         "progress_product_1": "8691934691596",
         "progress_quantity_1": 4,
+        "progress_text_1": "Kleiner Teller",
         "progress_product_2": "8691930202380",
         "progress_quantity_2": 4,
+        "progress_text_2": "Tiefer Teller",
         "progress_product_3": "8691936166156",
         "progress_quantity_3": 4,
+        "progress_text_3": "Großer Teller (L)",
         "progress_product_4": "8691926696204",
         "progress_quantity_4": 4,
+        "progress_text_4": "Kleine Schüssel",
+        "progress_product_5": "",
+        "progress_quantity_5": 1,
+        "progress_text_5": "Product 5 Description",
         "subheading": "Build your own",
         "title": "Small Dinner Set",
         "text_alignment": "center"
