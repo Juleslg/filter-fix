@@ -743,7 +743,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
   const productInfo = [
     {% for i in (1..5) %}
-      {% assign product_id = section.settings['progress_product_' | append: i] %}
+      {% capture setting_key %}progress_product_{{ i }}{% endcapture %}
+      {% assign product_id = section.settings[setting_key] %}
       {% if product_id != blank %}
         {% assign product = all_products[product_id] %}
         {% if product != blank %}
