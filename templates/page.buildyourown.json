@@ -70,6 +70,25 @@
             "button_text_color": "#1c1b1b"
           }
         },
+        "collection_637waf": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "image": "shopify:\/\/shop_images\/40-TELLER-SET-MWHITE-003-02_c81d3ce2-658f-498c-bd41-007a41bafc8b.jpg",
+            "expand_collection": false,
+            "content_position": "place-self-end-center text-center",
+            "subheading": "",
+            "title": "",
+            "button_text": "Teller-Set",
+            "button_link": "shopify:\/\/pages\/mix-teller-set",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "button_style": "outline",
+            "button_background": "#1c1b1b",
+            "button_text_color": "#1c1b1b"
+          }
+        },
         "collection_A3XwBf": {
           "type": "collection",
           "settings": {
@@ -81,6 +100,25 @@
             "title": "",
             "button_text": "Kaffee-Set",
             "button_link": "shopify:\/\/pages\/mix-match-coffee-set",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "button_style": "outline",
+            "button_background": "#1c1b1b",
+            "button_text_color": "#1c1b1b"
+          }
+        },
+        "collection_TPkcwp": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "image": "shopify:\/\/shop_images\/40-FRUeH-SET-SAND-004-01_2a79e3fb-aa28-4307-a5ab-6c30bbd0ddbb.jpg",
+            "expand_collection": false,
+            "content_position": "place-self-end-center text-center",
+            "subheading": "",
+            "title": "",
+            "button_text": "Frühstücks-Set",
+            "button_link": "shopify:\/\/pages\/mix-fruhstucks-set",
             "text_color": "#ffffff",
             "overlay_color": "#000000",
             "overlay_opacity": 0,
@@ -146,44 +184,6 @@
             "button_text_color": "#1c1b1b"
           }
         },
-        "collection_TPkcwp": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "image": "shopify:\/\/shop_images\/40-FRUeH-SET-SAND-004-01_2a79e3fb-aa28-4307-a5ab-6c30bbd0ddbb.jpg",
-            "expand_collection": false,
-            "content_position": "place-self-end-center text-center",
-            "subheading": "",
-            "title": "",
-            "button_text": "Frühstücks-Set",
-            "button_link": "",
-            "text_color": "#ffffff",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0,
-            "button_style": "outline",
-            "button_background": "#1c1b1b",
-            "button_text_color": "#1c1b1b"
-          }
-        },
-        "collection_637waf": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "image": "shopify:\/\/shop_images\/40-TELLER-SET-MWHITE-003-02_c81d3ce2-658f-498c-bd41-007a41bafc8b.jpg",
-            "expand_collection": false,
-            "content_position": "place-self-end-center text-center",
-            "subheading": "",
-            "title": "",
-            "button_text": "Teller-Set",
-            "button_link": "",
-            "text_color": "#ffffff",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0,
-            "button_style": "outline",
-            "button_background": "#1c1b1b",
-            "button_text_color": "#1c1b1b"
-          }
-        },
         "collection_YHn7x9": {
           "type": "collection",
           "settings": {
@@ -206,12 +206,12 @@
       },
       "block_order": [
         "collection_rmGVe6",
+        "collection_637waf",
         "collection_A3XwBf",
+        "collection_TPkcwp",
         "collection_rYntak",
         "collection_nYEHir",
         "collection_wVDa3b",
-        "collection_TPkcwp",
-        "collection_637waf",
         "collection_YHn7x9"
       ],
       "settings": {

@@ -1,0 +1,72 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "custom_css": [
+
+      ],
+      "settings": {
+        "show_title": true,
+        "page_width": "xs"
+      }
+    },
+    "tabs2_PXQCAx": {
+      "type": "tabs2",
+      "blocks": {
+        "description_hzYqjb": {
+          "type": "description",
+          "settings": {
+            "text": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, in maxime nisi impedit quos recusandae, laboriosam temporibus tempore saepe porro nostrum? Nihil, consequatur. Saepe ut excepturi odio eius architecto pariatur!<\/p>"
+          }
+        },
+        "collection_tab_L69QV8": {
+          "type": "collection_tab",
+          "settings": {
+            "title": "Großer Teller",
+            "collection": "big-plates-mix-match"
+          }
+        },
+        "collection_tab_3PR93K": {
+          "type": "collection_tab",
+          "settings": {
+            "title": "Kleiner Teller",
+            "collection": "small-plates"
+          }
+        }
+      },
+      "block_order": [
+        "description_hzYqjb",
+        "collection_tab_L69QV8",
+        "collection_tab_3PR93K"
+      ],
+      "settings": {
+        "progress_product_1": "8691936166156",
+        "progress_quantity_1": 4,
+        "progress_product_2": "8691934691596",
+        "progress_quantity_2": 4,
+        "progress_product_3": "",
+        "progress_quantity_3": 0,
+        "progress_product_4": "",
+        "progress_quantity_4": 1,
+        "progress_product_5": "",
+        "progress_quantity_5": 1,
+        "subheading": "Subheading",
+        "title": "Collection Tabs",
+        "text_alignment": "center"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "tabs2_PXQCAx"
+  ]
+}

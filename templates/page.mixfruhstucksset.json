@@ -1,0 +1,121 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "custom_css": [
+
+      ],
+      "settings": {
+        "show_title": true,
+        "page_width": "xs"
+      }
+    },
+    "image_text_layout_itgKRJ": {
+      "type": "image-text-layout",
+      "blocks": {
+        "subheading_LYLhjx": {
+          "type": "subheading",
+          "settings": {
+            "text": "Subheading"
+          }
+        },
+        "heading_eNhKXh": {
+          "type": "heading",
+          "settings": {
+            "text": "Image text Layout",
+            "heading_tag": "h1"
+          }
+        },
+        "richtext_ddbEyC": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_LYLhjx",
+        "heading_eNhKXh",
+        "richtext_ddbEyC"
+      ],
+      "settings": {
+        "separate_section_with_border": true,
+        "reveal_on_scroll": true,
+        "image_position": "image-with-text",
+        "text_agline": "left",
+        "content_width": "sm",
+        "padding_sides_desktop": 0,
+        "padding_sides_mobile": 0,
+        "gap_img_text": 0,
+        "remove_vertical_spacing": true
+      }
+    },
+    "tabs2_Kmm9EM": {
+      "type": "tabs2",
+      "blocks": {
+        "description_QrJLVY": {
+          "type": "description",
+          "settings": {
+            "text": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, in maxime nisi impedit quos recusandae, laboriosam temporibus tempore saepe porro nostrum? Nihil, consequatur. Saepe ut excepturi odio eius architecto pariatur!<\/p>"
+          }
+        },
+        "collection_tab_jpRE9N": {
+          "type": "collection_tab",
+          "settings": {
+            "title": "Becher",
+            "collection": "mugs-mixmatch"
+          }
+        },
+        "collection_tab_YdPQGJ": {
+          "type": "collection_tab",
+          "settings": {
+            "title": "Kleiner Teller",
+            "collection": "small-plates"
+          }
+        },
+        "collection_tab_N63ddA": {
+          "type": "collection_tab",
+          "settings": {
+            "title": "Kleine Schüssel",
+            "collection": "small-bowls"
+          }
+        }
+      },
+      "block_order": [
+        "description_QrJLVY",
+        "collection_tab_jpRE9N",
+        "collection_tab_YdPQGJ",
+        "collection_tab_N63ddA"
+      ],
+      "settings": {
+        "progress_product_1": "8691943670028",
+        "progress_quantity_1": 4,
+        "progress_product_2": "8691934691596",
+        "progress_quantity_2": 4,
+        "progress_product_3": "8691926696204",
+        "progress_quantity_3": 4,
+        "progress_product_4": "",
+        "progress_quantity_4": 1,
+        "progress_product_5": "",
+        "progress_quantity_5": 1,
+        "subheading": "Subheading",
+        "title": "Collection Tabs",
+        "text_alignment": "center"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_text_layout_itgKRJ",
+    "tabs2_Kmm9EM"
+  ]
+}
