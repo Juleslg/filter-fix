@@ -463,7 +463,8 @@
     },
     "tabs2": {
       "start_adding_products": "Start adding some products to build your set",
-      "set_added_to_cart": "Set added to cart!"
+      "set_added_to_cart": "Set added to cart!",
+      "your_selection": "Your selection"
     }
   },
   "shopify": {

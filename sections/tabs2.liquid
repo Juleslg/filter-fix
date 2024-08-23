@@ -55,7 +55,7 @@
 
 
     <div class="sidecart">
-        <div class="h6">Your selection</div>
+      <div class="h6">{{ 'sections.tabs2.your_selection' | t }}</div>
         <div class="progress-bar-container">
     <div class="progress-bar" id="sidecart-progress-bar"></div>
   </div>
@@ -926,6 +926,7 @@ document.addEventListener('DOMContentLoaded', function() {
     theme.strings = {
       ...theme.strings,
       startAddingProducts: {{ "sections.tabs2.start_adding_products" | t | json }},
-      setAddedToCart: {{ "sections.tabs2.set_added_to_cart" | t | json }}
+      setAddedToCart: {{ "sections.tabs2.set_added_to_cart" | t | json }},
+      yourSelection: {{ "sections.tabs2.your_selection" | t | json }}
     };
     {% endjavascript %}
