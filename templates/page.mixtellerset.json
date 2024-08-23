@@ -38,23 +38,15 @@
         "collection_tab_3PR93K": {
           "type": "collection_tab",
           "settings": {
-            "title": "Collection",
-            "collection": ""
-          }
-        },
-        "collection_tab_t34wC4": {
-          "type": "collection_tab",
-          "settings": {
-            "title": "Collection",
-            "collection": ""
+            "title": "Kleiner Teller",
+            "collection": "small-plates"
           }
         }
       },
       "block_order": [
         "description_hzYqjb",
         "collection_tab_L69QV8",
-        "collection_tab_3PR93K",
-        "collection_tab_t34wC4"
+        "collection_tab_3PR93K"
       ],
       "settings": {
         "progress_product_1": "8691936166156",
