@@ -537,7 +537,7 @@ document.addEventListener('DOMContentLoaded', function() {
   function updateSidecart() {
     let sidecartContent = '';
     if (Object.keys(selectedProducts).length === 0) {
-      sidecartContent = '<div class="sidecart-text">Start adding some products to build your set</div>';
+      sidecartContent = '<div class="sidecart-text">{{ "sections.tabs2.start_adding_products" | t }}</div>';
       addToCartButton2.style.display = 'none';
     } else {
       sidecartContent = '<ul class="sidecart-list">';
@@ -838,7 +838,6 @@ document.addEventListener('DOMContentLoaded', function() {
         "label": "Progress Quantity 5",
         "default": 1
       },
-      
       {
         "type": "inline_richtext",
         "id": "subheading",
@@ -921,3 +920,11 @@ document.addEventListener('DOMContentLoaded', function() {
     ]
   }
   {% endschema %}
+  
+  {% javascript %}
+  window.theme = window.theme || {};
+  theme.strings = {
+    ...theme.strings,
+    startAddingProducts: {{ "sections.tabs2.start_adding_products" | t | json }}
+  };
+  {% endjavascript %}
