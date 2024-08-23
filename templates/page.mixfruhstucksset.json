@@ -11,6 +11,7 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "custom_css": [
 
       ],
@@ -48,7 +49,8 @@
         "richtext_ddbEyC"
       ],
       "settings": {
-        "separate_section_with_border": true,
+        "separate_section_with_border": false,
+        "image": "shopify:\/\/shop_images\/40-FRUeH-SET-BLUE-003-01_fab6cb40-b760-4be8-82b0-f10d42e1b8c9.png",
         "reveal_on_scroll": true,
         "image_position": "image-with-text",
         "text_agline": "left",
