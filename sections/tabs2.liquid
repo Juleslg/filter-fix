@@ -83,6 +83,15 @@
 
 <style> 
 
+#add-to-cart-button-2 {
+    transition: opacity 0.3s ease;
+  }
+
+  #add-to-cart-button-2:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
 .mobile-sidecart-toggle {
   text-transform: uppercase;
 }
@@ -521,7 +530,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (totalRequiredQuantity === 0) {
       progressBar.style.width = '0%';
-      return;
+      return false;
     }
 
     progressRules.forEach(rule => {
@@ -532,6 +541,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const progressPercentage = (currentQuantity / totalRequiredQuantity) * 100;
     progressBar.style.width = `${progressPercentage}%`;
+
+    return currentQuantity >= totalRequiredQuantity;
   }
 
   function updateSidecart() {
@@ -586,7 +597,7 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
       </li>
     `;
-  }
+      }
       sidecartContent += '</ul>';
       
       sidecartContent += '<div class="delete-all-container"><a href="#" id="delete-all-link">Delete all</a></div>';
@@ -644,7 +655,10 @@ document.addEventListener('DOMContentLoaded', function() {
       mobileToggle.style.display = 'block';
     }
 
-    updateProgressBar();
+    const isProgressComplete = updateProgressBar();
+    addToCartButton2.disabled = !isProgressComplete;
+    addToCartButton2.style.opacity = isProgressComplete ? '1' : '0.5';
+    addToCartButton2.style.cursor = isProgressComplete ? 'pointer' : 'not-allowed';
   }
 
   function addToSidecart(event) {
@@ -713,6 +727,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
   addToCartButton2.addEventListener('click', async function(event) {
     event.preventDefault();
+    
+    if (this.disabled) {
+      return; // Don't proceed if the button is disabled
+    }
+    
     const formData = new FormData(sidecartForm);
     const response = await fetch('/cart/add.js', {
       method: 'POST',
