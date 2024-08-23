@@ -11,6 +11,7 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "custom_css": [
 
       ],
@@ -31,7 +32,7 @@
         "heading_eNhKXh": {
           "type": "heading",
           "settings": {
-            "text": "Image text Layout",
+            "text": "Frühstücks-Set",
             "heading_tag": "h1"
           }
         },
@@ -40,15 +41,30 @@
           "settings": {
             "content": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.<\/p>"
           }
+        },
+        "button_cWD3eG": {
+          "type": "button",
+          "settings": {
+            "style": "solid",
+            "text": "Button text",
+            "url": "",
+            "background": "",
+            "text_color": ""
+          }
         }
       },
       "block_order": [
         "subheading_LYLhjx",
         "heading_eNhKXh",
-        "richtext_ddbEyC"
+        "richtext_ddbEyC",
+        "button_cWD3eG"
+      ],
+      "custom_css": [
+        ".image-with-text {background-color: #f5f3ef; \/* Light gray color *\/}"
       ],
       "settings": {
-        "separate_section_with_border": true,
+        "separate_section_with_border": false,
+        "image": "shopify:\/\/shop_images\/40-FRUeH-SET-BLUE-003-01_fab6cb40-b760-4be8-82b0-f10d42e1b8c9.png",
         "reveal_on_scroll": true,
         "image_position": "image-with-text",
         "text_agline": "left",
