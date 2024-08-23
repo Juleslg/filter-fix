@@ -462,7 +462,8 @@
       "view_product": "Produkt anzeigen"
     },
     "tabs2": {
-      "start_adding_products": "Fügen Sie Produkte hinzu, um Ihr Set zu erstellen."
+      "start_adding_products": "Fügen Sie Produkte hinzu, um Ihr Set zu erstellen.",
+      "set_added_to_cart": "Set wurde dem Warenkorb hinzugefügt!"
     }
   },
   "shopify": {

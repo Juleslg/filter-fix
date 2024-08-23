@@ -466,7 +466,8 @@
       "view_product": "Voir le produit"
     },
     "tabs2": {
-      "start_adding_products": "Commencez à ajouter des produits pour créer votre ensemble"
+      "start_adding_products": "Commencez à ajouter des produits pour créer votre ensemble",
+      "set_added_to_cart": "Ensemble ajouté au panier !"
     }
   },
   "shopify": {

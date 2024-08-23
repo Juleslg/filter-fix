@@ -739,7 +739,7 @@ document.addEventListener('DOMContentLoaded', function() {
       deleteAllItems();
 
       // Update sidecart with success message
-      sidecartItems.innerHTML = '<div class="sidecart-text">Set added to the cart!</div>';
+      sidecartItems.innerHTML = '<div class="sidecart-text">{{ "sections.tabs2.set_added_to_cart" | t }}</div>';
       
       // Hide the "Add to Cart" button
       addToCartButton2.style.display = 'none';
@@ -922,9 +922,10 @@ document.addEventListener('DOMContentLoaded', function() {
   {% endschema %}
   
   {% javascript %}
-  window.theme = window.theme || {};
-  theme.strings = {
-    ...theme.strings,
-    startAddingProducts: {{ "sections.tabs2.start_adding_products" | t | json }}
-  };
-  {% endjavascript %}
+    window.theme = window.theme || {};
+    theme.strings = {
+      ...theme.strings,
+      startAddingProducts: {{ "sections.tabs2.start_adding_products" | t | json }},
+      setAddedToCart: {{ "sections.tabs2.set_added_to_cart" | t | json }}
+    };
+    {% endjavascript %}
