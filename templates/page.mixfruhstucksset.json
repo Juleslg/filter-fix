@@ -48,6 +48,9 @@
         "heading_eNhKXh",
         "richtext_ddbEyC"
       ],
+      "custom_css": [
+        ".image-with-text {background-color: #f5f3ef; \/* Light gray color *\/}"
+      ],
       "settings": {
         "separate_section_with_border": false,
         "image": "shopify:\/\/shop_images\/40-FRUeH-SET-BLUE-003-01_fab6cb40-b760-4be8-82b0-f10d42e1b8c9.png",
