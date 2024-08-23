@@ -71,22 +71,22 @@
         "collection_tab_jpRE9N": {
           "type": "collection_tab",
           "settings": {
-            "title": "Collection",
-            "collection": ""
+            "title": "Becher",
+            "collection": "mugs-mixmatch"
           }
         },
         "collection_tab_YdPQGJ": {
           "type": "collection_tab",
           "settings": {
-            "title": "Collection",
-            "collection": ""
+            "title": "Kleiner Teller",
+            "collection": "small-plates"
           }
         },
         "collection_tab_N63ddA": {
           "type": "collection_tab",
           "settings": {
-            "title": "Collection",
-            "collection": ""
+            "title": "Kleine Schüssel",
+            "collection": "small-bowls"
           }
         }
       },
