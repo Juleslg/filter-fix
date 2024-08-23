@@ -32,7 +32,7 @@
         "heading_eNhKXh": {
           "type": "heading",
           "settings": {
-            "text": "Image text Layout",
+            "text": "Frühstücks-Set",
             "heading_tag": "h1"
           }
         },
@@ -41,12 +41,23 @@
           "settings": {
             "content": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.<\/p>"
           }
+        },
+        "button_cWD3eG": {
+          "type": "button",
+          "settings": {
+            "style": "solid",
+            "text": "Button text",
+            "url": "",
+            "background": "",
+            "text_color": ""
+          }
         }
       },
       "block_order": [
         "subheading_LYLhjx",
         "heading_eNhKXh",
-        "richtext_ddbEyC"
+        "richtext_ddbEyC",
+        "button_cWD3eG"
       ],
       "custom_css": [
         ".image-with-text {background-color: #f5f3ef; \/* Light gray color *\/}"
