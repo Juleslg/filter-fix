@@ -26,7 +26,7 @@
         "heading_j4tABj": {
           "type": "heading",
           "settings": {
-            "text": "Build your own",
+            "text": "Mix and match",
             "heading_tag": "h1"
           }
         },
@@ -61,7 +61,7 @@
             "subheading": "",
             "title": "",
             "button_text": "Kleines Dinner-Set",
-            "button_link": "shopify:\/\/pages\/builder",
+            "button_link": "https:\/\/ono-mao.myshopify.com\/discount\/MIXSMALLDINNERSET?redirect=%2Fpages%2Fmix-small-dinner-set",
             "text_color": "#ffffff",
             "overlay_color": "#000000",
             "overlay_opacity": 0,
@@ -80,7 +80,7 @@
             "subheading": "",
             "title": "",
             "button_text": "Teller-Set",
-            "button_link": "shopify:\/\/pages\/mix-teller-set",
+            "button_link": "https:\/\/ono-mao.myshopify.com\/discount\/MIXTELLER?redirect=%2Fpages%2Fmix-teller-set",
             "text_color": "#ffffff",
             "overlay_color": "#000000",
             "overlay_opacity": 0,
@@ -99,7 +99,7 @@
             "subheading": "",
             "title": "",
             "button_text": "Kaffee-Set",
-            "button_link": "shopify:\/\/pages\/mix-match-coffee-set",
+            "button_link": "https:\/\/ono-mao.myshopify.com\/discount\/MIXKAFFEE?redirect=%2Fpages%2Fmix-match-coffee-set",
             "text_color": "#ffffff",
             "overlay_color": "#000000",
             "overlay_opacity": 0,
@@ -118,7 +118,7 @@
             "subheading": "",
             "title": "",
             "button_text": "Frühstücks-Set",
-            "button_link": "shopify:\/\/pages\/mix-fruhstucks-set",
+            "button_link": "https:\/\/ono-mao.myshopify.com\/discount\/MIXBREAKFAST?redirect=%2Fpages%2Fmix-fruhstucks-set",
             "text_color": "#ffffff",
             "overlay_color": "#000000",
             "overlay_opacity": 0,
@@ -156,7 +156,7 @@
             "subheading": "",
             "title": "",
             "button_text": "Großes Dinner-Set",
-            "button_link": "shopify:\/\/pages\/builder",
+            "button_link": "shopify:\/\/pages\/mix-small-dinner-set",
             "text_color": "#ffffff",
             "overlay_color": "#000000",
             "overlay_opacity": 0,
