@@ -49,7 +49,7 @@
         "richtext_hp4GUW"
       ],
       "custom_css": [
-        ".image-with-text {background-color: #EFEDE8; \/* Light gray color *\/}"
+        ".image-with-text {background-color: #F0EFEA; \/* Light gray color *\/}"
       ],
       "settings": {
         "separate_section_with_border": false,
