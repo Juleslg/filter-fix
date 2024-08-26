@@ -26,7 +26,7 @@
         "subheading_LYLhjx": {
           "type": "subheading",
           "settings": {
-            "text": "Subheading"
+            "text": "Mix & Match"
           }
         },
         "heading_eNhKXh": {
@@ -39,17 +39,17 @@
         "richtext_ddbEyC": {
           "type": "richtext",
           "settings": {
-            "content": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.<\/p>"
+            "content": "<ul><li>4x Becher<\/li><li>4x Kleine Schüsseln<\/li><li>4x Kleiner Teller<\/li><\/ul>"
           }
         },
         "button_cWD3eG": {
           "type": "button",
           "settings": {
-            "style": "solid",
-            "text": "Button text",
+            "style": "outline",
+            "text": "Build Now",
             "url": "",
-            "background": "",
-            "text_color": ""
+            "background": "#000000",
+            "text_color": "#000000"
           }
         }
       },
@@ -123,8 +123,8 @@
         "progress_quantity_4": 1,
         "progress_product_5": "",
         "progress_quantity_5": 1,
-        "subheading": "Subheading",
-        "title": "Collection Tabs",
+        "subheading": "",
+        "title": "",
         "text_alignment": "center"
       }
     }

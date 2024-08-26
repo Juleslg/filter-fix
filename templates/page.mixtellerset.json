@@ -26,30 +26,48 @@
         "subheading_Y3GWBg": {
           "type": "subheading",
           "settings": {
-            "text": "Subheading"
+            "text": "Mix & Match"
           }
         },
         "heading_8yzjea": {
           "type": "heading",
           "settings": {
-            "text": "Image text Layout",
+            "text": "Teller-Set",
             "heading_tag": "h1"
           }
         },
         "richtext_hp4GUW": {
           "type": "richtext",
           "settings": {
-            "content": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.<\/p>"
+            "content": "<ul><li>4x Kleiner Teller<\/li><li>4x Großer Teller<\/li><\/ul>"
+          }
+        },
+        "subheading_FAaYQc": {
+          "type": "subheading",
+          "settings": {
+            "text": "Spare 15% | Rabatt wird im Warenkorb angewendet"
+          }
+        },
+        "button_y6qhcc": {
+          "type": "button",
+          "settings": {
+            "style": "outline",
+            "text": "Build now!",
+            "url": "",
+            "background": "#000000",
+            "text_color": "#1c1c1c"
           }
         }
       },
       "block_order": [
         "subheading_Y3GWBg",
         "heading_8yzjea",
-        "richtext_hp4GUW"
+        "richtext_hp4GUW",
+        "subheading_FAaYQc",
+        "button_y6qhcc"
       ],
       "custom_css": [
-        ".image-with-text {background-color: #F0EFEA; \/* Light gray color *\/}"
+        ".image-with-text {background-color: #f0efea; \/* Light gray color *\/}"
       ],
       "settings": {
         "separate_section_with_border": false,
@@ -104,8 +122,8 @@
         "progress_quantity_4": 1,
         "progress_product_5": "",
         "progress_quantity_5": 1,
-        "subheading": "Subheading",
-        "title": "Collection Tabs",
+        "subheading": "",
+        "title": "",
         "text_alignment": "center"
       }
     }
