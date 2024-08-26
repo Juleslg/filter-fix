@@ -490,6 +490,12 @@ document.addEventListener('DOMContentLoaded', function() {
   const addToCartButton2 = document.getElementById('add-to-cart-button-2');
   let selectedProducts = {};
 
+  document.querySelector('.prose.text-center.sm\\:text-start button.button.button--outline').onclick = function() {
+    document.querySelector('.collection-description').scrollIntoView({ 
+        behavior: 'smooth' 
+    });
+  };
+
   const sidecart = document.querySelector('.sidecart');
   const mobileToggle = document.createElement('div');
   mobileToggle.className = 'mobile-sidecart-toggle';
