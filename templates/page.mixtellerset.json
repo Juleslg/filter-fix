@@ -54,8 +54,8 @@
             "style": "outline",
             "text": "Build now!",
             "url": "",
-            "background": "",
-            "text_color": ""
+            "background": "#000000",
+            "text_color": "#1c1c1c"
           }
         }
       },
