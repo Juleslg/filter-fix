@@ -41,12 +41,19 @@
           "settings": {
             "content": "<ul><li>4x Kleiner Teller<\/li><li>4x Großer Teller<\/li><\/ul>"
           }
+        },
+        "subheading_FAaYQc": {
+          "type": "subheading",
+          "settings": {
+            "text": "Spare 15% | Rabatt wird im Warenkorb angewendet"
+          }
         }
       },
       "block_order": [
         "subheading_Y3GWBg",
         "heading_8yzjea",
-        "richtext_hp4GUW"
+        "richtext_hp4GUW",
+        "subheading_FAaYQc"
       ],
       "custom_css": [
         ".image-with-text {background-color: #f0efea; \/* Light gray color *\/}"
