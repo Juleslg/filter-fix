@@ -733,37 +733,26 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     const formData = new FormData(sidecartForm);
-formData.append('discount', 'MIXTELLER'); // Add this line to include the discount code
+    const response = await fetch('/cart/add.js', {
+      method: 'POST',
+      body: formData,
+      headers: {
+        'X-Requested-With': 'XMLHttpRequest'
+      }
+    });
 
-const response = await fetch('/cart/add.js', {
-  method: 'POST',
-  body: formData,
-  headers: {
-    'X-Requested-With': 'XMLHttpRequest'
-  }
-});
-
-if (response.ok) {
-  const responseJson = await response.json();
-  document.documentElement.dispatchEvent(new CustomEvent('theme:loading:end', { bubbles: true }));
-  
-  // Apply the discount code to the cart
-  await fetch('/discount/MIXTELLER', {
-    method: 'POST',
-    headers: {
-      'X-Requested-With': 'XMLHttpRequest'
-    }
-  });
-
-  const cartContent = await (await fetch('/cart.js')).json();
-  cartContent['sections'] = responseJson['sections'];
-  document.documentElement.dispatchEvent(new CustomEvent('cart:change', {
-    bubbles: true,
-    detail: {
-      baseEvent: 'variant:add',
-      cart: cartContent
-    }
-  }));
+    if (response.ok) {
+      const responseJson = await response.json();
+      document.documentElement.dispatchEvent(new CustomEvent('theme:loading:end', { bubbles: true }));
+      const cartContent = await (await fetch('/cart.js')).json();
+      cartContent['sections'] = responseJson['sections'];
+      document.documentElement.dispatchEvent(new CustomEvent('cart:change', {
+        bubbles: true,
+        detail: {
+          baseEvent: 'variant:add',
+          cart: cartContent
+        }
+      }));
 
       // Clear the selection
       deleteAllItems();
