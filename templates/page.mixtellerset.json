@@ -124,7 +124,8 @@
         "progress_quantity_5": 1,
         "subheading": "",
         "title": "",
-        "text_alignment": "center"
+        "text_alignment": "center",
+        "type_of_set": "teller-set"
       }
     }
   },
