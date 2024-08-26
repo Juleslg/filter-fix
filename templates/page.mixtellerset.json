@@ -48,6 +48,9 @@
         "heading_8yzjea",
         "richtext_hp4GUW"
       ],
+      "custom_css": [
+        ".image-with-text {background-color: #f5f3ef; \/* Light gray color *\/}"
+      ],
       "settings": {
         "separate_section_with_border": false,
         "image": "shopify:\/\/shop_images\/40-TELLER-SET-BLUE-003-02_b25a8ce7-2e98-439e-93b1-9e66ed90d320.png",
