@@ -45,11 +45,11 @@
         "button_cWD3eG": {
           "type": "button",
           "settings": {
-            "style": "solid",
-            "text": "Button text",
+            "style": "outline",
+            "text": "Build Now",
             "url": "",
-            "background": "",
-            "text_color": ""
+            "background": "#000000",
+            "text_color": "#000000"
           }
         }
       },
