@@ -726,55 +726,61 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   addToCartButton2.addEventListener('click', async function(event) {
-  event.preventDefault();
-  
-  if (this.disabled) {
-    return; // Don't proceed if the button is disabled
-  }
-  
-  const formData = new FormData(sidecartForm);
-  const response = await fetch('/cart/add.js', {
-    method: 'POST',
-    body: formData,
-    headers: {
-      'X-Requested-With': 'XMLHttpRequest'
+    event.preventDefault();
+    
+    if (this.disabled) {
+      return; // Don't proceed if the button is disabled
+    }
+    
+    const formData = new FormData(sidecartForm);
+    const response = await fetch('/cart/add.js', {
+      method: 'POST',
+      body: formData,
+      headers: {
+        'X-Requested-With': 'XMLHttpRequest'
+      }
+    });
+
+    if (response.ok) {
+      const responseJson = await response.json();
+      document.documentElement.dispatchEvent(new CustomEvent('theme:loading:end', { bubbles: true }));
+      const cartContent = await (await fetch('/cart.js')).json();
+      cartContent['sections'] = responseJson['sections'];
+      document.documentElement.dispatchEvent(new CustomEvent('cart:change', {
+        bubbles: true,
+        detail: {
+          baseEvent: 'variant:add',
+          cart: cartContent
+        }
+      }));
+
+      // Clear the selection
+      deleteAllItems();
+
+      // Update sidecart with success message
+      sidecartItems.innerHTML = '<div class="sidecart-text">{{ "sections.tabs2.set_added_to_cart" | t }}</div>';
+      
+      // Hide the "Add to Cart" button
+      addToCartButton2.style.display = 'none';
+      
+      // Update mobile toggle
+      mobileToggle.style.display = 'none';
+
+      // Automatically close the sidecart on mobile after a delay
+      setTimeout(() => {
+        sidecart.classList.remove('active');
+        overlay.classList.remove('active');
+      }, 3000); // Close after 3 seconds
+    } else {
+      const responseJson = await response.json();
+      document.documentElement.dispatchEvent(new CustomEvent('cart:error', {
+        bubbles: true,
+        detail: {
+          error: responseJson['description']
+        }
+      }));
     }
   });
-
-  if (response.ok) {
-    const responseJson = await response.json();
-    document.documentElement.dispatchEvent(new CustomEvent('theme:loading:end', { bubbles: true }));
-    const cartContent = await (await fetch('/cart.js')).json();
-    cartContent['sections'] = responseJson['sections'];
-    document.documentElement.dispatchEvent(new CustomEvent('cart:change', {
-      bubbles: true,
-      detail: {
-        baseEvent: 'variant:add',
-        cart: cartContent
-      }
-    }));
-
-    // Clear the selection
-    deleteAllItems();
-
-    // Update sidecart with success message
-    sidecartItems.innerHTML = '<div class="sidecart-text">{{ "sections.tabs2.set_added_to_cart" | t }}</div>';
-    
-    // Hide the "Add to Cart" button
-    addToCartButton2.style.display = 'none';
-    
-    // Update mobile toggle
-    mobileToggle.style.display = 'none';
-  } else {
-    const responseJson = await response.json();
-    document.documentElement.dispatchEvent(new CustomEvent('cart:error', {
-      bubbles: true,
-      detail: {
-        error: responseJson['description']
-      }
-    }));
-  }
-});
 
   // Initial update
   updateSidecart();
