@@ -26,20 +26,20 @@
         "subheading_Y3GWBg": {
           "type": "subheading",
           "settings": {
-            "text": "Subheading"
+            "text": "Mix & Match"
           }
         },
         "heading_8yzjea": {
           "type": "heading",
           "settings": {
-            "text": "Image text Layout",
+            "text": "Teller-Set",
             "heading_tag": "h1"
           }
         },
         "richtext_hp4GUW": {
           "type": "richtext",
           "settings": {
-            "content": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.<\/p>"
+            "content": "<ul><li>4x Kleiner Teller<\/li><li>4x Großer Teller<\/li><\/ul>"
           }
         }
       },
@@ -49,7 +49,7 @@
         "richtext_hp4GUW"
       ],
       "custom_css": [
-        ".image-with-text {background-color: #F0EFEA; \/* Light gray color *\/}"
+        ".image-with-text {background-color: #f0efea; \/* Light gray color *\/}"
       ],
       "settings": {
         "separate_section_with_border": false,
