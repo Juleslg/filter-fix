@@ -11,12 +11,57 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "custom_css": [
 
       ],
       "settings": {
         "show_title": true,
         "page_width": "xs"
+      }
+    },
+    "image_text_layout_7EWQwK": {
+      "type": "image-text-layout",
+      "blocks": {
+        "subheading_Y3GWBg": {
+          "type": "subheading",
+          "settings": {
+            "text": "Subheading"
+          }
+        },
+        "heading_8yzjea": {
+          "type": "heading",
+          "settings": {
+            "text": "Image text Layout",
+            "heading_tag": "h1"
+          }
+        },
+        "richtext_hp4GUW": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_Y3GWBg",
+        "heading_8yzjea",
+        "richtext_hp4GUW"
+      ],
+      "custom_css": [
+        ".image-with-text {background-color: #F0EFEA; \/* Light gray color *\/}"
+      ],
+      "settings": {
+        "separate_section_with_border": false,
+        "image": "shopify:\/\/shop_images\/40-TELLER-SET-BLUE-003-02_b25a8ce7-2e98-439e-93b1-9e66ed90d320.png",
+        "reveal_on_scroll": true,
+        "image_position": "image-with-text",
+        "text_agline": "left",
+        "content_width": "sm",
+        "padding_sides_desktop": 0,
+        "padding_sides_mobile": 0,
+        "gap_img_text": 0,
+        "remove_vertical_spacing": true
       }
     },
     "tabs2_PXQCAx": {
@@ -67,6 +112,7 @@
   },
   "order": [
     "main",
+    "image_text_layout_7EWQwK",
     "tabs2_PXQCAx"
   ]
 }

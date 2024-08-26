@@ -70,80 +70,6 @@
         "controls_color": "#ffffff"
       }
     },
-    "tabs2_AjQarB": {
-      "type": "tabs2",
-      "blocks": {
-        "collection_tab_9Y33za": {
-          "type": "collection_tab",
-          "settings": {
-            "title": "Plates",
-            "collection": "small-plates"
-          }
-        },
-        "collection_tab_QhErEr": {
-          "type": "collection_tab",
-          "settings": {
-            "title": "Deep Plates",
-            "collection": "deep-plate-mix-match"
-          }
-        },
-        "collection_tab_GhQn7L": {
-          "type": "collection_tab",
-          "settings": {
-            "title": "Big Plates",
-            "collection": "big-plates-mix-match"
-          }
-        },
-        "collection_tab_mmJKCU": {
-          "type": "collection_tab",
-          "settings": {
-            "title": "Small Bowl",
-            "collection": "small-bowls"
-          }
-        },
-        "collection_tab_wJMLDL": {
-          "type": "collection_tab",
-          "settings": {
-            "title": "5 Collections",
-            "collection": ""
-          }
-        },
-        "description_RNnNDB": {
-          "type": "description",
-          "settings": {
-            "text": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, in maxime nisi impedit quos recusandae, laboriosam temporibus tempore saepe porro nostrum? Nihil, consequatur. Saepe ut excepturi odio eius architecto pariatur!<\/p>"
-          }
-        }
-      },
-      "block_order": [
-        "collection_tab_9Y33za",
-        "collection_tab_QhErEr",
-        "collection_tab_GhQn7L",
-        "collection_tab_mmJKCU",
-        "collection_tab_wJMLDL",
-        "description_RNnNDB"
-      ],
-      "settings": {
-        "progress_product_1": "8691934691596",
-        "progress_quantity_1": 4,
-        "progress_text_1": "Kleiner Teller",
-        "progress_product_2": "8691930202380",
-        "progress_quantity_2": 4,
-        "progress_text_2": "Tiefer Teller",
-        "progress_product_3": "8691936166156",
-        "progress_quantity_3": 4,
-        "progress_text_3": "Großer Teller (L)",
-        "progress_product_4": "8691926696204",
-        "progress_quantity_4": 4,
-        "progress_text_4": "Kleine Schüssel",
-        "progress_product_5": "",
-        "progress_quantity_5": 1,
-        "progress_text_5": "Product 5 Description",
-        "subheading": "Build your own",
-        "title": "Small Dinner Set",
-        "text_alignment": "center"
-      }
-    },
     "image_overlay_link_y6HAxQ": {
       "type": "image_overlay_link",
       "blocks": {
@@ -772,7 +698,6 @@
   },
   "order": [
     "slideshow",
-    "tabs2_AjQarB",
     "image_overlay_link_y6HAxQ",
     "featured_collections_ADFPUj",
     "featured_collections_nb8qqE",
