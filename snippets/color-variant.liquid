@@ -21,14 +21,15 @@
             {%- if forloop.index > 2 -%}
               {%- assign lazy_load = true -%}
             {%- endif -%}
-              {% render 'color-product-card', 
-                variant_sel : variant,
-                product: product,
-                reveal: reveal, 
-                hide_product_information: hide_product_information, 
-                stacked: true,
-                colorname: color
-              %}
+            {% render 'color-product-card', 
+            variant_sel: variant,
+            product: product,
+            reveal: reveal, 
+            hide_product_information: hide_product_information, 
+            stacked: true,
+            colorname: color,
+            tabs2: tabs2
+          %}
           {% capture tempList %}
         {{colorlist | append: color | append: " " }}
         {% endcapture %}

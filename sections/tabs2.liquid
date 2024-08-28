@@ -30,7 +30,7 @@
                   <product-list id="product-list-{{ section.id }}-{{ forloop.index }}" class="product-list">
                     {%- for product in block.settings.collection.products -%}
                       
-                        {%- render 'color-variant', product: product, reveal: settings.stagger_products_apparition, hide_product_information: section.settings.hide_product_information, stacked: true -%}
+                      {%- render 'color-variant', product: product, reveal: settings.stagger_products_apparition, hide_product_information: section.settings.hide_product_information, stacked: true, tabs2: true -%}
                       
                     {%- else -%}
                       {%- for i in (1..block.settings.products_count) -%}
@@ -786,6 +786,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       }));
     }
+  });
+
+  // Disable href on product cards within tabs2
+  const tabs2ProductLinks = document.querySelectorAll('.tabs2-product-link');
+  tabs2ProductLinks.forEach(link => {
+    link.addEventListener('click', function(event) {
+      event.preventDefault();
+    });
   });
 
   // Initial update

@@ -20,6 +20,7 @@ Supported variables
 * show_swatches: show or not the swatches. The swatch type is inferred from setting, and will default to true if nothing is set.
 * hide_product_information: if set to true, all content (vendor, badge, title...) are not rendered, to create image-based grid
 * quick_buy_context: a unique text to dissociate quick buy if the same product is embedded multiple times
+* tabs2: if set to true, indicates that this product card is within the tabs2 component
 {%- endcomment -%}
 
 {%- liquid
@@ -44,7 +45,7 @@ Supported variables
   endif
 -%}
 
-<product-card class="product-card" {% if reveal %}reveal-on-scroll="true"{% endif %} handle="{{ product.handle | escape }}">
+<product-card class="product-card {% if tabs2 %}tabs2-product-card{% endif %}" {% if reveal %}reveal-on-scroll="true"{% endif %} handle="{{ product.handle | escape }}">
   {%- comment -%}
   --------------------------------------------------------------------------------------------------------------------
   PRODUCT MEDIA
@@ -57,7 +58,7 @@ Supported variables
         {%- render 'product-badges', product: product, vertical: true -%}
       {%- endif -%}
       
-      <a href="{{ variant_sel.url }}" class="product-card__media" data-instant>
+      <a href="{{ variant_sel.url }}" class="product-card__media {% if tabs2 %}tabs2-product-link{% endif %}" data-instant>
         {%- capture sizes -%}
           {%- if stacked -%}
             (max-width: 699px) calc(100vw / {{ section.settings.products_per_row_mobile }}), (max-width: 999px) calc(100vw / {{ 3 | at_most: section.settings.products_per_row_desktop | default: 3 }} - 64px), calc((100vw - 96px) / {{ section.settings.products_per_row_desktop | default: 3 }} - (24px / {{ section.settings.products_per_row_desktop | default: 3 }} * {{ section.settings.products_per_row_desktop | default: 3 | minus: 1 }}))
@@ -67,46 +68,26 @@ Supported variables
         {%- endcapture -%}
 
         {%- capture main_image_classes -%}product-card__image product-card__image--primary {% if settings.product_image_aspect_ratio contains 'crop' %}object-cover{% endif %} aspect-{{ settings.product_image_aspect_ratio | split: '_' | first }}{%- endcapture -%}
-           {%- if variant_sel.featured_media.preview_image != null -%}
-
+        {%- if variant_sel.featured_media.preview_image != null -%}
           {{-
-
             variant_sel.featured_media.preview_image
-
             | image_url: width: product.featured_media.width
-
             | image_tag:
-
               loading: 'lazy',
-
               sizes: sizes,
-
               widths: '200,300,400,500,600,700,800,1000,1200,1400,1600,1800',
-
               class: main_image_classes
-
           -}}
-
         {% else %}
-
           {{-
-
             product.featured_media
-
             | image_url: width: product.featured_media.width
-
             | image_tag:
-
               loading: 'lazy',
-
               sizes: sizes,
-
               widths: '200,300,400,500,600,700,800,1000,1200,1400,1600,1800',
-
               class: main_image_classes
-
           -}}
-
         {% endif %}
         {%- if show_secondary_image and product.media.size > 1 -%}
           {%- assign next_media = product.media[variant_sel.featured_media.position] | default: product.media[1] -%}
@@ -114,9 +95,6 @@ Supported variables
         {%- endif -%}
       </a>
 
-
-
-      
       {%- if show_quick_buy and product.available -%}
         {%- if product.variants.size == 1 and product.selling_plan_groups.size == 0 -%}
           {%- form 'product', product, is: 'product-form' -%}
@@ -136,20 +114,14 @@ Supported variables
             {%- render 'icon' with 'plus' -%}
           </button>
 
-          
-
           <quick-buy-modal handle="{{ product.handle }}?variant={{ variant_sel.id }}" class="quick-buy-modal modal" id="{{ quick_buy_id }}">
           </quick-buy-modal>
         {%- endif -%}
       {%- endif -%}
 
-
       <button class="add-to-sidecart" data-product-id="{{ product.id }}" data-variant-id="{{ variant_sel.id }}" data-variant-title="{{ variant_sel.title | escape }}"  handle="{{ product.handle | escape }}">
         {% render 'icon' with 'plus' %}
       </button>
-
-
-      
     </div>
   {%- endif -%}
 
@@ -176,7 +148,7 @@ Supported variables
         {%- if show_title or show_prices -%}
           <div class="v-stack justify-items-center gap-1">
             {%- if show_title -%}
-              <a href="{{ variant_sel.url }}" class="product-title {% if text_class != blank %}{{ text_class }}{% endif %} {% if settings.product_title_max_lines > 0 %}line-clamp{% endif %}" {% if settings.product_title_max_lines > 0 %}style="--line-clamp-count: {{ settings.product_title_max_lines }}"{% endif %} data-instant>
+              <a href="{{ variant_sel.url }}" class="product-title {% if text_class != blank %}{{ text_class }}{% endif %} {% if settings.product_title_max_lines > 0 %}line-clamp{% endif %} {% if tabs2 %}tabs2-product-link{% endif %}" {% if settings.product_title_max_lines > 0 %}style="--line-clamp-count: {{ settings.product_title_max_lines }}"{% endif %} data-instant>
                 {{- product.title -}}
               </a>
             {%- endif -%}
@@ -215,5 +187,3 @@ Supported variables
     {%- endif -%}
   </div>
 </product-card>
-
-
