@@ -165,11 +165,17 @@
   background: rgb(var(--background-secondary));
   color: rgb(var(--text-color));
   z-index: 1;
-  padding: 1.625rem;
+  padding: 1.3rem;
   font-size: 1.25rem;
   position: absolute;
   inset-block-start: .5rem;
   inset-inline-end: .5rem;
+}
+
+@media screen and (max-width: 768px) {
+  .add-to-sidecart {
+    padding: 0.625rem;
+  }
 }
 
 @media screen and (pointer: fine) {
