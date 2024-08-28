@@ -129,6 +129,7 @@
         },
         "collection_rYntak": {
           "type": "collection",
+          "disabled": true,
           "settings": {
             "collection": "",
             "image": "shopify:\/\/shop_images\/C-01-SET-TAPAS-STEINGRAU-003-02_73762ec4-29c7-49cb-bc0d-aec8d44529ab.jpg",
@@ -148,6 +149,7 @@
         },
         "collection_nYEHir": {
           "type": "collection",
+          "disabled": true,
           "settings": {
             "collection": "",
             "image": "shopify:\/\/shop_images\/C-01-SET-XLDINE-TEAL-003-02_a5ec2ee3-dbc4-44bf-9cea-8bed92709817.jpg",
@@ -167,6 +169,7 @@
         },
         "collection_wVDa3b": {
           "type": "collection",
+          "disabled": true,
           "settings": {
             "collection": "",
             "image": "shopify:\/\/shop_images\/40-BOWL-SET-GRAUBLAU-003-01_e28245ca-cefe-4551-a704-50ff4f47e68f.jpg",
@@ -186,6 +189,7 @@
         },
         "collection_YHn7x9": {
           "type": "collection",
+          "disabled": true,
           "settings": {
             "collection": "",
             "image": "shopify:\/\/shop_images\/C-01-SET-BIG-TELLER-ROSE-003-02_8397eba1-d401-40fe-ad73-f30ecbb0fc5d.jpg",
