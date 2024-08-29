@@ -118,6 +118,13 @@
             "title": "Tiefer Teller",
             "collection": "deep-plate-mix-match"
           }
+        },
+        "collection_tab_Fx8jdA": {
+          "type": "collection_tab",
+          "settings": {
+            "title": "Classic Deep Plates",
+            "collection": "klassik"
+          }
         }
       },
       "block_order": [
@@ -125,7 +132,8 @@
         "collection_tab_C8MizD",
         "collection_tab_XVTJrF",
         "collection_tab_QDGwUV",
-        "collection_tab_tnWaMb"
+        "collection_tab_tnWaMb",
+        "collection_tab_Fx8jdA"
       ],
       "settings": {
         "progress_product_1": "8691934691596",
@@ -136,9 +144,12 @@
         "progress_quantity_3": 4,
         "progress_product_4": "8691926696204",
         "progress_quantity_4": 4,
+        "progress_product_5": "",
+        "progress_quantity_5": 1,
         "subheading": "",
         "title": "",
-        "text_alignment": "center"
+        "text_alignment": "center",
+        "type_of_set": "Enter the type of set here"
       }
     },
     "image_text_layout_NECB9Y": {
