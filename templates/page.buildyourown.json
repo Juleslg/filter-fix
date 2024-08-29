@@ -240,8 +240,8 @@
         "collection_fJJijt": {
           "type": "collection",
           "settings": {
-            "collection": "teller-set",
-            "products_count": 8,
+            "collection": "mix-match-collection",
+            "products_count": 4,
             "title": "",
             "link_url": "",
             "link_text": "View all"
