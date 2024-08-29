@@ -74,7 +74,8 @@
         "button_kDyLYE"
       ],
       "custom_css": [
-        ".image-with-text {background-color: #f5f3ef; \/* Light gray color *\/}"
+        ".image-with-text {background-color: #f5f3ef; \/* Light gray color *\/}",
+        ".prose > div:nth-child(1) {display: flex;}"
       ],
       "settings": {
         "separate_section_with_border": false,
