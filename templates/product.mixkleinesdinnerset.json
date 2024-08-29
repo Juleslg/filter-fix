@@ -271,7 +271,17 @@
         "richtext_34QM7W": {
           "type": "richtext",
           "settings": {
-            "content": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.<\/p>"
+            "content": "<ul><li>4x Kleine Schüssel<\/li><li>4x Kleiner Teller<\/li><li>4x Großer Teller<\/li><li>4x Tiefer Teller <\/li><\/ul><p>Spare 12% | Rabatt wird im Warenkorb angewendet<\/p>"
+          }
+        },
+        "button_fJGQw6": {
+          "type": "button",
+          "settings": {
+            "style": "outline",
+            "text": "Build now!",
+            "url": "",
+            "background": "#1c1b1b",
+            "text_color": "#1c1b1b"
           }
         }
       },
@@ -280,7 +290,8 @@
         "subheading_6VGrYY",
         "heading_pNynGw",
         "liquid_QAV9gE",
-        "richtext_34QM7W"
+        "richtext_34QM7W",
+        "button_fJGQw6"
       ],
       "custom_css": [
         ".image-with-text {background-color: #f5f3ef; \/* Light gray color *\/}"
