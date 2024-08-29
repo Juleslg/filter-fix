@@ -309,6 +309,60 @@
         "remove_vertical_spacing": true
       }
     },
+    "tabs2_hy7FNc": {
+      "type": "tabs2",
+      "blocks": {
+        "description_TKPMyn": {
+          "type": "description",
+          "settings": {
+            "text": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, in maxime nisi impedit quos recusandae, laboriosam temporibus tempore saepe porro nostrum? Nihil, consequatur. Saepe ut excepturi odio eius architecto pariatur!<\/p>"
+          }
+        },
+        "collection_tab_GmtVwg": {
+          "type": "collection_tab",
+          "settings": {
+            "title": "Collection",
+            "collection": ""
+          }
+        },
+        "collection_tab_CWqTpk": {
+          "type": "collection_tab",
+          "settings": {
+            "title": "Collection",
+            "collection": ""
+          }
+        },
+        "collection_tab_Wpg99V": {
+          "type": "collection_tab",
+          "settings": {
+            "title": "Collection",
+            "collection": ""
+          }
+        }
+      },
+      "block_order": [
+        "description_TKPMyn",
+        "collection_tab_GmtVwg",
+        "collection_tab_CWqTpk",
+        "collection_tab_Wpg99V"
+      ],
+      "settings": {
+        "progress_product_1": "8691934691596",
+        "progress_quantity_1": 4,
+        "progress_product_2": "8691930202380",
+        "progress_quantity_2": 4,
+        "progress_product_3": "8691936166156",
+        "progress_quantity_3": 4,
+        "progress_product_4": "8691926696204",
+        "progress_quantity_4": 4,
+        "progress_product_5": "",
+        "progress_quantity_5": 1,
+        "subheading": "Subheading",
+        "title": "Collection Tabs",
+        "text_alignment": "center",
+        "type_of_set": "Enter the type of set here"
+      }
+    },
     "234da89a-3e7d-44bd-9b00-d1ca481f7c71": {
       "type": "custom-liquid",
       "custom_css": [
@@ -326,6 +380,7 @@
   "order": [
     "main",
     "image_text_layout_XCT83w",
+    "tabs2_hy7FNc",
     "234da89a-3e7d-44bd-9b00-d1ca481f7c71"
   ]
 }
