@@ -9,6 +9,46 @@
 */
 {
   "sections": {
+    "image_text_layout_3T979i": {
+      "type": "image-text-layout",
+      "blocks": {
+        "subheading_zGtAE6": {
+          "type": "subheading",
+          "settings": {
+            "text": "Subheading"
+          }
+        },
+        "heading_EngiNx": {
+          "type": "heading",
+          "settings": {
+            "text": "Image text Layout",
+            "heading_tag": "h1"
+          }
+        },
+        "richtext_Gp9QMh": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_zGtAE6",
+        "heading_EngiNx",
+        "richtext_Gp9QMh"
+      ],
+      "settings": {
+        "separate_section_with_border": true,
+        "reveal_on_scroll": true,
+        "image_position": "image-with-text",
+        "text_agline": "left",
+        "content_width": "sm",
+        "padding_sides_desktop": 0,
+        "padding_sides_mobile": 0,
+        "gap_img_text": 0,
+        "remove_vertical_spacing": true
+      }
+    },
     "main": {
       "type": "main-product",
       "blocks": {
@@ -217,6 +257,7 @@
         "6c7fb9ef-a6ef-4172-92bc-cbc0f4790210",
         "9d81e38c-cb5b-43a6-9076-6be6c50b1751"
       ],
+      "disabled": true,
       "custom_css": [
         ".badge--custom:nth-of-type(2) {display: none;}",
         ".metafield_badge {padding-left: 20px; padding-right: 16px; padding-top: 2px; padding-bottom: 2px; text-transform: none;}",
@@ -415,6 +456,7 @@
     }
   },
   "order": [
+    "image_text_layout_3T979i",
     "main",
     "related-products",
     "d64b2df3-7a6f-4ee5-b3ca-1578d758bb9c",
