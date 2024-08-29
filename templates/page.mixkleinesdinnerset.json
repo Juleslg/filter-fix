@@ -23,6 +23,12 @@
     "image_text_layout_VQVGcP": {
       "type": "image-text-layout",
       "blocks": {
+        "liquid_9CL6qh": {
+          "type": "liquid",
+          "settings": {
+            "liquid": "<div style=\"background-color: #f8f8f8; padding: 5px 20px; display: inline-block; border: 0px solid #eaeaea;\">\n    <h3 style=\"font-weight:normal; font-size: 12px; margin: 0; text-align: center; font-family: 'Futura Std', sans-serif;\">\n        -12%\n    <\/h3>\n<\/div>"
+          }
+        },
         "subheading_xT7JMW": {
           "type": "subheading",
           "settings": {
@@ -45,13 +51,7 @@
         "richtext_HhTqUC": {
           "type": "richtext",
           "settings": {
-            "content": "<ul><li>4x Kleine Schüssel<\/li><li>4x Kleiner Teller<\/li><li>4x Großer Teller<\/li><li>4x Tiefer Teller <\/li><\/ul>"
-          }
-        },
-        "subheading_FGKirD": {
-          "type": "subheading",
-          "settings": {
-            "text": "Spare 12% | Rabatt wird im Warenkorb angewendet"
+            "content": "<ul><li>4x Kleine Schüssel<\/li><li>4x Kleiner Teller<\/li><li>4x Großer Teller<\/li><li>4x Tiefer Teller <\/li><\/ul><p>Spare 12% | Rabatt wird im Warenkorb angewendet<\/p>"
           }
         },
         "button_kDyLYE": {
@@ -66,11 +66,11 @@
         }
       },
       "block_order": [
+        "liquid_9CL6qh",
         "subheading_xT7JMW",
         "heading_9ityTh",
         "liquid_PCgqJQ",
         "richtext_HhTqUC",
-        "subheading_FGKirD",
         "button_kDyLYE"
       ],
       "custom_css": [
