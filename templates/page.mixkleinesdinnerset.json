@@ -26,7 +26,7 @@
         "liquid_9CL6qh": {
           "type": "liquid",
           "settings": {
-            "liquid": "<div style=\"background-color: #f8f8f8; padding: 5px 20px; display: inline-block; border: 0px solid #eaeaea;\">\n    <h3 style=\"font-weight:normal; font-size: 12px; margin: 0; text-align: center; font-family: 'Futura Std', sans-serif;\">\n        -12%\n    <\/h3>\n<\/div>"
+            "liquid": "<div style=\"background-color: #f8f8f8; padding: 5px 20px; display: inline-block; border: 0px solid #eaeaea;\">\n    <h3 style=\"font-weight:normal; font-size: 12px; margin: 0; text-align: center; font-family: 'Futura Std', sans-serif;\">\n        -12%\n    <\/h3>\n<\/div>\n\n<style>\n@media screen and (max-width: 600px) {\n    div h3 {\n        text-align: left !important;\n    }\n}\n<\/style>"
           }
         },
         "subheading_xT7JMW": {
