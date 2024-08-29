@@ -234,6 +234,34 @@
         "circle_button_text_color": "#1c1c1c"
       }
     },
+    "featured_collections_nR3Q69": {
+      "type": "featured-collections",
+      "blocks": {
+        "collection_fJJijt": {
+          "type": "collection",
+          "settings": {
+            "collection": "teller-set",
+            "products_count": 8,
+            "title": "",
+            "link_url": "",
+            "link_text": "View all"
+          }
+        }
+      },
+      "block_order": [
+        "collection_fJJijt"
+      ],
+      "settings": {
+        "separate_section_with_border": true,
+        "hide_product_information": false,
+        "stack_products": false,
+        "products_per_row_mobile": "2",
+        "products_per_row_desktop": 4,
+        "horizontal_spacing_factor": 1,
+        "vertical_spacing_factor": 1,
+        "subheading": "Featured collection"
+      }
+    },
     "image_with_text_W4NFK7": {
       "type": "image-with-text",
       "blocks": {
@@ -261,6 +289,7 @@
     "main",
     "rich_text_YzbYee",
     "collection_list_7kCRWw",
+    "featured_collections_nR3Q69",
     "image_with_text_W4NFK7"
   ]
 }
