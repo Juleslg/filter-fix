@@ -312,39 +312,40 @@
     "tabs2_hy7FNc": {
       "type": "tabs2",
       "blocks": {
-        "description_TKPMyn": {
-          "type": "description",
-          "settings": {
-            "text": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, in maxime nisi impedit quos recusandae, laboriosam temporibus tempore saepe porro nostrum? Nihil, consequatur. Saepe ut excepturi odio eius architecto pariatur!<\/p>"
-          }
-        },
         "collection_tab_GmtVwg": {
           "type": "collection_tab",
           "settings": {
-            "title": "Collection",
-            "collection": ""
+            "title": "Kleine Schüsseln",
+            "collection": "small-bowls"
           }
         },
         "collection_tab_CWqTpk": {
           "type": "collection_tab",
           "settings": {
-            "title": "Collection",
-            "collection": ""
+            "title": "Kleine Teller",
+            "collection": "small-plates"
           }
         },
         "collection_tab_Wpg99V": {
           "type": "collection_tab",
           "settings": {
-            "title": "Collection",
-            "collection": ""
+            "title": "Große Teller",
+            "collection": "big-plates-mix-match"
+          }
+        },
+        "collection_tab_wRkbKW": {
+          "type": "collection_tab",
+          "settings": {
+            "title": "Tiefe Teller",
+            "collection": "deep-plate-mix-match"
           }
         }
       },
       "block_order": [
-        "description_TKPMyn",
         "collection_tab_GmtVwg",
         "collection_tab_CWqTpk",
-        "collection_tab_Wpg99V"
+        "collection_tab_Wpg99V",
+        "collection_tab_wRkbKW"
       ],
       "settings": {
         "progress_product_1": "8691934691596",
@@ -357,8 +358,8 @@
         "progress_quantity_4": 4,
         "progress_product_5": "",
         "progress_quantity_5": 1,
-        "subheading": "Subheading",
-        "title": "Collection Tabs",
+        "subheading": "",
+        "title": "",
         "text_alignment": "center",
         "type_of_set": "Enter the type of set here"
       }
