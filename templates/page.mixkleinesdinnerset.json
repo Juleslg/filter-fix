@@ -36,6 +36,12 @@
             "heading_tag": "h2"
           }
         },
+        "liquid_PCgqJQ": {
+          "type": "liquid",
+          "settings": {
+            "liquid": "<div style=\"display: flex; align-items: center;\">\n    <h4 style=\"font-weight:book; font-size:1em; margin-right: 10px;\">\n        313,28€\n    <\/h4>\n    <h4 style=\"color:#888; font-size:1em; text-decoration:line-through; margin: 0;\">\n        356,00€\n    <\/h4>\n<\/div>"
+          }
+        },
         "richtext_HhTqUC": {
           "type": "richtext",
           "settings": {
@@ -62,6 +68,7 @@
       "block_order": [
         "subheading_xT7JMW",
         "heading_9ityTh",
+        "liquid_PCgqJQ",
         "richtext_HhTqUC",
         "subheading_FGKirD",
         "button_kDyLYE"
