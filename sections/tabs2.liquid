@@ -492,6 +492,26 @@ padding-bottom: unset ;
     transition: width 0.3s ease-in-out;
   }
 
+  .mobile-progress-container {
+    position: fixed;
+    bottom: 50px; /* Adjust this value to position it above the mobile toggle */
+    left: 0;
+    right: 0;
+    padding: 0 15px;
+    z-index: 98;
+    display: none; /* Initially hidden */
+  }
+
+  @media screen and (max-width: 768px) {
+    .mobile-progress-container {
+      display: block;
+    }
+
+    .mobile-sidecart-toggle {
+      bottom: 0;
+    }
+  }
+
 </style> 
 
 <script>
@@ -512,6 +532,17 @@ document.addEventListener('DOMContentLoaded', function() {
   const mobileToggle = document.createElement('div');
   mobileToggle.className = 'mobile-sidecart-toggle';
   mobileToggle.innerHTML = 'Your Selection <span class="sidecart-count">(0)</span>';
+  
+  // Create mobile progress bar container
+  const mobileProgressContainer = document.createElement('div');
+  mobileProgressContainer.className = 'mobile-progress-container';
+  mobileProgressContainer.innerHTML = `
+    <div class="progress-bar-container">
+      <div class="progress-bar" id="mobile-progress-bar"></div>
+    </div>
+  `;
+  
+  document.body.appendChild(mobileProgressContainer);
   document.body.appendChild(mobileToggle);
 
   const sidecartHeader = sidecart.querySelector('.h6');
@@ -543,11 +574,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function updateProgressBar() {
     const progressBar = document.getElementById('sidecart-progress-bar');
+    const mobileProgressBar = document.getElementById('mobile-progress-bar');
     let totalRequiredQuantity = progressRules.reduce((sum, rule) => sum + rule.quantity, 0);
     let currentQuantity = 0;
 
     if (totalRequiredQuantity === 0) {
       progressBar.style.width = '0%';
+      mobileProgressBar.style.width = '0%';
       return false;
     }
 
@@ -559,6 +592,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const progressPercentage = (currentQuantity / totalRequiredQuantity) * 100;
     progressBar.style.width = `${progressPercentage}%`;
+    mobileProgressBar.style.width = `${progressPercentage}%`;
 
     return currentQuantity >= totalRequiredQuantity;
   }
@@ -664,13 +698,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const countElement = mobileToggle.querySelector('.sidecart-count');
     countElement.textContent = `(${itemCount})`;
 
-    // Show/hide mobile toggle based on whether there are items in the cart
+    // Show/hide mobile toggle and progress bar based on whether there are items in the cart
     if (itemCount === 0) {
       mobileToggle.style.display = 'none';
+      mobileProgressContainer.style.display = 'none';
       sidecart.classList.remove('active');
       overlay.classList.remove('active');
     } else {
       mobileToggle.style.display = 'block';
+      mobileProgressContainer.style.display = 'block';
     }
 
     const isProgressComplete = updateProgressBar();
@@ -781,8 +817,9 @@ document.addEventListener('DOMContentLoaded', function() {
       // Hide the "Add to Cart" button
       addToCartButton2.style.display = 'none';
       
-      // Update mobile toggle
+      // Update mobile toggle and progress bar
       mobileToggle.style.display = 'none';
+      mobileProgressContainer.style.display = 'none';
 
       // Automatically close the sidecart on mobile after a delay
       setTimeout(() => {
