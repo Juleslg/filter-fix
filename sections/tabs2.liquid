@@ -785,7 +785,37 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   function updateQuantityFromInput(event) {
-    const input =
+    const input = event.currentTarget;
+    const key = input.getAttribute('data-product-key');
+    let newQuantity = parseInt(input.value, 10);
+    
+    if (selectedProducts[key]) {
+      if (addProductsInPairs) {
+        newQuantity = Math.max(2, Math.round(newQuantity / 2) * 2);
+      } else {
+        newQuantity = Math.max(1, newQuantity);
+      }
+      selectedProducts[key].quantity = newQuantity;
+      updateSidecart();
+    }
+  }
+
+  function deleteAllItems() {
+    selectedProducts = {};
+    updateSidecart();
+  }
+
+  addToSidecartButtons.forEach(button => {
+    button.addEventListener('click', addToSidecart);
+  });
+
+  addToCartButton2.addEventListener('click', function() {
+    sidecartForm.submit();
+  });
+
+  updateSidecart();
+});
+</script>
 
 
 
