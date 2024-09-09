@@ -136,6 +136,7 @@
         "collection_tab_tnWaMb"
       ],
       "settings": {
+        "add_products_in_pairs": true,
         "progress_product_1": "8691934691596",
         "progress_quantity_1": 4,
         "progress_product_2": "8691930202380",
