@@ -537,6 +537,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const sidecartForm = document.getElementById('sidecart-form');
   const addToCartButton2 = document.getElementById('add-to-cart-button-2');
   let selectedProducts = {};
+  const addProductsInPairs = {{ section.settings.add_products_in_pairs | json }};
 
   document.querySelector('.prose.text-center.sm\\:text-start button.button.button--outline').onclick = function() {
     document.querySelector('.collection-description').scrollIntoView({ 
@@ -549,7 +550,6 @@ document.addEventListener('DOMContentLoaded', function() {
   mobileToggle.className = 'mobile-sidecart-toggle';
   mobileToggle.innerHTML = 'Your Selection <span class="sidecart-count">(0)</span>';
   
-  // Create mobile progress bar container
   const mobileProgressContainer = document.createElement('div');
   mobileProgressContainer.className = 'mobile-progress-container';
   mobileProgressContainer.innerHTML = `
@@ -563,7 +563,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
   const sidecartHeader = sidecart.querySelector('.h6');
 
-  // Create overlay element
   const overlay = document.createElement('div');
   overlay.className = 'sidecart-overlay';
   document.body.appendChild(overlay);
@@ -655,7 +654,7 @@ document.addEventListener('DOMContentLoaded', function() {
               <div class="sidecart-item-controls" style="display: flex; align-items: center;">
                 <div class="sidecart-item-quantity">
                   <button type="button" class="quantity-button decrease" data-product-key="${variant.key}">-</button>
-                  <input type="number" class="quantity-input" value="${variant.quantity}" min="1" data-product-key="${variant.key}">
+                  <input type="number" class="quantity-input" value="${variant.quantity}" min="${addProductsInPairs ? 2 : 1}" step="${addProductsInPairs ? 2 : 1}" data-product-key="${variant.key}">
                   <button type="button" class="quantity-button increase" data-product-key="${variant.key}">+</button>
                 </div>
                 <button type="button" class="sidecart-item-remove" data-product-key="${variant.key}">×</button>
@@ -673,7 +672,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     sidecartItems.innerHTML = sidecartContent;
 
-    // Update form inputs
     sidecartForm.innerHTML = '';
     for (const product of Object.values(selectedProducts)) {
       const input = document.createElement('input');
@@ -689,7 +687,6 @@ document.addEventListener('DOMContentLoaded', function() {
       sidecartForm.appendChild(quantityInput);
     }
 
-    // Add event listeners for quantity buttons and remove buttons
     document.querySelectorAll('.quantity-button').forEach(button => {
       button.addEventListener('click', updateQuantity);
     });
@@ -700,7 +697,6 @@ document.addEventListener('DOMContentLoaded', function() {
       button.addEventListener('click', removeFromSidecart);
     });
 
-    // Add event listener for "Delete All" link
     const deleteAllLink = document.getElementById('delete-all-link');
     if (deleteAllLink) {
       deleteAllLink.addEventListener('click', function(event) {
@@ -709,12 +705,10 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }
 
-    // Update the item count in the mobile toggle
     const itemCount = Object.values(selectedProducts).reduce((total, product) => total + product.quantity, 0);
     const countElement = mobileToggle.querySelector('.sidecart-count');
     countElement.textContent = `(${itemCount})`;
 
-    // Show/hide mobile toggle and progress bar based on whether there are items in the cart
     if (itemCount === 0) {
       mobileToggle.style.display = 'none';
       mobileProgressContainer.style.display = 'none';
@@ -740,16 +734,30 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const key = `${productId}-${variantId}`;
 
-    if (selectedProducts[key]) {
-      selectedProducts[key].quantity += 1;
+    if (addProductsInPairs) {
+      if (selectedProducts[key]) {
+        selectedProducts[key].quantity += 2;
+      } else {
+        selectedProducts[key] = {
+          id: productId,
+          variantId: variantId,
+          variantTitle: variantTitle,
+          title: productTitle,
+          quantity: 2
+        };
+      }
     } else {
-      selectedProducts[key] = {
-        id: productId,
-        variantId: variantId,
-        variantTitle: variantTitle,
-        title: productTitle,
-        quantity: 1
-      };
+      if (selectedProducts[key]) {
+        selectedProducts[key].quantity += 1;
+      } else {
+        selectedProducts[key] = {
+          id: productId,
+          variantId: variantId,
+          variantTitle: variantTitle,
+          title: productTitle,
+          quantity: 1
+        };
+      }
     }
 
     updateSidecart();
@@ -767,104 +775,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const isIncrease = button.classList.contains('increase');
     
     if (selectedProducts[key]) {
-      selectedProducts[key].quantity += isIncrease ? 1 : -1;
-      if (selectedProducts[key].quantity < 1) {
-        selectedProducts[key].quantity = 1;
+      const increment = addProductsInPairs ? 2 : 1;
+      selectedProducts[key].quantity += isIncrease ? increment : -increment;
+      if (selectedProducts[key].quantity < (addProductsInPairs ? 2 : 1)) {
+        selectedProducts[key].quantity = addProductsInPairs ? 2 : 1;
       }
       updateSidecart();
     }
   }
 
   function updateQuantityFromInput(event) {
-    const input = event.currentTarget;
-    const key = input.getAttribute('data-product-key');
-    const newQuantity = parseInt(input.value, 10);
-    
-    if (selectedProducts[key] && newQuantity > 0) {
-      selectedProducts[key].quantity = newQuantity;
-      updateSidecart();
-    }
-  }
-
-  function deleteAllItems() {
-    selectedProducts = {};
-    updateSidecart();
-  }
-
-  addToSidecartButtons.forEach(button => {
-    button.addEventListener('click', addToSidecart);
-  });
-
-  addToCartButton2.addEventListener('click', async function(event) {
-    event.preventDefault();
-    
-    if (this.disabled) {
-      return; // Don't proceed if the button is disabled
-    }
-    
-    const formData = new FormData(sidecartForm);
-    const response = await fetch('/cart/add.js', {
-      method: 'POST',
-      body: formData,
-      headers: {
-        'X-Requested-With': 'XMLHttpRequest'
-      }
-    });
-
-    if (response.ok) {
-      const responseJson = await response.json();
-      document.documentElement.dispatchEvent(new CustomEvent('theme:loading:end', { bubbles: true }));
-      const cartContent = await (await fetch('/cart.js')).json();
-      cartContent['sections'] = responseJson['sections'];
-      document.documentElement.dispatchEvent(new CustomEvent('cart:change', {
-        bubbles: true,
-        detail: {
-          baseEvent: 'variant:add',
-          cart: cartContent
-        }
-      }));
-
-      // Clear the selection
-      deleteAllItems();
-
-      // Update sidecart with success message
-      sidecartItems.innerHTML = '<div class="sidecart-text">{{ "sections.tabs2.set_added_to_cart" | t }}</div>';
-      
-      // Hide the "Add to Cart" button
-      addToCartButton2.style.display = 'none';
-      
-      // Update mobile toggle and progress bar
-      mobileToggle.style.display = 'none';
-      mobileProgressContainer.style.display = 'none';
-
-      // Automatically close the sidecart on mobile after a delay
-      setTimeout(() => {
-        sidecart.classList.remove('active');
-        overlay.classList.remove('active');
-      }, 3000); // Close after 3 seconds
-    } else {
-      const responseJson = await response.json();
-      document.documentElement.dispatchEvent(new CustomEvent('cart:error', {
-        bubbles: true,
-        detail: {
-          error: responseJson['description']
-        }
-      }));
-    }
-  });
-
-  // Disable href on product cards within tabs2
-  const tabs2ProductLinks = document.querySelectorAll('.tabs2-product-link');
-  tabs2ProductLinks.forEach(link => {
-    link.addEventListener('click', function(event) {
-      event.preventDefault();
-    });
-  });
-
-  // Initial update
-  updateSidecart();
-});
-</script>
+    const input =
 
 
 
@@ -881,6 +802,12 @@ document.addEventListener('DOMContentLoaded', function() {
       "groups": ["header", "custom.overlay"]
     },
     "settings": [
+      {
+        "type": "checkbox",
+        "id": "add_products_in_pairs",
+        "label": "Add products in pairs",
+        "default": false
+      },
       {
         "type": "text",
         "id": "progress_product_1",
