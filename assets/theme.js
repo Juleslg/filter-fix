@@ -1587,12 +1587,13 @@ onQuantityChanged_fn = function(event, target) {
 _onChangeLinkClicked = new WeakSet();
 onChangeLinkClicked_fn = function(event, target) {
   event.preventDefault();
-  console.log("I'm here")
+  console.log("I'm here 1")
   const url = new URL(target.href);
   __privateMethod(this, _changeLineItemQuantity, changeLineItemQuantity_fn).call(this, url.searchParams.get("id"), parseInt(url.searchParams.get("quantity")));
 };
 _changeLineItemQuantity = new WeakSet();
 changeLineItemQuantity_fn = async function(lineKey, targetQuantity) {
+  console.log("I'm here 2")
   if (window.themeVariables.settings.pageType === "cart") {
     window.location.href = `${Shopify.routes.root}cart/change?id=${lineKey}&quantity=${targetQuantity}`;
   } else {
