@@ -1587,6 +1587,7 @@ onQuantityChanged_fn = function(event, target) {
 _onChangeLinkClicked = new WeakSet();
 onChangeLinkClicked_fn = function(event, target) {
   event.preventDefault();
+  console.log("I'm here")
   const url = new URL(target.href);
   __privateMethod(this, _changeLineItemQuantity, changeLineItemQuantity_fn).call(this, url.searchParams.get("id"), parseInt(url.searchParams.get("quantity")));
 };
