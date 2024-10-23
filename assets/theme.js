@@ -2881,7 +2881,7 @@ onVariantChanged_fn = function(event) {
   
   // Check if the variant is available and has at least 50 items in stock
   const isAvailableAndInStock = variant && variant["available"] && variant["inventory_quantity"] >= 50;
-  console.log(variant);
+  console.log(variant["inventory_quantity"]);
   addToCartButton.disabled = !isAvailableAndInStock;
   
   if (!isAvailableAndInStock) {
