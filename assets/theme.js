@@ -1587,13 +1587,11 @@ onQuantityChanged_fn = function(event, target) {
 _onChangeLinkClicked = new WeakSet();
 onChangeLinkClicked_fn = function(event, target) {
   event.preventDefault();
-  console.log("I'm here 1")
   const url = new URL(target.href);
   __privateMethod(this, _changeLineItemQuantity, changeLineItemQuantity_fn).call(this, url.searchParams.get("id"), parseInt(url.searchParams.get("quantity")));
 };
 _changeLineItemQuantity = new WeakSet();
 changeLineItemQuantity_fn = async function(lineKey, targetQuantity) {
-  console.log("I'm here 2")
   if (window.themeVariables.settings.pageType === "cart") {
     window.location.href = `${Shopify.routes.root}cart/change?id=${lineKey}&quantity=${targetQuantity}`;
   } else {
@@ -2877,22 +2875,16 @@ _onCartErrorListener = new WeakMap();
 _onVariantChanged = new WeakSet();
 onVariantChanged_fn = function(event) {
   const addToCartButton = this.querySelector('button[type="submit"]'), paymentButton = this.querySelector(".shopify-payment-button");
-  const variant = event.detail.variant;
-  
-  // Check if the variant is available and has at least 50 items in stock
-  const isAvailableAndInStock = variant && variant["available"] && variant["inventory_quantity"] >= 50;
-  console.log(variant["inventory_quantity"]);
-  addToCartButton.disabled = !isAvailableAndInStock;
-  
-  if (!isAvailableAndInStock) {
-    addToCartButton.innerHTML = window.themeVariables.strings.soldOutButton;
+  addToCartButton.disabled = !event.detail.variant || !event.detail.variant["available"];
+  if (!event.detail.variant) {
+    addToCartButton.innerHTML = window.themeVariables.strings.unavailableButton;
     if (paymentButton) {
       paymentButton.style.display = "none";
     }
   } else {
-    addToCartButton.innerHTML = this.getAttribute("template").includes("pre-order") ? window.themeVariables.strings.preOrderButton : window.themeVariables.strings.addToCartButton;
+    addToCartButton.innerHTML = event.detail.variant["available"] ? this.getAttribute("template").includes("pre-order") ? window.themeVariables.strings.preOrderButton : window.themeVariables.strings.addToCartButton : window.themeVariables.strings.soldOutButton;
     if (paymentButton) {
-      paymentButton.style.display = "block";
+      paymentButton.style.display = event.detail.variant["available"] ? "block" : "none";
     }
   }
 };
