@@ -2875,16 +2875,22 @@ _onCartErrorListener = new WeakMap();
 _onVariantChanged = new WeakSet();
 onVariantChanged_fn = function(event) {
   const addToCartButton = this.querySelector('button[type="submit"]'), paymentButton = this.querySelector(".shopify-payment-button");
-  addToCartButton.disabled = !event.detail.variant || !event.detail.variant["available"];
-  if (!event.detail.variant) {
-    addToCartButton.innerHTML = window.themeVariables.strings.unavailableButton;
+  const variant = event.detail.variant;
+  
+  // Check if the variant is available and has at least 50 items in stock
+  const isAvailableAndInStock = variant && variant["available"] && variant["inventory_quantity"] >= 50;
+  console.log(variant);
+  addToCartButton.disabled = !isAvailableAndInStock;
+  
+  if (!isAvailableAndInStock) {
+    addToCartButton.innerHTML = window.themeVariables.strings.soldOutButton;
     if (paymentButton) {
       paymentButton.style.display = "none";
     }
   } else {
-    addToCartButton.innerHTML = event.detail.variant["available"] ? this.getAttribute("template").includes("pre-order") ? window.themeVariables.strings.preOrderButton : window.themeVariables.strings.addToCartButton : window.themeVariables.strings.soldOutButton;
+    addToCartButton.innerHTML = this.getAttribute("template").includes("pre-order") ? window.themeVariables.strings.preOrderButton : window.themeVariables.strings.addToCartButton;
     if (paymentButton) {
-      paymentButton.style.display = event.detail.variant["available"] ? "block" : "none";
+      paymentButton.style.display = "block";
     }
   }
 };
