@@ -86,8 +86,8 @@
           "type": "separator",
           "settings": {}
         },
-        "specs_grid_qECzeE": {
-          "type": "specs_grid",
+        "product_specs_grid_BQxgJw": {
+          "type": "product_specs_grid",
           "settings": {
             "spec1_custom_icon": "shopify://shop_images/GIFTCARD_2023_1_4b157439-87cc-4c0a-96db-4d6120926006.png",
             "spec1_text": "3-5 Tage Lieferzeit",
@@ -214,7 +214,7 @@
         "variant_picker",
         "cc1c28f9-9759-4de3-bcdd-b6b74d5a20a3",
         "separator_CpwDAk",
-        "specs_grid_qECzeE",
+        "product_specs_grid_BQxgJw",
         "offers_Ek6gtU",
         "description",
         "f4adc097-1575-4f9b-9c57-248ac31f7f6c",
