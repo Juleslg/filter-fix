@@ -118,28 +118,36 @@ Supported variables
               <style>
                 .specs-grid {
                   display: grid;
-                  grid-template-columns: 1fr 1fr;
-                  gap: 1rem;
+                  grid-template-columns: repeat(2, 1fr);
+                  gap: 20px;
+                  margin-top: 20px;
+                  padding: 20px 0;
                   border-top: 1px solid var(--text-color-light);
-                  margin-top: 1.5rem;
-                  padding-top: 1.5rem;
                 }
                 
                 .spec-item {
                   display: flex;
                   align-items: center;
-                  gap: 0.75rem;
+                  gap: 12px;
+                  padding: 10px;
                 }
                 
                 .spec-icon {
-                  width: 20px;
-                  height: 20px;
-                  flex-shrink: 0;
+                  width: 24px;
+                  height: 24px;
+                  object-fit: contain;
                 }
                 
                 .spec-text {
-                  font-size: 0.9rem;
+                  font-size: 14px;
                   color: var(--text-color);
+                  line-height: 1.4;
+                }
+            
+                @media screen and (max-width: 749px) {
+                  .specs-grid {
+                    grid-template-columns: 1fr;
+                  }
                 }
               </style>
             
@@ -147,7 +155,7 @@ Supported variables
                 {%- if block.settings.spec1_text != blank -%}
                   <div class="spec-item">
                     {%- if block.settings.spec1_custom_icon != blank -%}
-                      <img class="spec-icon" src="{{ block.settings.spec1_custom_icon | img_url: '40x' }}" alt="">
+                      <img class="spec-icon" src="{{ block.settings.spec1_custom_icon | img_url: '48x' }}" alt="">
                     {%- endif -%}
                     <span class="spec-text">{{ block.settings.spec1_text }}</span>
                   </div>
@@ -156,7 +164,7 @@ Supported variables
                 {%- if block.settings.spec2_text != blank -%}
                   <div class="spec-item">
                     {%- if block.settings.spec2_custom_icon != blank -%}
-                      <img class="spec-icon" src="{{ block.settings.spec2_custom_icon | img_url: '40x' }}" alt="">
+                      <img class="spec-icon" src="{{ block.settings.spec2_custom_icon | img_url: '48x' }}" alt="">
                     {%- endif -%}
                     <span class="spec-text">{{ block.settings.spec2_text }}</span>
                   </div>
@@ -165,7 +173,7 @@ Supported variables
                 {%- if block.settings.spec3_text != blank -%}
                   <div class="spec-item">
                     {%- if block.settings.spec3_custom_icon != blank -%}
-                      <img class="spec-icon" src="{{ block.settings.spec3_custom_icon | img_url: '40x' }}" alt="">
+                      <img class="spec-icon" src="{{ block.settings.spec3_custom_icon | img_url: '48x' }}" alt="">
                     {%- endif -%}
                     <span class="spec-text">{{ block.settings.spec3_text }}</span>
                   </div>
@@ -174,7 +182,7 @@ Supported variables
                 {%- if block.settings.spec4_text != blank -%}
                   <div class="spec-item">
                     {%- if block.settings.spec4_custom_icon != blank -%}
-                      <img class="spec-icon" src="{{ block.settings.spec4_custom_icon | img_url: '40x' }}" alt="">
+                      <img class="spec-icon" src="{{ block.settings.spec4_custom_icon | img_url: '48x' }}" alt="">
                     {%- endif -%}
                     <span class="spec-text">{{ block.settings.spec4_text }}</span>
                   </div>
