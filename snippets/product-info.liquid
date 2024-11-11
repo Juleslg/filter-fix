@@ -114,7 +114,7 @@ Supported variables
           {%- when '@app' -%}
             {%- render block -%}
 
-            {%- when 'product_specs_grid' -%}
+            {%- when 'specs_grid' -%}
               <style>
                 .specs-grid {
                   display: grid;
@@ -143,14 +143,14 @@ Supported variables
                   color: var(--text-color);
                   line-height: 1.4;
                 }
-            
+          
                 @media screen and (max-width: 749px) {
                   .specs-grid {
                     grid-template-columns: 1fr;
                   }
                 }
               </style>
-            
+          
               <div class="specs-grid">
                 {%- if block.settings.spec1_text != blank -%}
                   <div class="spec-item">
@@ -160,7 +160,7 @@ Supported variables
                     <span class="spec-text">{{ block.settings.spec1_text }}</span>
                   </div>
                 {%- endif -%}
-            
+          
                 {%- if block.settings.spec2_text != blank -%}
                   <div class="spec-item">
                     {%- if block.settings.spec2_custom_icon != blank -%}
@@ -169,7 +169,7 @@ Supported variables
                     <span class="spec-text">{{ block.settings.spec2_text }}</span>
                   </div>
                 {%- endif -%}
-            
+          
                 {%- if block.settings.spec3_text != blank -%}
                   <div class="spec-item">
                     {%- if block.settings.spec3_custom_icon != blank -%}
@@ -178,7 +178,7 @@ Supported variables
                     <span class="spec-text">{{ block.settings.spec3_text }}</span>
                   </div>
                 {%- endif -%}
-            
+          
                 {%- if block.settings.spec4_text != blank -%}
                   <div class="spec-item">
                     {%- if block.settings.spec4_custom_icon != blank -%}
