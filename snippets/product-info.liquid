@@ -119,107 +119,91 @@ Supported variables
   .specs-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    position: relative;
-    padding: 20px 0;
-    margin-top: 20px;
+    gap: 1rem;
+    margin: 1rem 0;
   }
-
-  .specs-grid::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    width: 1px;
-    background-color: var(--text-color-light);
-  }
-
-  .specs-grid::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 50%;
-    height: 1px;
-    background-color: var(--text-color-light);
-  }
-
-  .spec-item {
+  
+  .specs-grid__item {
     display: flex;
     align-items: center;
-    gap: 12px;
-    padding: 20px;
+    gap: 0.5rem;
   }
-
-  .spec-icon {
+  
+  .specs-grid__icon {
     width: 24px;
     height: 24px;
-    object-fit: contain;
+    flex-shrink: 0;
   }
-
-  .spec-text {
-    font-size: 14px;
-    color: var(--text-color);
-    line-height: 1.4;
-  }
-
-  @media screen and (max-width: 749px) {
-    .specs-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .specs-grid::before,
-    .specs-grid::after {
-      display: none;
-    }
-
-    .spec-item {
-      border-bottom: 1px solid black;
-    }
-
-    .spec-item:last-child {
-      border-bottom: none;
-    }
+  
+  .specs-grid__text {
+    font-size: 0.875rem;
+    color: rgb(var(--text-color));
+    margin: 0;
   }
 </style>
 
 <div class="specs-grid">
-  {%- if block.settings.spec1_text != blank -%}
-    <div class="spec-item">
-      {%- if block.settings.spec1_custom_icon != blank -%}
-        <img class="spec-icon" src="{{ block.settings.spec1_custom_icon | img_url: '48x' }}" alt="">
-      {%- endif -%}
-      <span class="spec-text">{{ block.settings.spec1_text }}</span>
+  {% if block.settings.spec1_custom_icon != blank or block.settings.spec1_text != blank %}
+    <div class="specs-grid__item">
+      {% if block.settings.spec1_custom_icon != blank %}
+        {{ block.settings.spec1_custom_icon | image_url: width: 48 | image_tag: 
+          loading: 'lazy',
+          class: 'specs-grid__icon',
+          widths: '24, 48'
+        }}
+      {% endif %}
+      {% if block.settings.spec1_text != blank %}
+        <p class="specs-grid__text">{{ block.settings.spec1_text }}</p>
+      {% endif %}
     </div>
-  {%- endif -%}
+  {% endif %}
 
-  {%- if block.settings.spec2_text != blank -%}
-    <div class="spec-item">
-      {%- if block.settings.spec2_custom_icon != blank -%}
-        <img class="spec-icon" src="{{ block.settings.spec2_custom_icon | img_url: '48x' }}" alt="">
-      {%- endif -%}
-      <span class="spec-text">{{ block.settings.spec2_text }}</span>
+  {% if block.settings.spec2_custom_icon != blank or block.settings.spec2_text != blank %}
+    <div class="specs-grid__item">
+      {% if block.settings.spec2_custom_icon != blank %}
+        {{ block.settings.spec2_custom_icon | image_url: width: 48 | image_tag:
+          loading: 'lazy',
+          class: 'specs-grid__icon',
+          widths: '24, 48'
+        }}
+      {% endif %}
+      {% if block.settings.spec2_text != blank %}
+        <p class="specs-grid__text">{{ block.settings.spec2_text }}</p>
+      {% endif %}
     </div>
-  {%- endif -%}
+  {% endif %}
 
-  {%- if block.settings.spec3_text != blank -%}
-    <div class="spec-item">
-      {%- if block.settings.spec3_custom_icon != blank -%}
-        <img class="spec-icon" src="{{ block.settings.spec3_custom_icon | img_url: '48x' }}" alt="">
-      {%- endif -%}
-      <span class="spec-text">{{ block.settings.spec3_text }}</span>
+  {% if block.settings.spec3_custom_icon != blank or block.settings.spec3_text != blank %}
+    <div class="specs-grid__item">
+      {% if block.settings.spec3_custom_icon != blank %}
+        {{ block.settings.spec3_custom_icon | image_url: width: 48 | image_tag:
+          loading: 'lazy',
+          class: 'specs-grid__icon',
+          widths: '24, 48'
+        }}
+      {% endif %}
+      {% if block.settings.spec3_text != blank %}
+        <p class="specs-grid__text">{{ block.settings.spec3_text }}</p>
+      {% endif %}
     </div>
-  {%- endif -%}
+  {% endif %}
 
-  {%- if block.settings.spec4_text != blank -%}
-    <div class="spec-item">
-      {%- if block.settings.spec4_custom_icon != blank -%}
-        <img class="spec-icon" src="{{ block.settings.spec4_custom_icon | img_url: '48x' }}" alt="">
-      {%- endif -%}
-      <span class="spec-text">{{ block.settings.spec4_text }}</span>
+  {% if block.settings.spec4_custom_icon != blank or block.settings.spec4_text != blank %}
+    <div class="specs-grid__item">
+      {% if block.settings.spec4_custom_icon != blank %}
+        {{ block.settings.spec4_custom_icon | image_url: width: 48 | image_tag:
+          loading: 'lazy',
+          class: 'specs-grid__icon',
+          widths: '24, 48'
+        }}
+      {% endif %}
+      {% if block.settings.spec4_text != blank %}
+        <p class="specs-grid__text">{{ block.settings.spec4_text }}</p>
+      {% endif %}
     </div>
-  {%- endif -%}
+  {% endif %}
 </div>
+          
 
           {%- when 'vendor' -%}
             {%- if product != blank -%}
