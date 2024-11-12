@@ -124,6 +124,7 @@
         },
         "f4adc097-1575-4f9b-9c57-248ac31f7f6c": {
           "type": "feature_with_icon",
+          "disabled": true,
           "settings": {
             "text": "",
             "link": "",
@@ -137,6 +138,7 @@
         },
         "6a9dd1a0-a95e-4beb-bdfe-fb500f1306ff": {
           "type": "feature_with_icon",
+          "disabled": true,
           "settings": {
             "text": "",
             "link": "",
@@ -150,6 +152,7 @@
         },
         "4152ba1c-dbde-46e6-acf1-4b6db7fcb1f1": {
           "type": "feature_with_icon",
+          "disabled": true,
           "settings": {
             "text": "",
             "link": "",
