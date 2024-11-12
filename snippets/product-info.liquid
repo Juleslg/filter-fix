@@ -295,23 +295,72 @@ Supported variables
           {%- when 'separator' -%}
             <hr>
 
-          {%- when 'description' -%}
-            {%- if product == blank -%}
-              {%- assign product_description = 'general.on_boarding.product_description' | t -%}
-            {%- else -%}
-              {%- assign product_description = product.description -%}
-            {%- endif -%}
-
-            {%- if product_description != blank -%}
-              {%- if block.settings.collapse_content -%}
-                {%- assign accordion_title = 'product.general.description' | t -%}
-                {%- render 'accordion', title: accordion_title, content: product_description, prose_content: true, block: block -%}
+            {%- when 'description' -%}
+              {%- if product == blank -%}
+                {%- assign product_description = 'general.on_boarding.product_description' | t -%}
               {%- else -%}
-                <div class="prose">
-                  {{- product_description -}}
-                </div>
+                {%- assign product_description = product.description -%}
               {%- endif -%}
-            {%- endif -%}
+            
+              {%- if product_description != blank -%}
+                {%- if block.settings.collapse_content -%}
+                  {%- assign accordion_title = 'product.general.description' | t -%}
+                  {%- render 'accordion', title: accordion_title, content: product_description, prose_content: true, block: block -%}
+                {%- else -%}
+                  <div class="prose">
+                    <div class="description-preview">
+                      {{- product_description | truncatewords: 25 -}}
+                    </div>
+                    <div class="description-full" style="display: none;">
+                      {{- product_description -}}
+                    </div>
+                    <button class="more-info-button link-faded">
+                      <span class="more-text">{{ 'product.general.more_information' | t }}</span>
+                      <span class="less-text" style="display: none;">{{ 'product.general.less_information' | t }}</span>
+                    </button>
+                  </div>
+            
+                  <style>
+                    .description-preview {
+                      overflow: hidden;
+                    }
+                    .more-info-button {
+                      display: inline-flex;
+                      align-items: center;
+                      gap: 0.5em;
+                      margin-top: 1em;
+                      cursor: pointer;
+                      border: none;
+                      background: none;
+                      padding: 0;
+                    }
+                  </style>
+            
+                  <script>
+                    document.querySelectorAll('.more-info-button').forEach(button => {
+                      button.addEventListener('click', () => {
+                        const container = button.closest('.prose');
+                        const preview = container.querySelector('.description-preview');
+                        const full = container.querySelector('.description-full');
+                        const moreText = button.querySelector('.more-text');
+                        const lessText = button.querySelector('.less-text');
+            
+                        if (full.style.display === 'none') {
+                          preview.style.display = 'none';
+                          full.style.display = 'block';
+                          moreText.style.display = 'none';
+                          lessText.style.display = 'inline';
+                        } else {
+                          preview.style.display = 'block';
+                          full.style.display = 'none';
+                          moreText.style.display = 'inline';
+                          lessText.style.display = 'none';
+                        }
+                      });
+                    });
+                  </script>
+                {%- endif -%}
+              {%- endif -%}
 
           {%- when 'variant_picker' -%}
             {%- if product != blank -%}
