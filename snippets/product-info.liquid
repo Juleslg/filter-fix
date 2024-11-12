@@ -307,6 +307,20 @@ Supported variables
                   {%- assign accordion_title = 'product.general.description' | t -%}
                   {%- render 'accordion', title: accordion_title, content: product_description, prose_content: true, block: block -%}
                 {%- else -%}
+                  {%- liquid
+                    case request.locale.iso_code
+                      when 'de'
+                        assign more_text = 'Mehr Informationen +'
+                        assign less_text = 'Weniger Informationen -'
+                      when 'fr'
+                        assign more_text = 'Plus d''informations +'
+                        assign less_text = 'Moins d''informations -'
+                      else
+                        assign more_text = 'More information +'
+                        assign less_text = 'Less information -'
+                    endcase
+                  -%}
+            
                   <div class="prose">
                     <div class="description-preview">
                       {{- product_description | truncatewords: 25 -}}
@@ -315,8 +329,8 @@ Supported variables
                       {{- product_description -}}
                     </div>
                     <button class="more-info-button link-faded">
-                      <span class="more-text">{{ 'product.general.more_information' | t }}</span>
-                      <span class="less-text" style="display: none;">{{ 'product.general.less_information' | t }}</span>
+                      <span class="more-text">{{ more_text }}</span>
+                      <span class="less-text" style="display: none;">{{ less_text }}</span>
                     </button>
                   </div>
             
