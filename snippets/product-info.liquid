@@ -116,21 +116,6 @@ Supported variables
 
             {%- when 'specs_grid' -%}
               <style>
-
-@media screen and (max-width: 699px) {
-    .specs-grid {
-      grid-template-columns: 1fr;
-    }
-    
-    .specs-grid__item {
-      border-right: none;
-    }
-    
-    /* Remove border from last item */
-    .specs-grid__item:last-child {
-      border-bottom: none;
-    }
-  }
   .specs-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
