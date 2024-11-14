@@ -123,9 +123,9 @@ Supported variables
   }
   
   .specs-grid__item {
-    display: flex;
+    display: grid;
+    grid-template-columns: 30px 1fr; /* Fixed width for icon column */
     align-items: center;
-    justify-content: flex-start;
     gap: 0.5rem;
     padding: 1rem 0.2rem;
   }
@@ -159,27 +159,22 @@ Supported variables
   /* Mobile adjustments */
   @media (max-width: 768px) {
     .specs-grid {
-      grid-template-columns: 1fr; /* Stacks each item in a single column on mobile */
+      grid-template-columns: 1fr;
     }
 
     .specs-grid__item {
-      border-right: none; /* Remove right borders for single-column layout */
-      border-bottom: 1px solid black; /* Keep bottom border for separation */
-      justify-content: space-between; /* Align icon and text with space between */
+      border-right: none;
+      border-bottom: 1px solid black;
     }
 
     .specs-grid__item:last-child {
-      border-bottom: none; /* Remove bottom border from the last item */
+      border-bottom: none;
     }
 
-    .specs-grid__item:nth-child(1) {
-    border-right: unset;
-    border-bottom: 1px solid black;
-  }
-
-  .specs-grid__item:nth-child(3) {
-    border-right: unset;
-  }
+    .specs-grid__item:nth-child(1),
+    .specs-grid__item:nth-child(3) {
+      border-right: unset;
+    }
   }
 </style>
 
