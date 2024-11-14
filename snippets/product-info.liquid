@@ -116,129 +116,147 @@ Supported variables
 
             {%- when 'specs_grid' -%}
               <style>
-  .specs-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    margin: 1rem 0;
-  }
-  
-  .specs-grid__item {
-    display: grid;
-    grid-template-columns: 30px 1fr; /* Fixed width for icon column */
-    align-items: center;
-    gap: 0.5rem;
-    padding: 1rem 0.2rem;
-  }
-
-  /* Add borders to create the cross */
-  .specs-grid__item:nth-child(1) {
-    border-right: 1px solid black;
-    border-bottom: 1px solid black;
-  }
-  
-  .specs-grid__item:nth-child(2) {
-    border-bottom: 1px solid black;
-  }
-  
-  .specs-grid__item:nth-child(3) {
-    border-right: 1px solid black;
-  }
-
-  .specs-grid__icon {
-    width: 40px;
-    height: 40px;
-    flex-shrink: 0;
-  }
-  
-  .specs-grid__text {
-    font-size: 0.8rem;
-    color: rgb(var(--text-color));
-    margin: 0;
-  }
-
-  /* Mobile adjustments */
-  @media (max-width: 768px) {
-    .specs-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .specs-grid__item {
-      border-right: none;
-      border-bottom: 1px solid black;
-    }
-
-    .specs-grid__item:last-child {
-      border-bottom: none;
-    }
-
-    .specs-grid__item:nth-child(1),
-    .specs-grid__item:nth-child(3) {
-      border-right: unset;
-    }
-  }
-</style>
-
-<div class="specs-grid">
-  {% if block.settings.spec1_custom_icon != blank or block.settings.spec1_text != blank %}
-    <div class="specs-grid__item">
-      {% if block.settings.spec1_custom_icon != blank %}
-        {{ block.settings.spec1_custom_icon | image_url: width: 48 | image_tag: 
-          loading: 'lazy',
-          class: 'specs-grid__icon',
-          widths: '24, 48'
-        }}
-      {% endif %}
-      {% if block.settings.spec1_text != blank %}
-        <p class="specs-grid__text">{{ block.settings.spec1_text }}</p>
-      {% endif %}
-    </div>
-  {% endif %}
-
-  {% if block.settings.spec2_custom_icon != blank or block.settings.spec2_text != blank %}
-    <div class="specs-grid__item">
-      {% if block.settings.spec2_custom_icon != blank %}
-        {{ block.settings.spec2_custom_icon | image_url: width: 48 | image_tag:
-          loading: 'lazy',
-          class: 'specs-grid__icon',
-          widths: '24, 48'
-        }}
-      {% endif %}
-      {% if block.settings.spec2_text != blank %}
-        <p class="specs-grid__text">{{ block.settings.spec2_text }}</p>
-      {% endif %}
-    </div>
-  {% endif %}
-
-  {% if block.settings.spec3_custom_icon != blank or block.settings.spec3_text != blank %}
-    <div class="specs-grid__item">
-      {% if block.settings.spec3_custom_icon != blank %}
-        {{ block.settings.spec3_custom_icon | image_url: width: 48 | image_tag:
-          loading: 'lazy',
-          class: 'specs-grid__icon',
-          widths: '24, 48'
-        }}
-      {% endif %}
-      {% if block.settings.spec3_text != blank %}
-        <p class="specs-grid__text">{{ block.settings.spec3_text }}</p>
-      {% endif %}
-    </div>
-  {% endif %}
-
-  {% if block.settings.spec4_custom_icon != blank or block.settings.spec4_text != blank %}
-    <div class="specs-grid__item">
-      {% if block.settings.spec4_custom_icon != blank %}
-        {{ block.settings.spec4_custom_icon | image_url: width: 48 | image_tag:
-          loading: 'lazy',
-          class: 'specs-grid__icon',
-          widths: '24, 48'
-        }}
-      {% endif %}
-      {% if block.settings.spec4_text != blank %}
-        <p class="specs-grid__text">{{ block.settings.spec4_text }}</p>
-      {% endif %}
-    </div>
-  {% endif %}
-</div>
+                .specs-grid {
+                  display: grid;
+                  grid-template-columns: repeat(2, 1fr);
+                  margin: 1rem 0;
+                }
+                
+                .specs-grid__item {
+                  display: grid;
+                  align-items: center;
+                  justify-content: center;
+                  gap: 0.5rem;
+                  padding: 1rem 0.2rem;
+                  justify-self: center;
+                  width: 100%;
+                }
+              
+                .specs-grid__item-content {
+                  display: flex;
+                  align-items: center;
+                  gap: 0.5rem;
+                  justify-content: center;
+                  width: 100%;
+                }
+              
+                /* Add borders to create the cross */
+                .specs-grid__item:nth-child(1) {
+                  border-right: 1px solid black;
+                  border-bottom: 1px solid black;
+                }
+                
+                .specs-grid__item:nth-child(2) {
+                  border-bottom: 1px solid black;
+                }
+                
+                .specs-grid__item:nth-child(3) {
+                  border-right: 1px solid black;
+                }
+              
+                .specs-grid__icon {
+                  width: 30px;
+                  height: 30px;
+                  flex-shrink: 0;
+                }
+                
+                .specs-grid__text {
+                  font-size: 1rem;
+                  color: rgb(var(--text-color));
+                  margin: 0;
+                }
+              
+                /* Mobile adjustments */
+                @media (max-width: 768px) {
+                  .specs-grid {
+                    grid-template-columns: 1fr;
+                  }
+              
+                  .specs-grid__item {
+                    border-right: none;
+                    border-bottom: 1px solid black;
+                  }
+              
+                  .specs-grid__item:last-child {
+                    border-bottom: none;
+                  }
+              
+                  .specs-grid__item:nth-child(1),
+                  .specs-grid__item:nth-child(3) {
+                    border-right: unset;
+                  }
+                }
+              </style>
+              
+              <div class="specs-grid">
+                {% if block.settings.spec1_custom_icon != blank or block.settings.spec1_text != blank %}
+                  <div class="specs-grid__item">
+                    <div class="specs-grid__item-content">
+                      {% if block.settings.spec1_custom_icon != blank %}
+                        {{ block.settings.spec1_custom_icon | image_url: width: 48 | image_tag: 
+                          loading: 'lazy',
+                          class: 'specs-grid__icon',
+                          widths: '24, 48'
+                        }}
+                      {% endif %}
+                      {% if block.settings.spec1_text != blank %}
+                        <p class="specs-grid__text">{{ block.settings.spec1_text }}</p>
+                      {% endif %}
+                    </div>
+                  </div>
+                {% endif %}
+              
+                {% if block.settings.spec2_custom_icon != blank or block.settings.spec2_text != blank %}
+                  <div class="specs-grid__item">
+                    <div class="specs-grid__item-content">
+                      {% if block.settings.spec2_custom_icon != blank %}
+                        {{ block.settings.spec2_custom_icon | image_url: width: 48 | image_tag:
+                          loading: 'lazy',
+                          class: 'specs-grid__icon',
+                          widths: '24, 48'
+                        }}
+                      {% endif %}
+                      {% if block.settings.spec2_text != blank %}
+                        <p class="specs-grid__text">{{ block.settings.spec2_text }}</p>
+                      {% endif %}
+                    </div>
+                  </div>
+                {% endif %}
+              
+                {% if block.settings.spec3_custom_icon != blank or block.settings.spec3_text != blank %}
+                  <div class="specs-grid__item">
+                    <div class="specs-grid__item-content">
+                      {% if block.settings.spec3_custom_icon != blank %}
+                        {{ block.settings.spec3_custom_icon | image_url: width: 48 | image_tag:
+                          loading: 'lazy',
+                          class: 'specs-grid__icon',
+                          widths: '24, 48'
+                        }}
+                      {% endif %}
+                      {% if block.settings.spec3_text != blank %}
+                        <p class="specs-grid__text">{{ block.settings.spec3_text }}</p>
+                      {% endif %}
+                    </div>
+                  </div>
+                {% endif %}
+              
+                {% if block.settings.spec4_custom_icon != blank or block.settings.spec4_text != blank %}
+                  <div class="specs-grid__item">
+                    <div class="specs-grid__item-content">
+                      {% if block.settings.spec4_custom_icon != blank %}
+                        {{ block.settings.spec4_custom_icon | image_url: width: 48 | image_tag:
+                          loading: 'lazy',
+                          class: 'specs-grid__icon',
+                          widths: '24, 48'
+                        }}
+                      {% endif %}
+                      {% if block.settings.spec4_text != blank %}
+                        <p class="specs-grid__text">{{ block.settings.spec4_text }}</p>
+                      {% endif %}
+                    </div>
+                  </div>
+                {% endif %}
+              </div>
           
 
           {%- when 'vendor' -%}
