@@ -142,16 +142,16 @@ Supported variables
               
                 /* Add borders to create the cross */
                 .specs-grid__item:nth-child(1) {
-                  border-right: 0.7px solid rgb(92, 89, 89);
-                  border-bottom: 0.7px solid rgb(92, 89, 89);
+                  border-right: 1px solid rgb(var(--border-color));
+                  border-bottom: 1px solid rgb(var(--border-color));
                 }
                 
                 .specs-grid__item:nth-child(2) {
-                  border-bottom: 0.7px solid rgb(92, 89, 89);
+                  border-bottom: 1px solid rgb(var(--border-color));
                 }
                 
                 .specs-grid__item:nth-child(3) {
-                  border-right: 0.7px solid rgb(92, 89, 89);
+                  border-right: 1px solid rgb(var(--border-color));
                 }
               
                 .specs-grid__icon {
@@ -174,7 +174,7 @@ Supported variables
               
                   .specs-grid__item {
                     border-right: none;
-                    border-bottom: 1px solid black;
+                    border-bottom: 1px solid rgb(var(--border-color));
                   }
               
                   .specs-grid__item:last-child {
