@@ -99,7 +99,10 @@ Supported variables
     --------------------------------------------------------------------------------------------------------------------
     {%- endcomment -%}
     {%- liquid
-      if product.price_varies and settings.product_price_strategy != 'from_price'
+      if variant_collection
+        # For variant collections, use the passed variant directly
+        assign variant = variant | default: product.selected_or_first_available_variant
+      elsif product.price_varies and settings.product_price_strategy != 'from_price'
         assign variant = product.variants | sort: 'price' | last | default: product.selected_or_first_available_variant
       else
         assign variant = product.variants | sort: 'price' | first | default: product.selected_or_first_available_variant
