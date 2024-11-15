@@ -154,7 +154,7 @@ Supported variables
             {%- endif -%}
 
             {%- if show_prices -%}
-              {%- render 'price-list', product: product, context: 'card' -%}
+              {%- render 'price-list', product: product, variant: variant_sel, variant_collection: true, context: 'card' -%}
             {%- endif -%}
           </div>
         {%- endif -%}
