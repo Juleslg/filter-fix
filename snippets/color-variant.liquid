@@ -30,7 +30,7 @@
             colorname: color,
             tabs2: tabs2
           %}
-          {%- render 'price-list', product: product, variant: variant_sel, variant_collection: true, context: 'card' -%}
+          
           {% capture tempList %}
         {{colorlist | append: color | append: " " }}
         {% endcapture %}
