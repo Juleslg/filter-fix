@@ -148,10 +148,10 @@ Supported variables
         {%- if show_title or show_prices -%}
           <div class="v-stack justify-items-center gap-1">
             {%- if show_title -%}
-            <a href="{{ variant_sel.url }}" class="product-title {% if text_class != blank %}{{ text_class }}{% endif %} {% if settings.product_title_max_lines > 0 %}line-clamp{% endif %} {% if tabs2 %}tabs2-product-link{% endif %}" {% if settings.product_title_max_lines > 0 %}style="--line-clamp-count: {{ settings.product_title_max_lines }}"{% endif %} data-instant>
-              {%- assign formatted_title = product.title | strip | replace: '-', ' - ' | replace: '  ', ' ' -%}
-              {{- formatted_title -}} - {{ colorname }}
-            </a>
+              <a href="{{ variant_sel.url }}" class="product-title {% if text_class != blank %}{{ text_class }}{% endif %} {% if settings.product_title_max_lines > 0 %}line-clamp{% endif %} {% if tabs2 %}tabs2-product-link{% endif %}" {% if settings.product_title_max_lines > 0 %}style="--line-clamp-count: {{ settings.product_title_max_lines }}"{% endif %} data-instant>
+                {{- product.title -}}
+                <span class="color-name text-subdued">{{ colorname }}</span>
+              </a>
           
             {%- endif -%}
 
