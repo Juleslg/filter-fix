@@ -116,77 +116,74 @@ Supported variables
 
             {%- when 'specs_grid' -%}
               <style>
-                .specs-grid {
-                  display: grid;
-                  grid-template-columns: repeat(2, 1fr);
-                  margin: 1rem 0;
-                }
-                
-                .specs-grid__item {
-                  display: grid;
-                  align-items: center;
-                  justify-content: center;
-                  gap: 0.5rem;
-                  padding: 1rem 0.2rem;
-                  justify-self: center;
-                  width: 100%;
-                }
-              
-                .specs-grid__item-content {
-                  display: flex;
-                  align-items: center;
-                  gap: 0.5rem;
-                  justify-content: center;
-                  width: 100%;
-                }
-              
-                /* Add borders to create the cross */
-                .specs-grid__item:nth-child(1) {
-                  border-right: 1px solid rgb(var(--border-color));
-                  border-bottom: 1px solid rgb(var(--border-color));
-                }
-                
-                .specs-grid__item:nth-child(2) {
-                  border-bottom: 1px solid rgb(var(--border-color));
-                }
-                
-                .specs-grid__item:nth-child(3) {
-                  border-right: 1px solid rgb(var(--border-color));
-                }
-              
-                .specs-grid__icon {
-                  width: 40;
-                  height: 40px;
-                  flex-shrink: 0;
-                }
-                
-                .specs-grid__text {
-                  font-size: 0.8rem;
-                  color: rgb(var(--text-color));
-                  margin: 0;
-                }
-              
-                /* Mobile adjustments */
-                @media (max-width: 768px) {
-                  .specs-grid {
-                    grid-template-columns: 1fr;
-                  }
-              
-                  .specs-grid__item {
-                    border-right: none;
-                    border-bottom: 1px solid rgb(var(--border-color));
-                  }
-              
-                  .specs-grid__item:last-child {
-                    border-bottom: none;
-                  }
-              
-                  .specs-grid__item:nth-child(1),
-                  .specs-grid__item:nth-child(3) {
-                    border-right: unset;
-                  }
-                }
-              </style>
+    .specs-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      margin: 1rem 0;
+    }
+    
+    .specs-grid__item {
+      display: grid;
+      padding: 1rem 0.2rem;
+      width: 100%;
+    }
+  
+    .specs-grid__item-content {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      justify-content: flex-start; /* Changed from center to flex-start */
+      width: 100%;
+      padding: 0 1rem; /* Added padding for some spacing from edges */
+    }
+  
+    /* Add borders to create the cross */
+    .specs-grid__item:nth-child(1) {
+      border-right: 1px solid rgb(var(--border-color));
+      border-bottom: 1px solid rgb(var(--border-color));
+    }
+    
+    .specs-grid__item:nth-child(2) {
+      border-bottom: 1px solid rgb(var(--border-color));
+    }
+    
+    .specs-grid__item:nth-child(3) {
+      border-right: 1px solid rgb(var(--border-color));
+    }
+  
+    .specs-grid__icon {
+      width: 40px;
+      height: 40px;
+      flex-shrink: 0;
+    }
+    
+    .specs-grid__text {
+      font-size: 0.8rem;
+      color: rgb(var(--text-color));
+      margin: 0;
+    }
+  
+    /* Mobile adjustments */
+    @media (max-width: 768px) {
+      .specs-grid {
+        grid-template-columns: 1fr;
+      }
+  
+      .specs-grid__item {
+        border-right: none;
+        border-bottom: 1px solid rgb(var(--border-color));
+      }
+  
+      .specs-grid__item:last-child {
+        border-bottom: none;
+      }
+  
+      .specs-grid__item:nth-child(1),
+      .specs-grid__item:nth-child(3) {
+        border-right: unset;
+      }
+    }
+  </style>
               
               <div class="specs-grid">
                 {% if block.settings.spec1_custom_icon != blank or block.settings.spec1_text != blank %}
