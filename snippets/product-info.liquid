@@ -120,6 +120,9 @@ Supported variables
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       margin: 1rem 0;
+      max-width: 600px; /* Add max-width to contain the grid */
+      margin-left: auto;  /* Center the entire grid */
+      margin-right: auto;
     }
     
     .specs-grid__item {
@@ -132,9 +135,10 @@ Supported variables
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      justify-content: flex-start; /* Changed from center to flex-start */
       width: 100%;
-      padding: 0 1rem; /* Added padding for some spacing from edges */
+      padding: 0 2rem; /* Increased padding for better spacing */
+      margin: 0 auto; /* Center the content */
+      max-width: 280px; /* Limit width of content for better alignment */
     }
   
     /* Add borders to create the cross */
@@ -181,6 +185,10 @@ Supported variables
       .specs-grid__item:nth-child(1),
       .specs-grid__item:nth-child(3) {
         border-right: unset;
+      }
+
+      .specs-grid__item-content {
+        max-width: 260px; /* Slightly smaller on mobile */
       }
     }
   </style>
