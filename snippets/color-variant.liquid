@@ -2,8 +2,10 @@
 {% for option in product.options %}
   {% if option == 'Color' or option == 'Farbe' %}
     {% assign color_active = true %}
+    {% echo 'Found color option: ' | append: option %}
   {% endif %}
 {% endfor %}
+
 {% if product.variants.size > 1 and color_active == true %}
   {% for option in product.options %}
       {% if option == 'Color' or option == 'Farbe' %}
@@ -11,14 +13,17 @@
       {% assign colorlist = '' %}
       {% assign color = '' %}
       {% for variant in product.variants %}
-      {% if variant.available and variant.inventory_quantity >= 8 %} <!-- Check if variant is in stock -->
-      {% capture color %}
-      {{ variant.options[index] }}
-      {% endcapture %}
-  
-        {% unless colorlist contains color %}
-            {% comment %}Only render if the color is "sand"{% endcomment %}
+        {% capture color %}
+          {{ variant.options[index] }}
+        {% endcapture %}
+        
+        {% echo 'Processing variant: ' | append: color %}
+        {% echo 'Inventory: ' | append: variant.inventory_quantity %}
+        
+        {% if variant.available and variant.inventory_quantity >= 8 %}
+          {% unless colorlist contains color %}
             {% if color contains 'sand' %}
+              {% echo 'Found sand color, attempting to render' %}
               {% render 'color-product-card', 
                 variant_sel: variant,
                 product: product,
@@ -33,17 +38,22 @@
                 {{colorlist | append: color | append: " " }}
               {% endcapture %}
               {% assign colorlist = tempList %}
+            {% else %}
+              {% echo 'Color not sand: ' | append: color %}
             {% endif %}
-        {% endunless %}
-        {% endif %}  <!-- End of in-stock check -->
-        {% endfor %}
+          {% endunless %}
+        {% else %}
+          {% echo 'Variant not available or inventory less than 8' %}
+        {% endif %}
+      {% endfor %}
       {% endif %}
-    {% endfor %}
+  {% endfor %}
 {% else %}
-{% render 'product-card',
-  product: product,
-  reveal: reveal, 
-  hide_product_information: hide_product_information,
-  stacked: true
-%}
+  {% echo 'Not processing variants: either only one variant or color not active' %}
+  {% render 'product-card',
+    product: product,
+    reveal: reveal, 
+    hide_product_information: hide_product_information,
+    stacked: true
+  %}
 {% endif %}
