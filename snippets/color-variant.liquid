@@ -22,9 +22,12 @@
         
         {% if should_filter_colors %}
           {% assign should_show = false %}
-          {% if filtered_colors contains current_color %}
-            {% assign should_show = true %}
-          {% endif %}
+          {% for filter_color in filtered_colors %}
+            {% if current_color == filter_color %}
+              {% assign should_show = true %}
+              {% break %}
+            {% endif %}
+          {% endfor %}
         {% endif %}
 
         {% if should_show %}
