@@ -2,8 +2,6 @@
 {% for option in product.options %}
   {% if option == 'Color' or option == 'Farbe' %}
     {% assign color_active = true %}
-    {% comment %}Log that we found a color option{% endcomment %}
-    {% echo 'Found color option: ' | append: option %}
   {% endif %}
 {% endfor %}
 {% if product.variants.size > 1 and color_active == true %}
@@ -19,26 +17,23 @@
       {% endcapture %}
   
         {% unless colorlist contains color %}
-            {% comment %}Log each unique color variant{% endcomment %}
-            {% echo 'Processing color variant: ' | append: color %}
-            {% assign lazy_load = false %}
-            {%- if forloop.index > 2 -%}
-              {%- assign lazy_load = true -%}
-            {%- endif -%}
-            {% render 'color-product-card', 
-            variant_sel: variant,
-            product: product,
-            reveal: reveal, 
-            hide_product_information: hide_product_information, 
-            stacked: true,
-            colorname: color,
-            tabs2: tabs2
-          %}
-          
-          {% capture tempList %}
-        {{colorlist | append: color | append: " " }}
-        {% endcapture %}
-        {% assign colorlist = tempList %}
+            {% comment %}Only render if the color is "sand"{% endcomment %}
+            {% if color contains 'sand' %}
+              {% render 'color-product-card', 
+                variant_sel: variant,
+                product: product,
+                reveal: reveal, 
+                hide_product_information: hide_product_information, 
+                stacked: true,
+                colorname: color,
+                tabs2: tabs2
+              %}
+              
+              {% capture tempList %}
+                {{colorlist | append: color | append: " " }}
+              {% endcapture %}
+              {% assign colorlist = tempList %}
+            {% endif %}
         {% endunless %}
         {% endif %}  <!-- End of in-stock check -->
         {% endfor %}
