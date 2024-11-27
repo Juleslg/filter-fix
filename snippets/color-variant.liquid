@@ -37,7 +37,10 @@ Split the filtered colors entered by the user and prepare them for comparison
     {% if variant.available and variant.inventory_quantity >= 8 %}
     {% if variant.available %}
 {% assign current_color = variant.options[color_index] | strip | downcase %}
-      
+
+{% comment %}Debugging output{% endcomment %}
+<p>Current color: {{ current_color }}</p>
+<p>Filtered colors: {% if filtered_colors_array.size > 0 %}{{ filtered_colors_array | join: ', ' }}{% else %}[No colors to filter]{% endif %}</p>
 
 {% unless rendered_variants contains current_color %}
         {% if filtered_colors contains current_color %}
