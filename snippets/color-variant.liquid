@@ -1,3 +1,6 @@
+{% comment %}Split the filtered colors entered by the user and prepare them for comparison{% endcomment %}
+{% assign filtered_colors = filtered_colors | default: 'Sand' | split: ',' | map: 'strip' | map: 'downcase' %}
+
 {% assign color_active = false %}
 {% assign rendered_variants = '' %}
 
@@ -15,7 +18,7 @@
       {% assign current_color = variant.options[color_index] | strip | downcase %}
       
       {% unless rendered_variants contains current_color %}
-        {% if current_color contains 'sand' %}
+        {% if filtered_colors contains current_color %}
           {% render 'color-product-card', 
             variant_sel: variant,
             product: product,
