@@ -292,7 +292,8 @@ LIQUID
                         reveal: settings.stagger_products_apparition, 
                         hide_product_information: section.settings.hide_product_information, 
                         stacked: true,
-                        filtered_colors: section.settings.filtered_colors
+                        filtered_colors: section.settings.filtered_colors,
+                        enable_color_filter: section.settings.enable_color_filter
                     -%}
                   {%- else -%}
                     {%- render 'product-card', 
