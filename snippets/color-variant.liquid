@@ -1,11 +1,6 @@
-{% comment %}
-Split the filtered colors entered by the user and prepare them for comparison
-{% endcomment %}
-
 {% assign color_active = false %}
 {% assign rendered_variants = '' %}
 
-{% comment %}Identify the color option index{% endcomment %}
 {% for option in product.options %}
   {% if option == 'Color' or option == 'Farbe' %}
     {% assign color_active = true %}
@@ -14,42 +9,13 @@ Split the filtered colors entered by the user and prepare them for comparison
   {% endif %}
 {% endfor %}
 
-{% comment %}Process filtered colors if filtering is enabled{% endcomment %}
-{% if enable_color_filter %}
-  {% assign filtered_colors_raw = filtered_colors | default: 'Sand' %}
-  {% assign filtered_colors_split = filtered_colors_raw | split: ',' %}
-  {% assign filtered_colors_array = '' %}
-
-  {% for color in filtered_colors_split %}
-    {% assign clean_color = color | strip | downcase %}
-    {% unless filtered_colors_array == '' %}
-      {% assign filtered_colors_array = filtered_colors_array | append: ',' %}
-    {% endunless %}
-    {% assign filtered_colors_array = filtered_colors_array | append: clean_color %}
-  {% endfor %}
-  {% assign filtered_colors_array = filtered_colors_array | split: ',' %}
-{% endif %}
-
 {% if product.variants.size > 1 and color_active %}
   {% for variant in product.variants %}
-    {% if variant.available %}
+    {% if variant.available and variant.inventory_quantity >= 8 %}
       {% assign current_color = variant.options[color_index] | strip | downcase %}
-
+      
       {% unless rendered_variants contains current_color %}
-        {% if enable_color_filter %}
-          {% if filtered_colors_array contains current_color %}
-            {% render 'color-product-card', 
-              variant_sel: variant,
-              product: product,
-              reveal: reveal, 
-              hide_product_information: hide_product_information, 
-              stacked: true,
-              colorname: current_color,
-              tabs2: tabs2
-            %}
-            {% assign rendered_variants = rendered_variants | append: current_color | append: ',' %}
-          {% endif %}
-        {% else %}
+        {% if current_color contains 'sand' %}
           {% render 'color-product-card', 
             variant_sel: variant,
             product: product,
