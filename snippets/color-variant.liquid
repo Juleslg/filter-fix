@@ -10,27 +10,12 @@
 {% endfor %}
 
 {% if product.variants.size > 1 and color_active %}
-  {% assign should_filter_colors = section.settings.enable_color_filter %}
-  {% assign filtered_colors = section.settings.filtered_colors | split: ',' | map: 'strip' | map: 'downcase' %}
-  
   {% for variant in product.variants %}
     {% if variant.available and variant.inventory_quantity >= 8 %}
       {% assign current_color = variant.options[color_index] | strip | downcase %}
       
       {% unless rendered_variants contains current_color %}
-        {% assign should_show = true %}
-        
-        {% if should_filter_colors %}
-          {% assign should_show = false %}
-          {% for filter_color in filtered_colors %}
-            {% if current_color == filter_color %}
-              {% assign should_show = true %}
-              {% break %}
-            {% endif %}
-          {% endfor %}
-        {% endif %}
-
-        {% if should_show %}
+        {% if current_color contains 'sand' %}
           {% render 'color-product-card', 
             variant_sel: variant,
             product: product,
