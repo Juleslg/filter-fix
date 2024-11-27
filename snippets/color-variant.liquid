@@ -1,71 +1,85 @@
-{% comment %}Split the filtered colors entered by the user and prepare them for comparison{% endcomment %}
-{% assign color_option_exists = false %}
+{% assign color_active = false %}
 {% assign rendered_variants = '' %}
 
-{% comment %}Identify the color option index{% endcomment %}
-{% for option in product.options_with_values %}
-  {% if option.name == 'Color' or option.name == 'Farbe' %}
-    {% assign color_option_exists = true %}
+{% for option in product.options %}
+  {% if option == 'Color' or option == 'Farbe' %}
+    {% assign color_active = true %}
     {% assign color_index = forloop.index0 %}
     {% break %}
   {% endif %}
-{% endfor %}
-
-{% comment %}Process filtered colors if filtering is enabled{% endcomment %}
-{% if enable_color_filter %}
-  {% assign filtered_colors_array = filtered_colors | default: 'Sand' | split: ',' | map: 'strip' | map: 'downcase' %}
+{% if option == 'Color' or option == 'Farbe' %}
+{% assign color_active = true %}
 {% endif %}
+{% endfor %}
+{% if product.variants.size > 1 and color_active == true %}
+{% for option in product.options %}
+{% if option == 'Color' or option == 'Farbe' %}
+{% assign index = forloop.index0 %}
+{% assign colorlist = '' %}
+{% assign color = '' %}
+{% for variant in product.variants %}
+{% if variant.available and variant.inventory_quantity >= 8 %} <!-- Check if variant is in stock -->
+{% capture color %}
+{{ variant.options[index] }}
+{% endcapture %}
 
-{% comment %}Render products based on color variants or default to normal product card{% endcomment %}
-{% if color_option_exists %}
-  {% assign color_variants_rendered = false %}
-
+{% if product.variants.size > 1 and color_active %}
   {% for variant in product.variants %}
-    {% if variant.available %}
+    {% if variant.available and variant.inventory_quantity >= 8 %}
       {% assign current_color = variant.options[color_index] | strip | downcase %}
-
+      
       {% unless rendered_variants contains current_color %}
-        {% assign should_render_variant = true %}
-
-        {% if enable_color_filter %}
-          {% unless filtered_colors_array contains current_color %}
-            {% assign should_render_variant = false %}
-          {% endunless %}
-        {% endif %}
-
-        {% if should_render_variant %}
-          {% render 'color-product-card',
+        {% if current_color contains 'sand' %}
+          {% render 'color-product-card', 
             variant_sel: variant,
             product: product,
-            reveal: reveal,
-            hide_product_information: hide_product_information,
+            reveal: reveal, 
+            hide_product_information: hide_product_information, 
             stacked: true,
             colorname: current_color,
             tabs2: tabs2
           %}
           {% assign rendered_variants = rendered_variants | append: current_color | append: ',' %}
-          {% assign color_variants_rendered = true %}
         {% endif %}
       {% endunless %}
     {% endif %}
   {% endfor %}
-
-  {% unless color_variants_rendered %}
-    {% comment %}No variants were rendered, render the product normally{% endcomment %}
-    {% render 'product-card',
-      product: product,
-      reveal: reveal,
-      hide_product_information: hide_product_information,
-      stacked: true
-    %}
-  {% endunless %}
-
+{% unless colorlist contains color %}
+{% assign lazy_load = false %}
+{%- if forloop.index > 2 -%}
+{%- assign lazy_load = true -%}
+{%- endif -%}
+{% render 'color-product-card', 
+variant_sel: variant,
+product: product,
+reveal: reveal, 
+hide_product_information: hide_product_information, 
+stacked: true,
+colorname: color,
+tabs2: tabs2
+%}
+          {%- render 'price-list', product: product, variant: variant_sel, variant_collection: true, context: 'card' -%}
+          
+{% capture tempList %}
+{{colorlist | append: color | append: " " }}
+{% endcapture %}
+{% assign colorlist = tempList %}
+{% endunless %}
+{% endif %}  <!-- End of in-stock check -->
+{% endfor %}
+{% endif %}
+{% endfor %}
 {% else %}
-  {% comment %}Product does not have color option, render normally{% endcomment %}
   {% render 'product-card',
     product: product,
-    reveal: reveal,
+    reveal: reveal, 
     hide_product_information: hide_product_information,
     stacked: true
   %}
 {% endif %}
+{% render 'product-card',
+product: product,
+reveal: reveal, 
+hide_product_information: hide_product_information,
+stacked: true
+%}
