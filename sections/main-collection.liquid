@@ -331,20 +331,30 @@ LIQUID
     "class": "shopify-section--main-collection",
     "tag": "section",
     "settings": [
-
-    {
-      "type": "checkbox",
-      "id": "variant_collection",
-      "label": "Variant Collection",
-      "info": "Select if you want to show color variants instead of product cards"
-    },
-    {
-      "type": "text",
-      "id": "filtered_colors",
-      "label": "Filter by Colors",
-      "info": "Enter color names separated by commas (e.g., 'Sand, Blue, Red'). Leave empty to show all colors.",
-      "default": "Sand"
-    },
+      {
+        "type": "checkbox",
+        "id": "variant_collection",
+        "label": "Variant Collection",
+        "info": "Select if you want to show color variants instead of product cards"
+      },
+      {
+        "type": "header",
+        "content": "Color Filtering"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_color_filter",
+        "label": "Filter by specific colors",
+        "default": false,
+        "info": "When enabled, only specified colors will be shown"
+      },
+      {
+        "type": "text",
+        "id": "filtered_colors",
+        "label": "Colors to show",
+        "info": "Enter color names separated by commas (e.g., 'Sand, Blue, Red')",
+        "default": "Sand"
+      },
       {
         "type": "checkbox",
         "id": "hide_product_information",

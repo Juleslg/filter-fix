@@ -3,49 +3,42 @@
   {% if option == 'Color' or option == 'Farbe' %}
     {% assign color_active = true %}
     {% assign index = forloop.index0 %}
+    {% break %}
   {% endif %}
 {% endfor %}
 
 {% if product.variants.size > 1 and color_active == true %}
+  {% assign should_filter_colors = section.settings.enable_color_filter %}
   {% assign filtered_colors = section.settings.filtered_colors | split: ',' | map: 'strip' %}
-  {% for option in product.options %}
-    {% if option == 'Color' or option == 'Farbe' %}
-      {% assign colorlist = '' %}
-      {% for variant in product.variants %}
-        {% if variant.available and variant.inventory_quantity >= 8 %}
-          {% capture color %}{{ variant.options[index] }}{% endcapture %}
-          {% unless colorlist contains color %}
-            {% assign show_variant = false %}
-            {% if filtered_colors.size > 0 %}
-              {% for filtered_color in filtered_colors %}
-                {% assign variant_color = color | downcase | strip %}
-                {% assign filter_color = filtered_color | downcase | strip %}
-                {% if variant_color contains filter_color %}
-                  {% assign show_variant = true %}
-                  {% break %}
-                {% endif %}
-              {% endfor %}
-            {% else %}
-              {% assign show_variant = true %}
-            {% endif %}
+  
+  {% for variant in product.variants %}
+    {% if variant.available and variant.inventory_quantity >= 8 %}
+      {% assign current_color = variant.options[index] | strip %}
+      
+      {% assign should_show = true %}
+      {% if should_filter_colors %}
+        {% assign should_show = false %}
+        {% for filter_color in filtered_colors %}
+          {% assign fc = filter_color | strip | downcase %}
+          {% assign cc = current_color | downcase %}
+          {% if cc contains fc %}
+            {% assign should_show = true %}
+            {% break %}
+          {% endif %}
+        {% endfor %}
+      {% endif %}
 
-            {% if show_variant %}
-              {% render 'color-product-card', 
-                variant_sel: variant,
-                product: product,
-                reveal: reveal, 
-                hide_product_information: hide_product_information, 
-                stacked: true,
-                colorname: color,
-                tabs2: tabs2
-              %}
-              
-              {% capture tempList %}{{colorlist | append: color | append: " "}}{% endcapture %}
-              {% assign colorlist = tempList %}
-            {% endif %}
-          {% endunless %}
-        {% endif %}
-      {% endfor %}
+      {% if should_show %}
+        {% render 'color-product-card', 
+          variant_sel: variant,
+          product: product,
+          reveal: reveal, 
+          hide_product_information: hide_product_information, 
+          stacked: true,
+          colorname: current_color,
+          tabs2: tabs2
+        %}
+      {% endif %}
     {% endif %}
   {% endfor %}
 {% else %}
