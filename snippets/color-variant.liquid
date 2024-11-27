@@ -30,7 +30,7 @@ Render products based on color variants or default to normal product card
       {% assign current_color = variant.options[color_index] | strip | downcase %}
       
       {% unless rendered_variants contains current_color %}
-        {% if (not enable_color_filter) or (filtered_colors_array contains current_color) %}
+        {% if enable_color_filter == false or filtered_colors_array contains current_color %}
           {% render 'color-product-card', 
             variant_sel: variant,
             product: product,
