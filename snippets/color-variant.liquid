@@ -30,11 +30,13 @@ Split the filtered colors entered by the user and prepare them for comparison
   {% assign filtered_colors_array = filtered_colors_array | split: ',' %}
 {% endif %}
 
-{% if product.variants.size > 1 and color_active %}
+{% if color_active %}
+  {% assign color_variants_rendered = false %}
+  
   {% for variant in product.variants %}
     {% if variant.available %}
       {% assign current_color = variant.options[color_index] | strip | downcase %}
-
+      
       {% unless rendered_variants contains current_color %}
         {% if enable_color_filter %}
           {% if filtered_colors_array contains current_color %}
@@ -48,6 +50,7 @@ Split the filtered colors entered by the user and prepare them for comparison
               tabs2: tabs2
             %}
             {% assign rendered_variants = rendered_variants | append: current_color | append: ',' %}
+            {% assign color_variants_rendered = true %}
           {% endif %}
         {% else %}
           {% render 'color-product-card', 
@@ -60,10 +63,21 @@ Split the filtered colors entered by the user and prepare them for comparison
             tabs2: tabs2
           %}
           {% assign rendered_variants = rendered_variants | append: current_color | append: ',' %}
+          {% assign color_variants_rendered = true %}
         {% endif %}
       {% endunless %}
     {% endif %}
   {% endfor %}
+  
+  {% unless color_variants_rendered %}
+    {% render 'product-card',
+      product: product,
+      reveal: reveal, 
+      hide_product_information: hide_product_information,
+      stacked: true
+    %}
+  {% endunless %}
+  
 {% else %}
   {% render 'product-card',
     product: product,
