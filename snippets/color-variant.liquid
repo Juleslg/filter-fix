@@ -1,8 +1,10 @@
 {% assign color_active = false %}
+{% assign rendered_variants = '' %}
+
 {% for option in product.options %}
   {% if option == 'Color' or option == 'Farbe' %}
     {% assign color_active = true %}
-    {% assign index = forloop.index0 %}
+    {% assign color_index = forloop.index0 %}
     {% break %}
   {% endif %}
 {% endfor %}
@@ -11,34 +13,40 @@
   {% assign should_filter_colors = section.settings.enable_color_filter %}
   {% assign filtered_colors = section.settings.filtered_colors | split: ',' | map: 'strip' %}
   
+  {% comment %}First, find the first matching variant for each color{% endcomment %}
   {% for variant in product.variants %}
     {% if variant.available and variant.inventory_quantity >= 8 %}
-      {% assign current_color = variant.options[index] | strip %}
+      {% assign current_color = variant.options[color_index] | strip %}
       
-      {% assign should_show = true %}
-      {% if should_filter_colors %}
-        {% assign should_show = false %}
-        {% for filter_color in filtered_colors %}
-          {% assign fc = filter_color | strip | downcase %}
-          {% assign cc = current_color | downcase %}
-          {% if cc contains fc %}
-            {% assign should_show = true %}
-            {% break %}
-          {% endif %}
-        {% endfor %}
-      {% endif %}
+      {% comment %}Check if we already rendered this color{% endcomment %}
+      {% unless rendered_variants contains current_color %}
+        {% assign should_show = true %}
+        
+        {% if should_filter_colors %}
+          {% assign should_show = false %}
+          {% for filter_color in filtered_colors %}
+            {% assign fc = filter_color | strip | downcase %}
+            {% assign cc = current_color | downcase %}
+            {% if cc contains fc %}
+              {% assign should_show = true %}
+              {% break %}
+            {% endif %}
+          {% endfor %}
+        {% endif %}
 
-      {% if should_show %}
-        {% render 'color-product-card', 
-          variant_sel: variant,
-          product: product,
-          reveal: reveal, 
-          hide_product_information: hide_product_information, 
-          stacked: true,
-          colorname: current_color,
-          tabs2: tabs2
-        %}
-      {% endif %}
+        {% if should_show %}
+          {% render 'color-product-card', 
+            variant_sel: variant,
+            product: product,
+            reveal: reveal, 
+            hide_product_information: hide_product_information, 
+            stacked: true,
+            colorname: current_color,
+            tabs2: tabs2
+          %}
+          {% assign rendered_variants = rendered_variants | append: current_color | append: ',' %}
+        {% endif %}
+      {% endunless %}
     {% endif %}
   {% endfor %}
 {% else %}
