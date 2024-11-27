@@ -22,7 +22,8 @@
         
         {% if variant.available and variant.inventory_quantity >= 8 %}
           {% unless colorlist contains color %}
-            {% if color contains 'sand' %}
+            {% assign lowercase_color = color | downcase %}
+            {% if lowercase_color contains 'sand' %}
               {% echo 'Found sand color, attempting to render' %}
               {% render 'color-product-card', 
                 variant_sel: variant,
