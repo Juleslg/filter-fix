@@ -32,67 +32,16 @@
         "overlay_opacity": 19
       }
     },
-    "a3ce01c9-f4e0-4595-9dd6-da32c8f1e469": {
-      "type": "multi-column",
-      "blocks": {
-        "template--18038108356876__a3ce01c9-f4e0-4595-9dd6-da32c8f1e469-image_with_text-3": {
-          "type": "image_with_text",
-          "settings": {
-            "title": "Espresso",
-            "heading_tag": "h4",
-            "content": "",
-            "link_url": "",
-            "link_text": ""
-          }
-        },
-        "template--18038108356876__a3ce01c9-f4e0-4595-9dd6-da32c8f1e469-image_with_text-1": {
-          "type": "image_with_text",
-          "settings": {
-            "title": "Becher",
-            "heading_tag": "h3",
-            "content": "",
-            "link_url": "",
-            "link_text": ""
-          }
-        },
-        "template--18038108356876__a3ce01c9-f4e0-4595-9dd6-da32c8f1e469-image_with_text-2": {
-          "type": "image_with_text",
-          "settings": {
-            "title": "Tasse",
-            "heading_tag": "h3",
-            "content": "",
-            "link_url": "",
-            "link_text": ""
-          }
-        }
-      },
-      "block_order": [
-        "template--18038108356876__a3ce01c9-f4e0-4595-9dd6-da32c8f1e469-image_with_text-3",
-        "template--18038108356876__a3ce01c9-f4e0-4595-9dd6-da32c8f1e469-image_with_text-1",
-        "template--18038108356876__a3ce01c9-f4e0-4595-9dd6-da32c8f1e469-image_with_text-2"
-      ],
-      "disabled": true,
-      "settings": {
-        "separate_section_with_border": false,
-        "columns_per_row": 3,
-        "stack_on_mobile": false,
-        "overlap_image": true,
-        "content_alignment": "end",
-        "text_alignment": "center",
-        "spacing": "xs",
-        "subheading": "",
-        "title": "",
-        "content": ""
-      }
-    },
     "main": {
       "type": "main-collection",
       "custom_css": [
         ".badge--custom {background: white; color: #1c1c1c; padding: 3px 10px;}",
-        ".add-to-sidecart {display: none}"
+        ".add-to-sidecart {display: none;}"
       ],
       "settings": {
         "variant_collection": true,
+        "enable_color_filter": true,
+        "filtered_colors": "Sand, Naturweiß",
         "hide_product_information": false,
         "products_per_page": 16,
         "products_per_row_mobile": "2",
@@ -307,7 +256,6 @@
   },
   "order": [
     "collection-banner",
-    "a3ce01c9-f4e0-4595-9dd6-da32c8f1e469",
     "main",
     "ab44ff03-5c47-4e41-b832-3d815ab69b2b",
     "e226a0ad-8d65-4285-8c60-b5d405508920",
