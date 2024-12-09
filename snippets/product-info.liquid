@@ -115,83 +115,84 @@ Supported variables
             {%- render block -%}
 
             {%- when 'specs_grid' -%}
+              
               <style>
-    .specs-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      margin: 1rem 0;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    
-    .specs-grid__item {
-      display: grid;
-      padding: 1rem 0.2rem;
-      width: 100%;
-    }
+                .specs-grid {
+                  display: grid;
+                  grid-template-columns: repeat(2, 1fr);
+                  margin: 1rem 0;
+                  max-width: 600px;
+                  margin-left: auto;
+                  margin-right: auto;
+                }
+                
+                  .specs-grid__item {
+                  display: grid;
+                  padding: 1rem 0.2rem;
+                  width: 100%;
+                }
   
-    .specs-grid__item-content {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      width: 100%;
-      padding: 0 2rem;
-      margin: 0 auto;
-      max-width: 280px;
-    }
+                .specs-grid__item-content {
+                  display: flex;
+                  align-items: center;
+                  gap: 0.5rem;
+                  width: 100%;
+                  padding: 0 2rem;
+                  margin: 0 auto;
+                  max-width: 280px;
+                }
   
-    .specs-grid__icon {
-      width: 40px;
-      height: 40px;
-      flex-shrink: 0;
-    }
+                .specs-grid__icon {
+                  width: 40px;
+                  height: 40px;
+                  flex-shrink: 0;
+                }
     
-    .specs-grid__text {
-      font-size: 0.8rem;
-      color: rgb(var(--text-color));
-      margin: 0;
-      white-space: nowrap; /* Keep text on one line */
-    }
+                .specs-grid__text {
+                  font-size: 0.8rem;
+                  color: rgb(var(--text-color));
+                  margin: 0;
+                  white-space: nowrap; /* Keep text on one line */
+                }
   
-    /* Rest of the borders and mobile styles remain the same */
-    .specs-grid__item:nth-child(1) {
-      border-right: 1px solid rgb(var(--border-color));
-      border-bottom: 1px solid rgb(var(--border-color));
-    }
+                /* Rest of the borders and mobile styles remain the same */
+                .specs-grid__item:nth-child(1) {
+                  border-right: 1px solid rgb(var(--border-color));
+                  border-bottom: 1px solid rgb(var(--border-color));
+                }
     
-    .specs-grid__item:nth-child(2) {
-      border-bottom: 1px solid rgb(var(--border-color));
-    }
+                .specs-grid__item:nth-child(2) {
+                  border-bottom: 1px solid rgb(var(--border-color));
+                }
     
-    .specs-grid__item:nth-child(3) {
-      border-right: 1px solid rgb(var(--border-color));
-    }
+                 .specs-grid__item:nth-child(3) {
+                 border-right: 1px solid rgb(var(--border-color));
+                }
 
-    @media (max-width: 768px) {
-      .specs-grid {
-        grid-template-columns: 1fr;
-      }
+                @media (max-width: 768px) {
+                  .specs-grid {
+                    grid-template-columns: 1fr;
+                  }
   
-      .specs-grid__item {
-        border-right: none;
-        border-bottom: 1px solid rgb(var(--border-color));
-      }
+                .specs-grid__item {
+                  border-right: none;
+                  border-bottom: 1px solid rgb(var(--border-color));
+                }
   
-      .specs-grid__item:last-child {
-        border-bottom: none;
-      }
+                .specs-grid__item:last-child {
+                  border-bottom: none;
+                }
   
-      .specs-grid__item:nth-child(1),
-      .specs-grid__item:nth-child(3) {
-        border-right: unset;
-      }
+                .specs-grid__item:nth-child(1),
+                .specs-grid__item:nth-child(3) {
+                  border-right: unset;
+                }
 
-      .specs-grid__item-content {
-        max-width: 260px;
-      }
-    }
-  </style>
+                .specs-grid__item-content {
+                  max-width: 260px;
+                }
+                }
+            </style>
               
               <div class="specs-grid">
                 {% if block.settings.spec1_custom_icon != blank or block.settings.spec1_text != blank %}
