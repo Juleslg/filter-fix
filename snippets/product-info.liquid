@@ -126,10 +126,13 @@ Supported variables
                   margin-right: auto;
                 }
                 
-                  .specs-grid__item {
-                  display: grid;
+                .specs-grid__item {
+                  display: flex;
+                  align-items: center;
+                  justify-content: flex-start;
                   padding: 1rem 0.2rem;
                   width: 100%;
+                  min-height: 100px;
                 }
   
                 .specs-grid__item-content {
@@ -139,8 +142,6 @@ Supported variables
                   width: 100%;
                   padding: 0;
                   margin: 0;
-                  max-width: none;
-                  justify-content: flex-start;
                 }
   
                 .specs-grid__icon {
