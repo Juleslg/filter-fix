@@ -208,7 +208,7 @@ Supported variables
               
               <div class="specs-grid">
                 {% if block.settings.spec1_custom_icon != blank or block.settings.spec1_text != blank %}
-                  <div class="specs-grid__item">
+                  <div class="specs-grid__item" style="margin: unset !important;">
                     <div class="specs-grid__item-content">
                       {% if block.settings.spec1_custom_icon != blank %}
                         {{ block.settings.spec1_custom_icon | image_url: width: 140 | image_tag: 
@@ -225,7 +225,7 @@ Supported variables
                 {% endif %}
               
                 {% if block.settings.spec2_custom_icon != blank or block.settings.spec2_text != blank %}
-                  <div class="specs-grid__item">
+                  <div class="specs-grid__item" style="margin: unset !important;">
                     <div class="specs-grid__item-content">
                       {% if block.settings.spec2_custom_icon != blank %}
                         {{ block.settings.spec2_custom_icon | image_url: width: 140 | image_tag:
