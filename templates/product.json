@@ -112,13 +112,16 @@
         "scrolling_content_icons_cD8hyc": {
           "type": "scrolling_content_icons",
           "settings": {
-            "scrolling_speed": 0.3,
+            "scrolling_speed": 0.1,
             "scroll_direction": "left",
             "icon_1": "shopify://shop_images/Farbicons01-26-_1_-removebg-preview.png",
             "text_1": "plastic free",
-            "text_2": "Placeholder 2",
-            "text_3": "Placeholder 3",
-            "text_4": "Placeholder 4"
+            "icon_2": "shopify://shop_images/Farbicons01-25-_2_-removebg-preview.png",
+            "text_2": "Family owned business",
+            "icon_3": "shopify://shop_images/Farbicons01-27-_1_-removebg-preview.png",
+            "text_3": "1% for the planet",
+            "icon_4": "shopify://shop_images/Farbicons01-22_d5c86a0d-817b-45ec-b32d-1e6f2f983681-removebg-preview.png",
+            "text_4": "Local clay"
           }
         },
         "specs_grid_4iLNxM": {
