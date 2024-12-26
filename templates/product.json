@@ -111,6 +111,7 @@
         },
         "specs_grid_4iLNxM": {
           "type": "specs_grid",
+          "disabled": true,
           "settings": {
             "spec1_custom_icon": "shopify://shop_images/Farbicons01-25-_2_-removebg-preview.png",
             "spec1_text": "Family owned business",
