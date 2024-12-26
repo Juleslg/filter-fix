@@ -2011,6 +2011,47 @@ quick buy information in a template, that will be extracted in JS, which ensures
           "default": "More information"
         }
       ]
+    },
+    {
+      "type": "scrolling_content",
+      "name": "Scrolling Content",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Scrolling Content Settings"
+        },
+        {
+          "type": "range",
+          "id": "scrolling_speed",
+          "label": "Scrolling speed",
+          "min": 0.1,
+          "max": 1,
+          "step": 0.1,
+          "default": 0.3
+        },
+        {
+          "type": "select",
+          "id": "scroll_direction",
+          "label": "Scroll direction",
+          "options": [
+            {
+              "value": "left",
+              "label": "To left"
+            },
+            {
+              "value": "right",
+              "label": "To right"
+            }
+          ],
+          "default": "left"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "text",
+          "label": "Scrolling text",
+          "default": "This is some scrolling text"
+        }
+      ]
     }
   ]
 }

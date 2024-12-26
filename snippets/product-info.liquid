@@ -845,6 +845,29 @@ Supported variables
                 {%- render 'icon' with 'chevron-right' -%}
               </a>
             {%- endif -%}
+
+          {%- when 'scrolling_content' -%}
+            <style>
+              /* Optional custom styling for your scrolling marquee */
+              .scrolling-content {
+                overflow: hidden;
+                white-space: nowrap;
+              }
+              .scrolling-content__item {
+                display: inline-block;
+                padding: 0 1rem;
+              }
+            </style>
+
+            <marquee-text
+              speed="{{ block.settings.scrolling_speed }}"
+              direction="{{ block.settings.scroll_direction }}"
+              class="scrolling-content"
+            >
+              <div class="scrolling-content__item">
+                {{ block.settings.text }}
+              </div>
+            </marquee-text>
         {%- endcase -%}
       {%- endcapture -%}
 
