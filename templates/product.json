@@ -112,7 +112,7 @@
         "scrolling_content_icons_cD8hyc": {
           "type": "scrolling_content_icons",
           "settings": {
-            "scrolling_speed": 0.1,
+            "scrolling_speed": 0.3,
             "scroll_direction": "left",
             "icon_1": "shopify://shop_images/Farbicons01-26-_1_-removebg-preview.png",
             "text_1": "plastic free",
