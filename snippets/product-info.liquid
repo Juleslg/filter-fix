@@ -868,6 +868,82 @@ Supported variables
                 {{ block.settings.text }}
               </div>
             </marquee-text>
+
+          {%- when 'scrolling_content_icons' -%}
+            <style>
+              /* Optional styling for your scrolling marquee of 4 items */
+              .scrolling-icons-wrapper {
+                display: flex;
+                flex-wrap: nowrap;
+                gap: 2rem; /* Adjust spacing between items as desired */
+                align-items: center;
+              }
+              .scrolling-icons-item {
+                display: inline-flex;
+                gap: 0.5rem; /* space between icon and text */
+                align-items: center;
+              }
+              .scrolling-icons-item img {
+                max-width: 40px; /* Adjust icon size if you wish */
+                height: auto;
+              }
+            </style>
+
+            <marquee-text
+              speed="{{ block.settings.scrolling_speed }}"
+              direction="{{ block.settings.scroll_direction }}"
+              class="scrolling-content"
+            >
+              <div class="scrolling-icons-wrapper">
+                {% comment %}
+                  Below we only render items if the text is non-blank or an icon is chosen.
+                  Adjust logic if you always want placeholders to appear.
+                {% endcomment %}
+                {% if block.settings.icon_1 or block.settings.text_1 != blank %}
+                  <div class="scrolling-icons-item">
+                    {% if block.settings.icon_1 %}
+                      {{ block.settings.icon_1 | image_url: width: 80 | image_tag: class: 'icon-img' }}
+                    {% endif %}
+                    {% if block.settings.text_1 != blank %}
+                      <span>{{ block.settings.text_1 }}</span>
+                    {% endif %}
+                  </div>
+                {% endif %}
+
+                {% if block.settings.icon_2 or block.settings.text_2 != blank %}
+                  <div class="scrolling-icons-item">
+                    {% if block.settings.icon_2 %}
+                      {{ block.settings.icon_2 | image_url: width: 80 | image_tag: class: 'icon-img' }}
+                    {% endif %}
+                    {% if block.settings.text_2 != blank %}
+                      <span>{{ block.settings.text_2 }}</span>
+                    {% endif %}
+                  </div>
+                {% endif %}
+
+                {% if block.settings.icon_3 or block.settings.text_3 != blank %}
+                  <div class="scrolling-icons-item">
+                    {% if block.settings.icon_3 %}
+                      {{ block.settings.icon_3 | image_url: width: 80 | image_tag: class: 'icon-img' }}
+                    {% endif %}
+                    {% if block.settings.text_3 != blank %}
+                      <span>{{ block.settings.text_3 }}</span>
+                    {% endif %}
+                  </div>
+                {% endif %}
+
+                {% if block.settings.icon_4 or block.settings.text_4 != blank %}
+                  <div class="scrolling-icons-item">
+                    {% if block.settings.icon_4 %}
+                      {{ block.settings.icon_4 | image_url: width: 80 | image_tag: class: 'icon-img' }}
+                    {% endif %}
+                    {% if block.settings.text_4 != blank %}
+                      <span>{{ block.settings.text_4 }}</span>
+                    {% endif %}
+                  </div>
+                {% endif %}
+              </div>
+            </marquee-text>
         {%- endcase -%}
       {%- endcapture -%}
 
