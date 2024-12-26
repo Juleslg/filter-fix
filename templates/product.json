@@ -109,6 +109,18 @@
             "show_below_gallery": false
           }
         },
+        "scrolling_content_icons_cD8hyc": {
+          "type": "scrolling_content_icons",
+          "settings": {
+            "scrolling_speed": 0.3,
+            "scroll_direction": "left",
+            "icon_1": "shopify://shop_images/Farbicons01-26-_1_-removebg-preview.png",
+            "text_1": "plastic free",
+            "text_2": "Placeholder 2",
+            "text_3": "Placeholder 3",
+            "text_4": "Placeholder 4"
+          }
+        },
         "specs_grid_4iLNxM": {
           "type": "specs_grid",
           "disabled": true,
@@ -223,6 +235,7 @@
         "separator_CpwDAk",
         "offers_Ek6gtU",
         "description",
+        "scrolling_content_icons_cD8hyc",
         "specs_grid_4iLNxM",
         "f4adc097-1575-4f9b-9c57-248ac31f7f6c",
         "6a9dd1a0-a95e-4beb-bdfe-fb500f1306ff",
